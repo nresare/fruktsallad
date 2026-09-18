@@ -5,7 +5,7 @@ metadata:
   name: ceph-csi-operator-config
   namespace: rook-ceph
   annotations:
-    noa.re/deploy-id: ea4539c613483289
+    noa.re/deploy-id: e35d63c21070af1d
 spec:
   driverSpecDefaults:
     log:
@@ -27,7 +27,7 @@ spec:
     kernelMountOptions: {}
     fuseMountOptions: {}
     nodePlugin:
-      kubeletDirPath: /var/snap/microk8s/common/var/lib/kubelet
+      kubeletDirPath: /var/lib/kubelet
       priorityClassName: system-node-critical
       tolerations: []
       imagePullPolicy: IfNotPresent
