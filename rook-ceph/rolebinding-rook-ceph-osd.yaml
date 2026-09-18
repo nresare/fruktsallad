@@ -1,0 +1,24 @@
+# Source: rook
+kind: RoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: rook-ceph-osd
+  namespace: rook-ceph
+  labels:
+    operator: rook
+    storage-backend: ceph
+    app.kubernetes.io/name: rook-ceph
+    app.kubernetes.io/instance: rook
+    app.kubernetes.io/version: v1.20.7
+    app.kubernetes.io/part-of: rook-ceph-operator
+    app.kubernetes.io/created-by: helm
+  annotations:
+    noa.re/deploy-id: ea4539c613483289
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: rook-ceph-osd
+subjects:
+- kind: ServiceAccount
+  name: rook-ceph-osd
+  namespace: rook-ceph

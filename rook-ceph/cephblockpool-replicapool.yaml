@@ -1,0 +1,12 @@
+# Source: rook
+apiVersion: ceph.rook.io/v1
+kind: CephBlockPool
+metadata:
+  name: replicapool
+  namespace: rook-ceph
+  annotations:
+    noa.re/deploy-id: ea4539c613483289
+spec:
+  failureDomain: host
+  replicated:
+    size: 3

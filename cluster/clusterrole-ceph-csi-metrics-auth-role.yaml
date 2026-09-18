@@ -1,0 +1,24 @@
+# Source: rook
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: ceph-csi-metrics-auth-role
+  labels:
+    app.kubernetes.io/name: ceph-csi
+    app.kubernetes.io/instance: rook
+    app.kubernetes.io/version: v1.0.4
+  annotations:
+    noa.re/deploy-id: ea4539c613483289
+rules:
+- apiGroups:
+  - authentication.k8s.io
+  resources:
+  - tokenreviews
+  verbs:
+  - create
+- apiGroups:
+  - authorization.k8s.io
+  resources:
+  - subjectaccessreviews
+  verbs:
+  - create

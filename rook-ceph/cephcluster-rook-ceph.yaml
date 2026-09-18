@@ -1,0 +1,141 @@
+# Source: rook
+apiVersion: ceph.rook.io/v1
+kind: CephCluster
+metadata:
+  name: rook-ceph
+  namespace: rook-ceph
+  annotations:
+    noa.re/deploy-id: ea4539c613483289
+spec:
+  security:
+    cephx:
+      allowedCiphers:
+      - aes256k
+      csi:
+        keyGeneration: 2
+      daemon:
+        keyGeneration: 2
+      rbdMirrorPeer:
+        keyGeneration: 2
+  cephVersion:
+    image: quay.io/ceph/ceph:v20.2.4
+    allowUnsupported: false
+  dataDirHostPath: /var/lib/rook
+  skipUpgradeChecks: false
+  continueUpgradeAfterChecksEvenIfNotHealthy: false
+  waitTimeoutForHealthyOSDInMinutes: 10
+  upgradeOSDRequiresHealthyPGs: false
+  mon:
+    count: 3
+    allowMultiplePerNode: false
+  mgr:
+    count: 2
+    allowMultiplePerNode: false
+    modules:
+    - name: rook
+      enabled: true
+  dashboard:
+    enabled: true
+    ssl: false
+  monitoring:
+    enabled: false
+    metricsDisabled: false
+    exporter:
+      perfCountersPrioLimit: 5
+      statsPeriodSeconds: 5
+  network:
+    connections:
+      encryption:
+        enabled: false
+      compression:
+        enabled: false
+      requireMsgr2: false
+  crashCollector:
+    disable: false
+  logCollector:
+    enabled: true
+    periodicity: daily
+    maxLogSize: 500M
+  cleanupPolicy:
+    confirmation: ''
+    sanitizeDisks:
+      method: quick
+      dataSource: zero
+      iteration: 1
+    allowUninstallWithVolumes: false
+  annotations:
+    dashboard:
+      teleport.dev/port: http-dashboard
+  labels:
+    dashboard:
+      noa.re/discover: enabled
+  resources:
+    mon:
+      requests:
+        memory: 768Mi
+      limits:
+        memory: 1536Mi
+    mgr:
+      requests:
+        memory: 512Mi
+      limits:
+        memory: 1Gi
+    osd:
+      requests:
+        memory: 1Gi
+      limits:
+        memory: 1.5Gi
+  removeOSDsIfOutAndSafeToRemove: false
+  priorityClassNames:
+    mon: system-node-critical
+    osd: system-node-critical
+    mgr: system-cluster-critical
+  storage:
+    useAllNodes: false
+    useAllDevices: false
+    nodes:
+    - name: hallon
+      devices:
+      - name: /dev/nvme0n1p3
+    - name: smultron
+      devices:
+      - name: /dev/nvme0n1p3
+    - name: lingon
+      devices:
+      - name: /dev/nvme0n1p3
+    config: null
+    allowDeviceClassUpdate: false
+    allowOsdCrushWeightUpdate: false
+    scheduleAlways: false
+    onlyApplyOSDPlacement: false
+  disruptionManagement:
+    managePodBudgets: true
+    osdMaintenanceTimeout: 30
+  csi:
+    readAffinity:
+      enabled: false
+  healthCheck:
+    daemonHealth:
+      mon:
+        disabled: false
+        interval: 45s
+      osd:
+        disabled: false
+        interval: 60s
+      status:
+        disabled: false
+        interval: 60s
+    livenessProbe:
+      mon:
+        disabled: false
+      mgr:
+        disabled: false
+      osd:
+        disabled: false
+    startupProbe:
+      mon:
+        disabled: false
+      mgr:
+        disabled: false
+      osd:
+        disabled: false
