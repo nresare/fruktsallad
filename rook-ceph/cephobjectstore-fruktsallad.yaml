@@ -1,11 +1,11 @@
-# Source: rook
+# Source: rook-ceph
 apiVersion: ceph.rook.io/v1
 kind: CephObjectStore
 metadata:
-  name: berries
+  name: fruktsallad
   namespace: rook-ceph
   annotations:
-    noa.re/deploy-id: ea4539c613483289
+    noa.re/deploy-id: adf6c6605b51894b
 spec:
   metadataPool:
     failureDomain: host

@@ -1,11 +1,11 @@
-# Source: rook
+# Source: rook-ceph
 apiVersion: ceph.rook.io/v1
 kind: CephCluster
 metadata:
   name: rook-ceph
   namespace: rook-ceph
   annotations:
-    noa.re/deploy-id: ea4539c613483289
+    noa.re/deploy-id: adf6c6605b51894b
 spec:
   security:
     cephx:
@@ -91,18 +91,8 @@ spec:
     osd: system-node-critical
     mgr: system-cluster-critical
   storage:
-    useAllNodes: false
-    useAllDevices: false
-    nodes:
-    - name: hallon
-      devices:
-      - name: /dev/nvme0n1p3
-    - name: smultron
-      devices:
-      - name: /dev/nvme0n1p3
-    - name: lingon
-      devices:
-      - name: /dev/nvme0n1p3
+    useAllNodes: true
+    useAllDevices: true
     config: null
     allowDeviceClassUpdate: false
     allowOsdCrushWeightUpdate: false

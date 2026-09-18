@@ -1,11 +1,11 @@
-# Source: rook
+# Source: rook-ceph
 apiVersion: storage.k8s.io/v1
 kind: StorageClass
 metadata:
   name: rook-ceph-block
   annotations:
     storageclass.kubernetes.io/is-default-class: 'true'
-    noa.re/deploy-id: ea4539c613483289
+    noa.re/deploy-id: adf6c6605b51894b
 provisioner: rook-ceph.rbd.csi.ceph.com
 parameters:
   clusterID: rook-ceph
@@ -20,6 +20,6 @@ parameters:
   csi.storage.k8s.io/controller-publish-secret-namespace: rook-ceph
   csi.storage.k8s.io/node-stage-secret-name: rook-csi-rbd-node
   csi.storage.k8s.io/node-stage-secret-namespace: rook-ceph
-  csi.storage.k8s.io/fstype: ext4
+  csi.storage.k8s.io/fstype: btrfs
 reclaimPolicy: Delete
 allowVolumeExpansion: true
