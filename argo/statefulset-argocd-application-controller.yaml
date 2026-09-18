@@ -11,7 +11,7 @@ metadata:
     app.kubernetes.io/part-of: argocd
     app.kubernetes.io/version: v3.5.2
   annotations:
-    noa.re/deploy-id: 7e7ae041eb0e1fd6
+    noa.re/deploy-id: 9386e592656f7e37
 spec:
   replicas: 1
   revisionHistoryLimit: 5
@@ -23,8 +23,8 @@ spec:
   template:
     metadata:
       annotations:
-        checksum/cmd-params: 0814834b36df8d6937ba3a0f84267036ddd583b635eaa0acdc7112dc111dc8fd
-        checksum/cm: 88dd1f20ecf54a5afe9a80b2556e4300ea603b9903bf9a57692561945d530319
+        checksum/cmd-params: 9c85abf9c554c08c61658f021916801447d343c878fdc2f829db80203e936763
+        checksum/cm: 59e39adfa9ade3dc78e1f9ae5d906571ee3b334933b782d9c819d57514ed5339
       labels:
         app.kubernetes.io/name: argocd-application-controller
         app.kubernetes.io/instance: argocd
