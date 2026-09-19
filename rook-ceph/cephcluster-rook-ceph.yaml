@@ -5,7 +5,7 @@ metadata:
   name: rook-ceph
   namespace: rook-ceph
   annotations:
-    noa.re/deploy-id: adf6c6605b51894b
+    noa.re/deploy-id: e223f0a748ddb0e9
 spec:
   security:
     cephx:
@@ -18,7 +18,7 @@ spec:
       rbdMirrorPeer:
         keyGeneration: 2
   cephVersion:
-    image: quay.io/ceph/ceph:v20.2.4
+    image: nresare/ceph:v20.2.4-pr71004
     allowUnsupported: false
   dataDirHostPath: /var/lib/rook
   skipUpgradeChecks: false
