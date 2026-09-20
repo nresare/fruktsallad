@@ -5,7 +5,7 @@ metadata:
   name: idmouse-config
   namespace: idmouse
   annotations:
-    noa.re/deploy-id: 26f0c2d70e87ffe9
+    noa.re/deploy-id: 671eaddcdde7d3d1
 data:
   idmouse.toml: |
     bind_address = "0.0.0.0:8080"
@@ -16,6 +16,7 @@ data:
     name = "idelephant-source"
     audience = "idmouse"
     issuer = "https://k8s.noa.re"
+    algorithms = ["ES256"]
     validation-key = """
     -----BEGIN PUBLIC KEY-----
     MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEZ6Ul1nVfkmYhmUPzUjubypoX/VdC
@@ -30,6 +31,7 @@ data:
     name = "reposnake-source"
     audience = "idmouse"
     issuer = "https://k8s.noa.re"
+    algorithms = ["ES256"]
     validation-key = """
     -----BEGIN PUBLIC KEY-----
     MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEZ6Ul1nVfkmYhmUPzUjubypoX/VdC
@@ -44,6 +46,7 @@ data:
     name = "relcoord-source"
     audience = "idmouse"
     issuer = "https://k8s.noa.re"
+    algorithms = ["ES256"]
     validation-key = """
     -----BEGIN PUBLIC KEY-----
     MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEZ6Ul1nVfkmYhmUPzUjubypoX/VdC
