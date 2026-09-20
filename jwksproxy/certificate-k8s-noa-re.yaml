@@ -1,0 +1,18 @@
+# Source: k8s.noa.re
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: k8s-noa-re
+  namespace: jwksproxy
+  annotations:
+    noa.re/deploy-id: 72352810274facd5
+spec:
+  dnsNames:
+  - k8s.noa.re
+  issuerRef:
+    name: letsencrypt
+    kind: ClusterIssuer
+  privateKey:
+    algorithm: ECDSA
+    rotationPolicy: Always
+  secretName: k8s-noa-re-tls

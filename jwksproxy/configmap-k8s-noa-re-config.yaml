@@ -1,0 +1,11 @@
+# Source: k8s.noa.re
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: k8s-noa-re-config
+  namespace: jwksproxy
+  annotations:
+    noa.re/deploy-id: 72352810274facd5
+data:
+  jwksproxy.toml: |
+    origin = "k8s.noa.re"

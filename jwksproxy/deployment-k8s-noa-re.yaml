@@ -1,0 +1,36 @@
+# Source: k8s.noa.re
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: k8s-noa-re
+  labels:
+    app: k8s-noa-re
+  namespace: jwksproxy
+  annotations:
+    noa.re/deploy-id: 72352810274facd5
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: k8s-noa-re
+  template:
+    metadata:
+      labels:
+        app: k8s-noa-re
+      annotations:
+        checksum/config: 81afc1a044cef5e56c76e3edc21d61c0b64b1dc543a690549fc51abb95007391
+    spec:
+      containers:
+      - name: k8s-noa-re
+        image: nresare/jwksproxy
+        livenessProbe:
+          httpGet:
+            path: /healthz
+            port: 8080
+        volumeMounts:
+        - name: k8s-noa-re-config
+          mountPath: /config
+      volumes:
+      - name: k8s-noa-re-config
+        configMap:
+          name: k8s-noa-re-config
