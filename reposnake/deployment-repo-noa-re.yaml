@@ -7,7 +7,7 @@ metadata:
     app: repo-noa-re
   namespace: reposnake
   annotations:
-    noa.re/deploy-id: 4106059d76fb24bf
+    noa.re/deploy-id: 45fcf43ca8c0a4fa
 spec:
   replicas: 2
   selector:
@@ -18,7 +18,7 @@ spec:
       labels:
         app: repo-noa-re
       annotations:
-        checksum/config: f4c50086bd3b0505c4568652bb6fcf094b7310a7c57ceab110da1dea48ed6240
+        checksum/config: f08f860c0c8f8a996c2ff3dd99a89d19af4f214ca1b4f0c401096f7f50fa9831
     spec:
       containers:
       - name: repo-noa-re
@@ -32,7 +32,7 @@ spec:
             port: 8080
         env:
         - name: AWS_ENDPOINT_URL
-          value: http://rook-ceph-rgw-berries.rook-ceph.svc
+          value: http://rook-ceph-rgw-fruktsallad.rook-ceph.svc
         - name: AWS_REGION
           value: eu-west-2
         - name: AWS_ROLE_ARN

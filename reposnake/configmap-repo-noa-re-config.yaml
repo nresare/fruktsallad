@@ -5,7 +5,7 @@ metadata:
   name: repo-noa-re-config
   namespace: reposnake
   annotations:
-    noa.re/deploy-id: 4106059d76fb24bf
+    noa.re/deploy-id: 45fcf43ca8c0a4fa
 data:
   reposnake.toml: |
     bind-address = "0.0.0.0:8080"
@@ -23,6 +23,7 @@ data:
     name = "buildkite"
     audience = "repo.noa.re"
     issuer = "https://agent.buildkite.com"
+    algorithms = ["ES256"]
     claims = {organization_slug="nresare"}
 
     [[publisher]]
