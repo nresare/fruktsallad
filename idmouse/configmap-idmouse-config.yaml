@@ -5,7 +5,7 @@ metadata:
   name: idmouse-config
   namespace: idmouse
   annotations:
-    noa.re/deploy-id: f5b39b5ee9a8bcd5
+    noa.re/deploy-id: 26f0c2d70e87ffe9
 data:
   idmouse.toml: |
     bind_address = "0.0.0.0:8080"
@@ -16,6 +16,12 @@ data:
     name = "idelephant-source"
     audience = "idmouse"
     issuer = "https://k8s.noa.re"
+    validation-key = """
+    -----BEGIN PUBLIC KEY-----
+    MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEZ6Ul1nVfkmYhmUPzUjubypoX/VdC
+    W2moaqn5eexnMMuTTpefVloHEbtzrTVx50ZiuvmZ62rq/doNVELFqZt+RA==
+    -----END PUBLIC KEY-----
+    """
 
     [role.claims]
     sub = "system:serviceaccount:idelephant:default"
@@ -24,6 +30,12 @@ data:
     name = "reposnake-source"
     audience = "idmouse"
     issuer = "https://k8s.noa.re"
+    validation-key = """
+    -----BEGIN PUBLIC KEY-----
+    MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEZ6Ul1nVfkmYhmUPzUjubypoX/VdC
+    W2moaqn5eexnMMuTTpefVloHEbtzrTVx50ZiuvmZ62rq/doNVELFqZt+RA==
+    -----END PUBLIC KEY-----
+    """
 
     [role.claims]
     sub = "system:serviceaccount:reposnake:default"
@@ -32,6 +44,12 @@ data:
     name = "relcoord-source"
     audience = "idmouse"
     issuer = "https://k8s.noa.re"
+    validation-key = """
+    -----BEGIN PUBLIC KEY-----
+    MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEZ6Ul1nVfkmYhmUPzUjubypoX/VdC
+    W2moaqn5eexnMMuTTpefVloHEbtzrTVx50ZiuvmZ62rq/doNVELFqZt+RA==
+    -----END PUBLIC KEY-----
+    """
 
     [role.claims]
     sub = "system:serviceaccount:relcoord:default"
