@@ -1,0 +1,24 @@
+# Source: kubelet-csr-approver
+apiVersion: v1
+kind: Service
+metadata:
+  name: kubelet-csr-approver
+  namespace: kubelet-csr-approver
+  labels:
+    app.kubernetes.io/name: kubelet-csr-approver
+    app.kubernetes.io/instance: kubelet-csr-approver
+    app.kubernetes.io/version: v1.2.15
+  annotations:
+    prometheus.io/port: '8080'
+    prometheus.io/scrape: 'true'
+    noa.re/deploy-id: ebca94d31b0b2503
+spec:
+  type: ClusterIP
+  ports:
+  - port: 8080
+    targetPort: metrics
+    protocol: TCP
+    name: metrics
+  selector:
+    app.kubernetes.io/name: kubelet-csr-approver
+    app.kubernetes.io/instance: kubelet-csr-approver

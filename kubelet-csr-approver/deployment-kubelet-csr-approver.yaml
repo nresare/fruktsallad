@@ -1,0 +1,70 @@
+# Source: kubelet-csr-approver
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kubelet-csr-approver
+  namespace: kubelet-csr-approver
+  labels:
+    app.kubernetes.io/name: kubelet-csr-approver
+    app.kubernetes.io/instance: kubelet-csr-approver
+    app.kubernetes.io/version: v1.2.15
+  annotations:
+    noa.re/deploy-id: ebca94d31b0b2503
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: kubelet-csr-approver
+      app.kubernetes.io/instance: kubelet-csr-approver
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: kubelet-csr-approver
+        app.kubernetes.io/instance: kubelet-csr-approver
+    spec:
+      serviceAccountName: kubelet-csr-approver
+      securityContext: {}
+      containers:
+      - name: kubelet-csr-approver
+        securityContext:
+          allowPrivilegeEscalation: false
+          capabilities:
+            drop:
+            - ALL
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsGroup: 65532
+          runAsNonRoot: true
+          runAsUser: 65532
+          seccompProfile:
+            type: RuntimeDefault
+        image: ghcr.io/postfinance/kubelet-csr-approver:v1.2.15
+        imagePullPolicy: IfNotPresent
+        args:
+        - -metrics-bind-address
+        - :8080
+        - -health-probe-bind-address
+        - :8081
+        - -leader-election
+        env:
+        - name: ALLOWED_DNS_NAMES
+          value: '1'
+        ports:
+        - name: metrics
+          containerPort: 8080
+          protocol: TCP
+        livenessProbe:
+          httpGet:
+            path: /healthz
+            port: 8081
+        resources:
+          limits:
+            cpu: 500m
+            memory: 128Mi
+          requests:
+            cpu: 100m
+            memory: 64Mi
+      tolerations:
+      - effect: NoSchedule
+        key: node-role.kubernetes.io/control-plane
+        operator: Equal
