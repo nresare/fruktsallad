@@ -1,0 +1,18 @@
+# Source: noa.re
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: noa-re-extra
+  namespace: web
+  annotations:
+    noa.re/deploy-id: b720b21606ad7431
+spec:
+  dnsNames:
+  - nadia.resare.com
+  issuerRef:
+    name: letsencrypt
+    kind: ClusterIssuer
+  privateKey:
+    algorithm: ECDSA
+    rotationPolicy: Always
+  secretName: noa-re-extra-tls

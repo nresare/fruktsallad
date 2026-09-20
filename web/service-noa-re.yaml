@@ -1,0 +1,17 @@
+# Source: noa.re
+apiVersion: v1
+kind: Service
+metadata:
+  name: noa-re
+  namespace: web
+  annotations:
+    noa.re/deploy-id: b720b21606ad7431
+spec:
+  selector:
+    app: noa-re
+  ports:
+  - name: https
+    appProtocol: https
+    protocol: TCP
+    port: 443
+    targetPort: https

@@ -1,0 +1,29 @@
+# Source: noa.re
+apiVersion: gateway.networking.k8s.io/v1
+kind: Gateway
+metadata:
+  name: noa-re
+  namespace: web
+  annotations:
+    noa.re/deploy-id: b720b21606ad7431
+spec:
+  gatewayClassName: eg
+  listeners:
+  - name: noa-re
+    protocol: HTTPS
+    hostname: noa.re
+    port: 443
+    tls:
+      certificateRefs:
+      - name: noa-re-tls
+        group: ''
+        kind: Secret
+  - name: nadia-resare-com
+    protocol: HTTPS
+    hostname: nadia.resare.com
+    port: 443
+    tls:
+      certificateRefs:
+      - name: noa-re-extra-tls
+        group: ''
+        kind: Secret
