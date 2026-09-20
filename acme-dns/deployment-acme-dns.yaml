@@ -7,7 +7,7 @@ metadata:
     app: acme-dns
   namespace: acme-dns
   annotations:
-    noa.re/deploy-id: 909655b7e03c03f3
+    noa.re/deploy-id: ce3914d57b557e96
 spec:
   replicas: 1
   strategy:
@@ -35,8 +35,6 @@ spec:
       - name: acme-dns
         securityContext:
           allowPrivilegeEscalation: false
-          fsGroup: 65532
-          fsUser: 65532
         image: nresare/acme-dns:v1.1-distroless
         volumeMounts:
         - mountPath: /db
