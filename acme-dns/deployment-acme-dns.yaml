@@ -7,7 +7,7 @@ metadata:
     app: acme-dns
   namespace: acme-dns
   annotations:
-    noa.re/deploy-id: 6dd7558df49c1956
+    noa.re/deploy-id: 909655b7e03c03f3
 spec:
   replicas: 1
   strategy:
@@ -20,7 +20,7 @@ spec:
       labels:
         app: acme-dns
       annotations:
-        checksum/config: 5f4ffd40b58163d6f26acd0ef93cab4e6da8705f8b6815d4e5671699181f40fd
+        checksum/config: 8112411ac7ad004b2ac314c519b6b129cef05bb2fcc2536fdd719e00d035df79
     spec:
       volumes:
       - name: db
@@ -29,6 +29,8 @@ spec:
       - name: acme-dns-etc-acme-dns
         configMap:
           name: acme-dns-etc-acme-dns
+      securityContext:
+        fsGroup: 65532
       containers:
       - name: acme-dns
         securityContext:

@@ -5,7 +5,7 @@ metadata:
   name: acme-dns-etc-acme-dns
   namespace: acme-dns
   annotations:
-    noa.re/deploy-id: 6dd7558df49c1956
+    noa.re/deploy-id: 909655b7e03c03f3
 data:
   config.cfg: |
     [general]
@@ -31,7 +31,7 @@ data:
     engine = "sqlite3"
     # Connection string, filename for sqlite3 and postgres://$username:$password@$host/$db_name for postgres
     # Please note that the default Docker image uses path /var/lib/acme-dns/acme-dns.db for sqlite3
-    connection = "/db/acme-dns/acme-dns.db"
+    connection = "/db/acme-dns.db"
     # connection = "postgres://localhost/acmedns_db"
 
     [api]
