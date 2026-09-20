@@ -1,0 +1,21 @@
+# Source: trust-manager
+kind: ClusterRole
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  labels:
+    app.kubernetes.io/name: trust-manager
+    app.kubernetes.io/instance: trust-manager
+    app.kubernetes.io/version: v0.25.0
+    rbac.authorization.k8s.io/aggregate-to-cluster-reader: 'true'
+  name: trust-manager-cluster-view
+  annotations:
+    noa.re/deploy-id: 964b51b71783fe70
+rules:
+- apiGroups:
+  - trust.cert-manager.io
+  resources:
+  - bundles
+  verbs:
+  - get
+  - list
+  - watch

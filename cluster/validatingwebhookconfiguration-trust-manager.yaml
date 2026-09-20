@@ -1,0 +1,35 @@
+# Source: trust-manager
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingWebhookConfiguration
+metadata:
+  name: trust-manager
+  labels:
+    app: trust-manager
+    app.kubernetes.io/name: trust-manager
+    app.kubernetes.io/instance: trust-manager
+    app.kubernetes.io/version: v0.25.0
+  annotations:
+    cert-manager.io/inject-ca-from-secret: cert-manager/trust-manager-tls
+    noa.re/deploy-id: 964b51b71783fe70
+webhooks:
+- name: trust.cert-manager.io
+  rules:
+  - apiGroups:
+    - trust.cert-manager.io
+    apiVersions:
+    - v1alpha1
+    operations:
+    - CREATE
+    - UPDATE
+    resources:
+    - bundles
+  admissionReviewVersions:
+  - v1
+  timeoutSeconds: 5
+  failurePolicy: Fail
+  sideEffects: None
+  clientConfig:
+    service:
+      name: trust-manager
+      namespace: cert-manager
+      path: /validate-trust-cert-manager-io-v1alpha1-bundle

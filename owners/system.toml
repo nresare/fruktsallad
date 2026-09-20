@@ -1,1 +1,1 @@
-owned = ["acme-dns", "argo", "cluster", "rook-ceph"]
+owned = ["acme-dns", "argo", "cert-manager", "cluster", "kube-system", "rook-ceph"]
