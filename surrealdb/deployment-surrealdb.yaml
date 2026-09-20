@@ -1,0 +1,73 @@
+# Source: surrealdb
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: surrealdb
+  labels:
+    app.kubernetes.io/name: surrealdb
+    app.kubernetes.io/instance: surrealdb
+    app.kubernetes.io/version: 2.6.5
+  namespace: surrealdb
+  annotations:
+    noa.re/deploy-id: eb1871c44f60f7de
+spec:
+  strategy:
+    type: Recreate
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: surrealdb
+      app.kubernetes.io/instance: surrealdb
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: surrealdb
+        app.kubernetes.io/instance: surrealdb
+    spec:
+      serviceAccountName: surrealdb
+      securityContext:
+        fsGroup: 65532
+      containers:
+      - name: surrealdb
+        securityContext: {}
+        image: surrealdb/surrealdb:v3.2.4
+        imagePullPolicy: IfNotPresent
+        args:
+        - start
+        env:
+        - name: SURREAL_NO_BANNER
+          value: 'true'
+        - name: SURREAL_PATH
+          value: surrealkv://data/db
+        - name: SURREAL_LOG
+          value: info
+        - name: SURREAL_BIND
+          value: 0.0.0.0:8000
+        - name: SURREAL_AUTH
+          value: 'true'
+        - name: SURREAL_UNAUTHENTICATED
+          value: 'false'
+        - name: SURREAL_CAPS_ALLOW_NET
+          value: idmouse.idmouse.svc,10.0.0.0/8
+        ports:
+        - name: http
+          containerPort: 8000
+          protocol: TCP
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: http
+          timeoutSeconds: 5
+        readinessProbe:
+          httpGet:
+            path: /health
+            port: http
+          timeoutSeconds: 5
+        resources: {}
+        volumeMounts:
+        - name: data
+          mountPath: /data
+      volumes:
+      - name: data
+        persistentVolumeClaim:
+          claimName: surrealdb

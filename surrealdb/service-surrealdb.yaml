@@ -1,0 +1,22 @@
+# Source: surrealdb
+apiVersion: v1
+kind: Service
+metadata:
+  name: surrealdb
+  labels:
+    app.kubernetes.io/name: surrealdb
+    app.kubernetes.io/instance: surrealdb
+    app.kubernetes.io/version: 2.6.5
+  namespace: surrealdb
+  annotations:
+    noa.re/deploy-id: eb1871c44f60f7de
+spec:
+  type: ClusterIP
+  ports:
+  - name: http
+    port: 8000
+    targetPort: http
+    protocol: TCP
+  selector:
+    app.kubernetes.io/name: surrealdb
+    app.kubernetes.io/instance: surrealdb

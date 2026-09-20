@@ -1,0 +1,18 @@
+# Source: surrealdb
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: surrealdb
+  labels:
+    app.kubernetes.io/name: surrealdb
+    app.kubernetes.io/instance: surrealdb
+    app.kubernetes.io/version: 2.6.5
+  namespace: surrealdb
+  annotations:
+    noa.re/deploy-id: eb1871c44f60f7de
+spec:
+  accessModes:
+  - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
