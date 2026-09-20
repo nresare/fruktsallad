@@ -1,0 +1,53 @@
+# Source: acme-dns
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: acme-dns
+  labels:
+    app: acme-dns
+  namespace: acme-dns
+  annotations:
+    noa.re/deploy-id: 6dd7558df49c1956
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app: acme-dns
+  template:
+    metadata:
+      labels:
+        app: acme-dns
+      annotations:
+        checksum/config: 5f4ffd40b58163d6f26acd0ef93cab4e6da8705f8b6815d4e5671699181f40fd
+    spec:
+      volumes:
+      - name: db
+        persistentVolumeClaim:
+          claimName: acme-dns
+      - name: acme-dns-etc-acme-dns
+        configMap:
+          name: acme-dns-etc-acme-dns
+      containers:
+      - name: acme-dns
+        securityContext:
+          allowPrivilegeEscalation: false
+          fsGroup: 65532
+          fsUser: 65532
+        image: nresare/acme-dns:v1.1-distroless
+        volumeMounts:
+        - mountPath: /db
+          name: db
+        - name: acme-dns-etc-acme-dns
+          mountPath: /etc/acme-dns
+        ports:
+        - name: web
+          containerPort: 1080
+          protocol: TCP
+        - name: dns-tcp
+          containerPort: 1053
+          protocol: TCP
+        - name: dns
+          containerPort: 1053
+          protocol: UDP

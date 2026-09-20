@@ -1,0 +1,14 @@
+# Source: acme-dns
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: acme-dns
+  namespace: acme-dns
+  annotations:
+    noa.re/deploy-id: 6dd7558df49c1956
+spec:
+  accessModes:
+  - ReadWriteOnce
+  resources:
+    requests:
+      storage: 10Mi
