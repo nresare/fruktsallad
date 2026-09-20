@@ -1,0 +1,16 @@
+# Source: idmouse
+apiVersion: v1
+kind: Service
+metadata:
+  name: idmouse
+  namespace: idmouse
+  annotations:
+    noa.re/deploy-id: f5b39b5ee9a8bcd5
+spec:
+  type: ClusterIP
+  selector:
+    app: idmouse
+  ports:
+  - name: http
+    port: 80
+    targetPort: http

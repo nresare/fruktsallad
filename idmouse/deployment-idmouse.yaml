@@ -1,0 +1,36 @@
+# Source: idmouse
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: idmouse
+  labels:
+    app: idmouse
+  namespace: idmouse
+  annotations:
+    noa.re/deploy-id: f5b39b5ee9a8bcd5
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: idmouse
+  template:
+    metadata:
+      labels:
+        app: idmouse
+      annotations:
+        checksum/config: 09f47d85ff7ecfe6837ce66d5a991d5cbb733b5142e071e9462e7466d9d9ac4b
+    spec:
+      serviceAccountName: idmouse
+      containers:
+      - name: idmouse
+        image: nresare/idmouse
+        ports:
+        - name: http
+          containerPort: 8080
+        volumeMounts:
+        - name: idmouse-config
+          mountPath: /config
+      volumes:
+      - name: idmouse-config
+        configMap:
+          name: idmouse-config

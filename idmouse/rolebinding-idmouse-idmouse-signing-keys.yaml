@@ -1,0 +1,16 @@
+# Source: idmouse
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: idmouse-idmouse-signing-keys
+  namespace: idmouse
+  annotations:
+    noa.re/deploy-id: f5b39b5ee9a8bcd5
+subjects:
+- kind: ServiceAccount
+  name: idmouse
+  namespace: idmouse
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: idmouse-signing-keys
