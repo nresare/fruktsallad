@@ -1,0 +1,18 @@
+# Source: repo.noa.re
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: repo-noa-re
+  namespace: reposnake
+  annotations:
+    noa.re/deploy-id: 4106059d76fb24bf
+spec:
+  dnsNames:
+  - repo.noa.re
+  issuerRef:
+    name: letsencrypt
+    kind: ClusterIssuer
+  privateKey:
+    algorithm: ECDSA
+    rotationPolicy: Always
+  secretName: repo-noa-re-tls

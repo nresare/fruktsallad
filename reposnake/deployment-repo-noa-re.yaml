@@ -1,0 +1,84 @@
+# Source: repo.noa.re
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: repo-noa-re
+  labels:
+    app: repo-noa-re
+  namespace: reposnake
+  annotations:
+    noa.re/deploy-id: 4106059d76fb24bf
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: repo-noa-re
+  template:
+    metadata:
+      labels:
+        app: repo-noa-re
+      annotations:
+        checksum/config: f4c50086bd3b0505c4568652bb6fcf094b7310a7c57ceab110da1dea48ed6240
+    spec:
+      containers:
+      - name: repo-noa-re
+        image: nresare/reposnake
+        args:
+        - -c
+        - /config/reposnake.toml
+        livenessProbe:
+          httpGet:
+            path: /healthz
+            port: 8080
+        env:
+        - name: AWS_ENDPOINT_URL
+          value: http://rook-ceph-rgw-berries.rook-ceph.svc
+        - name: AWS_REGION
+          value: eu-west-2
+        - name: AWS_ROLE_ARN
+          value: arn:aws:iam:::role/reposnake
+        - name: AWS_STS_REGIONAL_ENDPOINTS
+          value: regional
+        - name: AWS_WEB_IDENTITY_TOKEN_FILE
+          value: /var/run/secrets/tokens/sts.amazonaws.com
+        volumeMounts:
+        - name: repo-noa-re-config
+          mountPath: /config
+        - name: emptydir-var-tmp
+          mountPath: /var/tmp
+        - name: tokens
+          mountPath: /var/run/secrets/tokens
+          readOnly: true
+      volumes:
+      - name: repo-noa-re-config
+        configMap:
+          name: repo-noa-re-config
+      - name: emptydir-var-tmp
+        emptyDir: {}
+      - name: tokens
+        projected:
+          sources:
+          - serviceAccountToken:
+              path: idmouse
+              expirationSeconds: 3600
+              audience: idmouse
+          - serviceAccountToken:
+              path: sts.amazonaws.com
+              expirationSeconds: 3600
+              audience: sts.amazonaws.com
+      initContainers:
+      - name: fix-emptydir-var-tmp-permissions
+        image: alpine:3.23.4
+        imagePullPolicy: IfNotPresent
+        command:
+        - sh
+        - -c
+        - mkdir -p /var/tmp && chown -R 65532:65532 /var/tmp
+        resources: {}
+        securityContext:
+          allowPrivilegeEscalation: false
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+        volumeMounts:
+        - name: emptydir-var-tmp
+          mountPath: /var/tmp

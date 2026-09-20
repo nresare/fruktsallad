@@ -1,0 +1,15 @@
+# Source: repo.noa.re
+apiVersion: v1
+kind: Service
+metadata:
+  name: repo-noa-re
+  namespace: reposnake
+  annotations:
+    noa.re/deploy-id: 4106059d76fb24bf
+spec:
+  selector:
+    app: repo-noa-re
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 8080

@@ -1,0 +1,20 @@
+# Source: repo.noa.re
+apiVersion: gateway.networking.k8s.io/v1
+kind: Gateway
+metadata:
+  name: repo-noa-re
+  namespace: reposnake
+  annotations:
+    noa.re/deploy-id: 4106059d76fb24bf
+spec:
+  gatewayClassName: eg
+  listeners:
+  - name: repo-noa-re
+    protocol: HTTPS
+    hostname: repo.noa.re
+    port: 443
+    tls:
+      certificateRefs:
+      - name: repo-noa-re-tls
+        group: ''
+        kind: Secret

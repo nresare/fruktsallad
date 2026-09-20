@@ -1,1 +1,1 @@
-owned = ["acme-dns", "argo", "cert-manager", "cluster", "envoy-gateway-system", "grafana", "idmouse", "jwksproxy", "kube-system", "kubelet-csr-approver", "metrics-server", "rook-ceph", "surrealdb", "web"]
+owned = ["acme-dns", "argo", "cert-manager", "cluster", "envoy-gateway-system", "grafana", "idmouse", "jwksproxy", "kube-system", "kubelet-csr-approver", "metrics-server", "reposnake", "rook-ceph", "surrealdb", "web"]
