@@ -1,0 +1,18 @@
+# Source: envoy-gateway
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: unifi-noa-re
+  namespace: envoy-gateway-system
+  annotations:
+    noa.re/deploy-id: adb18aacd20879bd
+spec:
+  dnsNames:
+  - unifi.noa.re
+  issuerRef:
+    kind: ClusterIssuer
+    name: letsencrypt
+  privateKey:
+    algorithm: ECDSA
+    rotationPolicy: Always
+  secretName: unifi-noa-re-tls

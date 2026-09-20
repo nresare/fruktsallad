@@ -1,0 +1,24 @@
+# Source: metrics-server
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: system:metrics-server-aggregated-reader
+  labels:
+    app.kubernetes.io/name: metrics-server
+    app.kubernetes.io/instance: metrics-server
+    app.kubernetes.io/version: 0.9.0
+    rbac.authorization.k8s.io/aggregate-to-admin: 'true'
+    rbac.authorization.k8s.io/aggregate-to-edit: 'true'
+    rbac.authorization.k8s.io/aggregate-to-view: 'true'
+  annotations:
+    noa.re/deploy-id: adb18aacd20879bd
+rules:
+- apiGroups:
+  - metrics.k8s.io
+  resources:
+  - pods
+  - nodes
+  verbs:
+  - get
+  - list
+  - watch

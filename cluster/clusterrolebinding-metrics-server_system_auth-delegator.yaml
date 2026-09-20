@@ -1,0 +1,19 @@
+# Source: metrics-server
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: metrics-server:system:auth-delegator
+  labels:
+    app.kubernetes.io/name: metrics-server
+    app.kubernetes.io/instance: metrics-server
+    app.kubernetes.io/version: 0.9.0
+  annotations:
+    noa.re/deploy-id: adb18aacd20879bd
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: system:auth-delegator
+subjects:
+- kind: ServiceAccount
+  name: metrics-server
+  namespace: metrics-server

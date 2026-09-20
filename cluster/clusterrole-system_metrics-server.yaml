@@ -1,0 +1,29 @@
+# Source: metrics-server
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: system:metrics-server
+  labels:
+    app.kubernetes.io/name: metrics-server
+    app.kubernetes.io/instance: metrics-server
+    app.kubernetes.io/version: 0.9.0
+  annotations:
+    noa.re/deploy-id: adb18aacd20879bd
+rules:
+- apiGroups:
+  - ''
+  resources:
+  - nodes/metrics
+  verbs:
+  - get
+- apiGroups:
+  - ''
+  resources:
+  - pods
+  - nodes
+  - namespaces
+  - configmaps
+  verbs:
+  - get
+  - list
+  - watch

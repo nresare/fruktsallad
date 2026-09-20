@@ -1,0 +1,127 @@
+# Source: envoy-gateway
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: envoy-gateway
+  namespace: envoy-gateway-system
+  labels:
+    control-plane: envoy-gateway
+    app.kubernetes.io/name: gateway-helm
+    app.kubernetes.io/instance: envoy-gateway
+    app.kubernetes.io/version: v1.9.1
+  annotations:
+    noa.re/deploy-id: adb18aacd20879bd
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      control-plane: envoy-gateway
+      app.kubernetes.io/name: gateway-helm
+      app.kubernetes.io/instance: envoy-gateway
+  template:
+    metadata:
+      annotations:
+        noa.re/envoy-gateway-config-revision: enable-backend-api
+        prometheus.io/port: '19001'
+        prometheus.io/scrape: 'true'
+      labels:
+        control-plane: envoy-gateway
+        app.kubernetes.io/name: gateway-helm
+        app.kubernetes.io/instance: envoy-gateway
+    spec:
+      automountServiceAccountToken: true
+      securityContext:
+        fsGroup: 65532
+        runAsGroup: 65532
+        runAsNonRoot: true
+        runAsUser: 65532
+        seccompProfile:
+          type: RuntimeDefault
+      containers:
+      - args:
+        - server
+        - --config-path=/config/envoy-gateway.yaml
+        env:
+        - name: ENVOY_GATEWAY_NAMESPACE
+          valueFrom:
+            fieldRef:
+              apiVersion: v1
+              fieldPath: metadata.namespace
+        - name: KUBERNETES_CLUSTER_DOMAIN
+          value: cluster.local
+        image: docker.io/envoyproxy/gateway:v1.9.1
+        imagePullPolicy: IfNotPresent
+        startupProbe:
+          failureThreshold: 30
+          httpGet:
+            path: /healthz
+            port: 8081
+          periodSeconds: 1
+          successThreshold: 1
+          timeoutSeconds: 1
+        livenessProbe:
+          httpGet:
+            path: /healthz
+            port: 8081
+          periodSeconds: 20
+          successThreshold: 1
+          timeoutSeconds: 1
+        name: envoy-gateway
+        ports:
+        - containerPort: 18000
+          name: grpc
+        - containerPort: 18001
+          name: ratelimit
+        - containerPort: 18002
+          name: wasm
+        - containerPort: 19001
+          name: metrics
+        - name: webhook
+          containerPort: 9443
+        readinessProbe:
+          httpGet:
+            path: /readyz
+            port: 8081
+          periodSeconds: 10
+          successThreshold: 1
+          timeoutSeconds: 1
+        resources:
+          limits:
+            memory: 1024Mi
+          requests:
+            cpu: 100m
+            memory: 256Mi
+        securityContext:
+          allowPrivilegeEscalation: false
+          capabilities:
+            drop:
+            - ALL
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsGroup: 65532
+          runAsNonRoot: true
+          runAsUser: 65532
+          seccompProfile:
+            type: RuntimeDefault
+        volumeMounts:
+        - mountPath: /config
+          name: envoy-gateway-config
+          readOnly: true
+        - mountPath: /certs
+          name: certs
+          readOnly: true
+        - mountPath: /var/lib/eg/wasm
+          name: wasm-cache
+      imagePullSecrets: []
+      serviceAccountName: envoy-gateway
+      terminationGracePeriodSeconds: 10
+      volumes:
+      - configMap:
+          defaultMode: 420
+          name: envoy-gateway-config
+        name: envoy-gateway-config
+      - name: certs
+        secret:
+          secretName: envoy-gateway
+      - name: wasm-cache
+        emptyDir: {}

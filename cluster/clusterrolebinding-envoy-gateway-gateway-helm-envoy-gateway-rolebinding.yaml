@@ -1,0 +1,19 @@
+# Source: envoy-gateway
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: envoy-gateway-gateway-helm-envoy-gateway-rolebinding
+  labels:
+    app.kubernetes.io/name: gateway-helm
+    app.kubernetes.io/instance: envoy-gateway
+    app.kubernetes.io/version: v1.9.1
+  annotations:
+    noa.re/deploy-id: adb18aacd20879bd
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: envoy-gateway-gateway-helm-envoy-gateway-role
+subjects:
+- kind: ServiceAccount
+  name: envoy-gateway
+  namespace: envoy-gateway-system

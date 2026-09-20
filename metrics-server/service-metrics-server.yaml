@@ -1,0 +1,23 @@
+# Source: metrics-server
+apiVersion: v1
+kind: Service
+metadata:
+  name: metrics-server
+  namespace: metrics-server
+  labels:
+    app.kubernetes.io/name: metrics-server
+    app.kubernetes.io/instance: metrics-server
+    app.kubernetes.io/version: 0.9.0
+  annotations:
+    noa.re/deploy-id: adb18aacd20879bd
+spec:
+  type: ClusterIP
+  ports:
+  - name: https
+    port: 443
+    protocol: TCP
+    targetPort: https
+    appProtocol: https
+  selector:
+    app.kubernetes.io/name: metrics-server
+    app.kubernetes.io/instance: metrics-server
