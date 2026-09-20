@@ -7,9 +7,9 @@ metadata:
     app: k8s-noa-re
   namespace: jwksproxy
   annotations:
-    noa.re/deploy-id: 72352810274facd5
+    noa.re/deploy-id: 4f93ff191f82bdcd
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: k8s-noa-re
@@ -22,7 +22,7 @@ spec:
     spec:
       containers:
       - name: k8s-noa-re
-        image: nresare/jwksproxy
+        image: nresare/jwksproxy:0.2.0
         livenessProbe:
           httpGet:
             path: /healthz
