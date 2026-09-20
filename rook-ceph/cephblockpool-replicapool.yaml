@@ -1,11 +1,11 @@
-# Source: rook-ceph
+# Source: csi-drivers
 apiVersion: ceph.rook.io/v1
 kind: CephBlockPool
 metadata:
   name: replicapool
   namespace: rook-ceph
   annotations:
-    noa.re/deploy-id: adf6c6605b51894b
+    noa.re/deploy-id: a196fea3a245a26f
 spec:
   failureDomain: host
   replicated:

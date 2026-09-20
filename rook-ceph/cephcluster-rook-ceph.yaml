@@ -1,11 +1,11 @@
-# Source: rook-ceph
+# Source: csi-drivers
 apiVersion: ceph.rook.io/v1
 kind: CephCluster
 metadata:
   name: rook-ceph
   namespace: rook-ceph
   annotations:
-    noa.re/deploy-id: 9f7ebce7a29bbb39
+    noa.re/deploy-id: a196fea3a245a26f
 spec:
   security:
     cephx:
@@ -18,7 +18,7 @@ spec:
       rbdMirrorPeer:
         keyGeneration: 2
   cephVersion:
-    image: nresare/ceph:v20.2.4-pr71004
+    image: quay.io/ceph/ceph:v20.2.4
     allowUnsupported: false
   dataDirHostPath: /var/lib/rook
   skipUpgradeChecks: false
@@ -29,7 +29,7 @@ spec:
     count: 3
     allowMultiplePerNode: false
   mgr:
-    count: 2
+    count: 1
     allowMultiplePerNode: false
     modules:
     - name: rook
@@ -51,9 +51,9 @@ spec:
         enabled: false
       requireMsgr2: false
   crashCollector:
-    disable: false
+    disable: true
   logCollector:
-    enabled: true
+    enabled: false
     periodicity: daily
     maxLogSize: 500M
   cleanupPolicy:

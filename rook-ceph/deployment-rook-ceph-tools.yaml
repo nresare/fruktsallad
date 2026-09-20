@@ -1,4 +1,4 @@
-# Source: rook-ceph
+# Source: csi-drivers
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -7,7 +7,7 @@ metadata:
   labels:
     app: rook-ceph-tools
   annotations:
-    noa.re/deploy-id: e223f0a748ddb0e9
+    noa.re/deploy-id: a196fea3a245a26f
 spec:
   replicas: 1
   selector:
