@@ -7,7 +7,7 @@ metadata:
   labels:
     app: teleport-kube-agent
   annotations:
-    noa.re/deploy-id: c98c3d6c66e5a0f3
+    noa.re/deploy-id: b141d0a0798b88fd
 spec:
   serviceName: teleport-kube-agent
   replicas: 1
@@ -17,7 +17,7 @@ spec:
   template:
     metadata:
       annotations:
-        checksum/config: b466b30792b92d3309f150bbfa37f8b08678b31f6ae2d56646240ce9299095b5
+        checksum/config: 496a3b1d856cb13c48ebd4a1fbf5a2b4f266f40fb52d20cba8a6024fc671ad73
       labels:
         app: teleport-kube-agent
     spec:

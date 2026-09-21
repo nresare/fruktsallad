@@ -5,21 +5,21 @@ metadata:
   name: teleport-kube-agent
   namespace: teleport
   annotations:
-    noa.re/deploy-id: c98c3d6c66e5a0f3
+    noa.re/deploy-id: b141d0a0798b88fd
 data:
   teleport.yaml: |
     app_service:
       enabled: true
       resources:
       - labels:
-          teleport.dev/kubernetes-cluster: berries
+          teleport.dev/kubernetes-cluster: fruktsallad
           teleport.dev/origin: discovery-kubernetes
     auth_service:
       enabled: false
     db_service:
       enabled: false
     discovery_service:
-      discovery_group: berries
+      discovery_group: fruktsallad
       enabled: true
       kubernetes:
       - labels:
