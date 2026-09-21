@@ -1,0 +1,23 @@
+# Source: teleport-cluster
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: teleport-cluster
+  namespace: teleport-cluster
+  labels:
+    app.kubernetes.io/name: teleport-cluster
+    app.kubernetes.io/instance: teleport-cluster
+    app.kubernetes.io/component: proxy
+    app.kubernetes.io/version: 18.11.0
+    teleport.dev/majorVersion: '18'
+  annotations:
+    noa.re/deploy-id: c98c3d6c66e5a0f3
+spec:
+  secretName: teleport-tls
+  dnsNames:
+  - teleport.noa.re
+  - '*.teleport.noa.re'
+  issuerRef:
+    name: letsencrypt
+    kind: ClusterIssuer
+    group: cert-manager.io

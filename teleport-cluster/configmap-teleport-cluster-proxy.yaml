@@ -1,0 +1,47 @@
+# Source: teleport-cluster
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: teleport-cluster-proxy
+  namespace: teleport-cluster
+  labels:
+    app.kubernetes.io/name: teleport-cluster
+    app.kubernetes.io/instance: teleport-cluster
+    app.kubernetes.io/component: proxy
+    app.kubernetes.io/version: 18.11.0
+    teleport.dev/majorVersion: '18'
+  annotations:
+    noa.re/deploy-id: c98c3d6c66e5a0f3
+data:
+  teleport.yaml: |
+    auth_service:
+      enabled: false
+    proxy_service:
+      enabled: true
+      https_keypairs:
+      - cert_file: /etc/teleport-tls/tls.crt
+        key_file: /etc/teleport-tls/tls.key
+      https_keypairs_reload_interval: 12h
+      kube_listen_addr: 0.0.0.0:3026
+      listen_addr: 0.0.0.0:3023
+      mysql_listen_addr: 0.0.0.0:3036
+      public_addr: teleport.noa.re:443
+      tunnel_listen_addr: 0.0.0.0:3024
+    ssh_service:
+      enabled: false
+    teleport:
+      auth_server: teleport-cluster-auth.teleport-cluster.svc.cluster.local:3025
+      join_params:
+        method: kubernetes
+        token_name: teleport-cluster-proxy
+      log:
+        format:
+          extra_fields:
+          - timestamp
+          - level
+          - component
+          - caller
+          output: text
+        output: stderr
+        severity: INFO
+    version: v3

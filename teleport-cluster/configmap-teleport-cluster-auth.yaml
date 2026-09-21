@@ -1,0 +1,63 @@
+# Source: teleport-cluster
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: teleport-cluster-auth
+  namespace: teleport-cluster
+  labels:
+    app.kubernetes.io/name: teleport-cluster
+    app.kubernetes.io/instance: teleport-cluster
+    app.kubernetes.io/component: auth
+    app.kubernetes.io/version: 18.11.0
+    teleport.dev/majorVersion: '18'
+  annotations:
+    noa.re/deploy-id: c98c3d6c66e5a0f3
+data:
+  apply-on-startup.yaml: |
+    ---
+    kind: token
+    version: v2
+    metadata:
+      name: teleport-cluster-proxy
+      expires: "2050-01-01T00:00:00Z"
+    spec:
+      roles: [Proxy]
+      join_method: kubernetes
+      kubernetes:
+        allow:
+          - service_account: "teleport-cluster:teleport-cluster-proxy"
+  teleport.yaml: |
+    auth_service:
+      authentication:
+        local_auth: true
+        second_factors:
+        - otp
+        - webauthn
+        type: local
+        webauthn:
+          rp_id: teleport.noa.re
+      cluster_name: teleport.noa.re
+      enabled: true
+      proxy_listener_mode: separate
+    kubernetes_service:
+      enabled: true
+      kube_cluster_name: teleport.noa.re
+      listen_addr: 0.0.0.0:3026
+      public_addr: teleport-cluster-auth.teleport-cluster.svc.cluster.local:3026
+    proxy_service:
+      enabled: false
+    ssh_service:
+      enabled: false
+    teleport:
+      auth_server: 127.0.0.1:3025
+      log:
+        format:
+          extra_fields:
+          - timestamp
+          - level
+          - component
+          - caller
+          output: text
+        output: stderr
+        severity: INFO
+    version: v3

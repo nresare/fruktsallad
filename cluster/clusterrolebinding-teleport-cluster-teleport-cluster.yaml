@@ -1,0 +1,21 @@
+# Source: teleport-cluster
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: teleport-cluster-teleport-cluster
+  labels:
+    app.kubernetes.io/name: teleport-cluster
+    app.kubernetes.io/instance: teleport-cluster
+    app.kubernetes.io/component: auth
+    app.kubernetes.io/version: 18.11.0
+    teleport.dev/majorVersion: '18'
+  annotations:
+    noa.re/deploy-id: c98c3d6c66e5a0f3
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: teleport-cluster
+subjects:
+- kind: ServiceAccount
+  name: teleport-cluster
+  namespace: teleport-cluster

@@ -1,0 +1,28 @@
+# Source: teleport-cluster
+apiVersion: v1
+kind: Service
+metadata:
+  name: teleport-cluster-auth
+  namespace: teleport-cluster
+  labels:
+    app.kubernetes.io/name: teleport-cluster
+    app.kubernetes.io/instance: teleport-cluster
+    app.kubernetes.io/component: auth
+    app.kubernetes.io/version: 18.11.0
+    teleport.dev/majorVersion: '18'
+  annotations:
+    noa.re/deploy-id: c98c3d6c66e5a0f3
+spec:
+  ports:
+  - name: auth
+    port: 3025
+    targetPort: 3025
+    protocol: TCP
+  - name: kube
+    port: 3026
+    targetPort: 3026
+    protocol: TCP
+  selector:
+    app.kubernetes.io/name: teleport-cluster
+    app.kubernetes.io/instance: teleport-cluster
+    app.kubernetes.io/component: auth

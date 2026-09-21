@@ -1,0 +1,23 @@
+# Source: teleport-cluster
+apiVersion: gateway.networking.k8s.io/v1
+kind: TLSRoute
+metadata:
+  name: teleport-cluster
+  namespace: teleport-cluster
+  annotations:
+    noa.re/deploy-id: c98c3d6c66e5a0f3
+spec:
+  parentRefs:
+  - name: teleport-cluster
+    group: gateway.networking.k8s.io
+    kind: Gateway
+  hostnames:
+  - teleport.noa.re
+  - '*.teleport.noa.re'
+  rules:
+  - backendRefs:
+    - name: teleport-cluster
+      port: 443
+      group: ''
+      kind: Service
+      weight: 1

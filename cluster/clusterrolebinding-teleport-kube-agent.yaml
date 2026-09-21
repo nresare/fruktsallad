@@ -1,0 +1,15 @@
+# Source: teleport-kube-agent
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: teleport-kube-agent
+  annotations:
+    noa.re/deploy-id: c98c3d6c66e5a0f3
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: teleport-kube-agent
+subjects:
+- kind: ServiceAccount
+  name: teleport-kube-agent
+  namespace: teleport

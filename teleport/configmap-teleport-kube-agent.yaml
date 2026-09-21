@@ -1,0 +1,54 @@
+# Source: teleport-kube-agent
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: teleport-kube-agent
+  namespace: teleport
+  annotations:
+    noa.re/deploy-id: c98c3d6c66e5a0f3
+data:
+  teleport.yaml: |
+    app_service:
+      enabled: true
+      resources:
+      - labels:
+          teleport.dev/kubernetes-cluster: berries
+          teleport.dev/origin: discovery-kubernetes
+    auth_service:
+      enabled: false
+    db_service:
+      enabled: false
+    discovery_service:
+      discovery_group: berries
+      enabled: true
+      kubernetes:
+      - labels:
+          noa.re/discover: enabled
+        namespaces:
+        - '*'
+        types:
+        - app
+    jamf_service:
+      enabled: false
+    kubernetes_service:
+      enabled: false
+    proxy_service:
+      enabled: false
+    ssh_service:
+      enabled: false
+    teleport:
+      join_params:
+        method: kubernetes
+        token_name: /etc/teleport-secrets/auth-token
+      log:
+        format:
+          extra_fields:
+          - timestamp
+          - level
+          - component
+          - caller
+          output: text
+        output: stderr
+        severity: INFO
+      proxy_server: teleport.noa.re:443
+    version: v3

@@ -1,0 +1,121 @@
+# Source: teleport-kube-agent
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: teleport-kube-agent
+  namespace: teleport
+  labels:
+    app: teleport-kube-agent
+  annotations:
+    noa.re/deploy-id: c98c3d6c66e5a0f3
+spec:
+  serviceName: teleport-kube-agent
+  replicas: 1
+  selector:
+    matchLabels:
+      app: teleport-kube-agent
+  template:
+    metadata:
+      annotations:
+        checksum/config: b466b30792b92d3309f150bbfa37f8b08678b31f6ae2d56646240ce9299095b5
+      labels:
+        app: teleport-kube-agent
+    spec:
+      securityContext:
+        fsGroup: 9807
+      terminationGracePeriodSeconds: 30
+      topologySpreadConstraints:
+      - maxSkew: 1
+        topologyKey: kubernetes.io/hostname
+        whenUnsatisfiable: ScheduleAnyway
+        labelSelector:
+          matchLabels:
+            app: teleport-kube-agent
+      - maxSkew: 1
+        topologyKey: topology.kubernetes.io/zone
+        whenUnsatisfiable: ScheduleAnyway
+        labelSelector:
+          matchLabels:
+            app: teleport-kube-agent
+      serviceAccountName: teleport-kube-agent
+      containers:
+      - name: teleport
+        image: public.ecr.aws/gravitational/teleport-distroless:18.11.0
+        imagePullPolicy: IfNotPresent
+        env:
+        - name: TELEPORT_INSTALL_METHOD_HELM_KUBE_AGENT
+          value: 'true'
+        - name: TELEPORT_REPLICA_NAME
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.name
+        - name: KUBE_NAMESPACE
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.namespace
+        - name: RELEASE_NAME
+          value: teleport-kube-agent
+        - name: TELEPORT_KUBE_CLUSTER_DOMAIN
+          value: cluster.local
+        - name: KUBERNETES_TOKEN_PATH
+          value: /var/run/secrets/tokens/join-sa-token
+        args:
+        - --diag-addr=0.0.0.0:3000
+        securityContext:
+          allowPrivilegeEscalation: false
+          capabilities:
+            drop:
+            - ALL
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 9807
+          seccompProfile:
+            type: RuntimeDefault
+        ports:
+        - name: diag
+          containerPort: 3000
+          protocol: TCP
+        livenessProbe:
+          httpGet:
+            path: /healthz
+            port: diag
+          initialDelaySeconds: 5
+          periodSeconds: 5
+          failureThreshold: 6
+          timeoutSeconds: 1
+        readinessProbe:
+          httpGet:
+            path: /readyz
+            port: diag
+          initialDelaySeconds: 5
+          periodSeconds: 5
+          failureThreshold: 12
+          timeoutSeconds: 1
+        volumeMounts:
+        - mountPath: /etc/teleport
+          name: config
+          readOnly: true
+        - mountPath: /etc/teleport-secrets
+          name: auth-token
+          readOnly: true
+        - mountPath: /var/run/secrets/tokens
+          name: join-sa-token
+          readOnly: true
+        - mountPath: /var/lib/teleport
+          name: data
+      volumes:
+      - name: config
+        configMap:
+          name: teleport-kube-agent
+      - name: auth-token
+        secret:
+          secretName: teleport-kube-agent-join-token
+      - name: join-sa-token
+        projected:
+          sources:
+          - serviceAccountToken:
+              path: join-sa-token
+              expirationSeconds: 600
+              audience: teleport.noa.re
+      - name: data
+        emptyDir: {}

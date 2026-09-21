@@ -1,0 +1,161 @@
+# Source: teleport-cluster
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: teleport-cluster-proxy
+  namespace: teleport-cluster
+  labels:
+    app.kubernetes.io/name: teleport-cluster
+    app.kubernetes.io/instance: teleport-cluster
+    app.kubernetes.io/component: proxy
+    app.kubernetes.io/version: 18.11.0
+    teleport.dev/majorVersion: '18'
+  annotations:
+    noa.re/deploy-id: c98c3d6c66e5a0f3
+spec:
+  replicas: 2
+  minReadySeconds: 15
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: teleport-cluster
+      app.kubernetes.io/instance: teleport-cluster
+      app.kubernetes.io/component: proxy
+  template:
+    metadata:
+      annotations:
+        checksum/config: c50104000eb0aff8e905839e5a149551c6773c76df9d78c7bd47953f7c40c189
+      labels:
+        app.kubernetes.io/name: teleport-cluster
+        app.kubernetes.io/instance: teleport-cluster
+        app.kubernetes.io/component: proxy
+        app.kubernetes.io/version: 18.11.0
+        teleport.dev/majorVersion: '18'
+    spec:
+      topologySpreadConstraints:
+      - maxSkew: 1
+        topologyKey: kubernetes.io/hostname
+        whenUnsatisfiable: ScheduleAnyway
+        labelSelector:
+          matchLabels:
+            app.kubernetes.io/name: teleport-cluster
+            app.kubernetes.io/instance: teleport-cluster
+            app.kubernetes.io/component: proxy
+      - maxSkew: 1
+        topologyKey: topology.kubernetes.io/zone
+        whenUnsatisfiable: ScheduleAnyway
+        labelSelector:
+          matchLabels:
+            app.kubernetes.io/name: teleport-cluster
+            app.kubernetes.io/instance: teleport-cluster
+            app.kubernetes.io/component: proxy
+      affinity:
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+          - labelSelector:
+              matchExpressions:
+              - key: app.kubernetes.io/instance
+                operator: In
+                values:
+                - teleport-cluster
+              - key: app.kubernetes.io/component
+                operator: In
+                values:
+                - proxy
+            topologyKey: kubernetes.io/hostname
+      initContainers:
+      - name: wait-auth-update
+        image: public.ecr.aws/gravitational/teleport-distroless:18.11.0
+        command:
+        - teleport
+        - wait
+        - no-resolve
+        - teleport-cluster-auth-v17.teleport-cluster.svc.cluster.local
+      containers:
+      - name: teleport
+        image: public.ecr.aws/gravitational/teleport-distroless:18.11.0
+        imagePullPolicy: IfNotPresent
+        args:
+        - --diag-addr=0.0.0.0:3000
+        ports:
+        - name: tls
+          containerPort: 3080
+          protocol: TCP
+        - name: sshproxy
+          containerPort: 3023
+          protocol: TCP
+        - name: sshtun
+          containerPort: 3024
+          protocol: TCP
+        - name: kube
+          containerPort: 3026
+          protocol: TCP
+        - name: mysql
+          containerPort: 3036
+          protocol: TCP
+        - name: diag
+          containerPort: 3000
+          protocol: TCP
+        livenessProbe:
+          httpGet:
+            path: /healthz
+            port: diag
+          initialDelaySeconds: 5
+          periodSeconds: 5
+          failureThreshold: 6
+          timeoutSeconds: 5
+        readinessProbe:
+          httpGet:
+            path: /readyz
+            port: diag
+          initialDelaySeconds: 5
+          periodSeconds: 5
+          failureThreshold: 12
+          successThreshold: 1
+          timeoutSeconds: 5
+        lifecycle:
+          preStop:
+            exec:
+              command:
+              - teleport
+              - wait
+              - duration
+              - 30s
+        volumeMounts:
+        - mountPath: /etc/teleport-tls
+          name: teleport-tls
+          readOnly: true
+        - mountPath: /etc/teleport
+          name: config
+          readOnly: true
+        - mountPath: /var/lib/teleport
+          name: data
+        - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+          name: proxy-serviceaccount-token
+          readOnly: true
+      automountServiceAccountToken: false
+      volumes:
+      - name: proxy-serviceaccount-token
+        projected:
+          sources:
+          - serviceAccountToken:
+              path: token
+          - configMap:
+              items:
+              - key: ca.crt
+                path: ca.crt
+              name: kube-root-ca.crt
+          - downwardAPI:
+              items:
+              - path: namespace
+                fieldRef:
+                  fieldPath: metadata.namespace
+      - name: teleport-tls
+        secret:
+          secretName: teleport-tls
+      - name: config
+        configMap:
+          name: teleport-cluster-proxy
+      - name: data
+        emptyDir: {}
+      serviceAccountName: teleport-cluster-proxy
+      terminationGracePeriodSeconds: 60
