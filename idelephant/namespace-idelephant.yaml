@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: idelephant
+  annotations:
+    argocd.argoproj.io/sync-options: PruneLast=true
+    noa.re/deploy-id: 3839303896df8b58

@@ -1,0 +1,20 @@
+# Source: id.noa.re
+apiVersion: gateway.envoyproxy.io/v1alpha1
+kind: ClientTrafficPolicy
+metadata:
+  name: id-noa-re
+  namespace: idelephant
+  annotations:
+    noa.re/deploy-id: 3839303896df8b58
+spec:
+  http3: {}
+  targetRefs:
+  - group: gateway.networking.k8s.io
+    kind: Gateway
+    name: id-noa-re
+  tls:
+    ecdhCurves:
+    - X25519MLKEM768
+    - X25519
+    - P-256
+    minVersion: '1.3'

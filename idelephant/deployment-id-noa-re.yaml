@@ -1,0 +1,54 @@
+# Source: id.noa.re
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: id-noa-re
+  labels:
+    app: id-noa-re
+  namespace: idelephant
+  annotations:
+    noa.re/deploy-id: 3839303896df8b58
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: id-noa-re
+  template:
+    metadata:
+      labels:
+        app: id-noa-re
+      annotations:
+        checksum/config: 09332ec988002604668436938754ae699aa7080e64423584323f499dd9235d1f
+    spec:
+      containers:
+      - name: id-noa-re
+        image: null
+        args:
+        - -c
+        - /config/idelephant.toml
+        livenessProbe:
+          httpGet:
+            path: /healthz
+            port: 8080
+        volumeMounts:
+        - name: id-noa-re-config
+          mountPath: /config
+        - name: email-password
+          mountPath: /email-password
+        - name: tokens
+          mountPath: /var/run/secrets/tokens
+          readOnly: true
+      volumes:
+      - name: id-noa-re-config
+        configMap:
+          name: id-noa-re-config
+      - name: email-password
+        secret:
+          secretName: email-password
+      - name: tokens
+        projected:
+          sources:
+          - serviceAccountToken:
+              path: idmouse
+              expirationSeconds: 3600
+              audience: idmouse

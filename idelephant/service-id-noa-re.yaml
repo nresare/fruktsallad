@@ -1,0 +1,15 @@
+# Source: id.noa.re
+apiVersion: v1
+kind: Service
+metadata:
+  name: id-noa-re
+  namespace: idelephant
+  annotations:
+    noa.re/deploy-id: 3839303896df8b58
+spec:
+  selector:
+    app: id-noa-re
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 8080

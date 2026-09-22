@@ -1,0 +1,25 @@
+# Source: id.noa.re
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: id-noa-re-config
+  namespace: idelephant
+  annotations:
+    noa.re/deploy-id: 3839303896df8b58
+data:
+  idelephant.toml: |
+    root_key = "zq.luDCkyil5qf1qCJwm5lnSe97x5mROvXUMfwpOASJ0MgalZTIj"
+
+    origin = "https://id.noa.re"
+
+    [email]
+    sender_email = "noa@resare.com"
+    relay_host = "mail.resare.com"
+    username = "idelephant"
+    password_file = "/email-password/password"
+
+    [persistence]
+    uri = "ws://surrealdb.surrealdb.svc:8000"
+    [persistence.idmouse]
+    url = "http://idmouse.idmouse.svc/token/idelephant"
+    token_path = "/var/run/secrets/tokens/idmouse"

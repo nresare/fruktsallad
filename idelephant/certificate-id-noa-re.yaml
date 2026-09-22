@@ -1,0 +1,18 @@
+# Source: id.noa.re
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: id-noa-re
+  namespace: idelephant
+  annotations:
+    noa.re/deploy-id: 3839303896df8b58
+spec:
+  dnsNames:
+  - id.noa.re
+  issuerRef:
+    name: letsencrypt
+    kind: ClusterIssuer
+  privateKey:
+    algorithm: ECDSA
+    rotationPolicy: Always
+  secretName: id-noa-re-tls
