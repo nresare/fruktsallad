@@ -7,7 +7,7 @@ metadata:
     app: repo-noa-re
   namespace: reposnake
   annotations:
-    noa.re/deploy-id: 45fcf43ca8c0a4fa
+    noa.re/deploy-id: 70fbb76bf74a5394
 spec:
   replicas: 2
   selector:
@@ -18,7 +18,7 @@ spec:
       labels:
         app: repo-noa-re
       annotations:
-        checksum/config: f08f860c0c8f8a996c2ff3dd99a89d19af4f214ca1b4f0c401096f7f50fa9831
+        checksum/config: e5fab4417c7246705bec7d135ec3ada55a92a8f19aad8317548fb2756e09a97c
     spec:
       containers:
       - name: repo-noa-re
