@@ -7,7 +7,7 @@ metadata:
     app: id-noa-re
   namespace: idelephant
   annotations:
-    noa.re/deploy-id: 3839303896df8b58
+    noa.re/deploy-id: aa018d16c74dc1ef
 spec:
   replicas: 1
   selector:
@@ -22,7 +22,7 @@ spec:
     spec:
       containers:
       - name: id-noa-re
-        image: null
+        image: repo.noa.re/idelephant:0.2.3-0e988f9d
         args:
         - -c
         - /config/idelephant.toml
