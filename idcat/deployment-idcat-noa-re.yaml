@@ -1,0 +1,53 @@
+# Source: idcat.noa.re
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: idcat-noa-re
+  labels:
+    app: idcat-noa-re
+  namespace: idcat
+  annotations:
+    noa.re/deploy-id: e18827f79ff691f0
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: idcat-noa-re
+  template:
+    metadata:
+      labels:
+        app: idcat-noa-re
+      annotations:
+        checksum/config: 65be50b0b196e2c574ab8b8435c5a66ea39e81e9aeabca9602f7a29a2a1a94bb
+    spec:
+      containers:
+      - name: idcat-noa-re
+        image: public.ecr.aws/portswigger-platform/idcat:934b43e7
+        args:
+        - --debug
+        livenessProbe:
+          httpGet:
+            path: /healthz
+            port: 8080
+        volumeMounts:
+        - name: idcat-noa-re-config
+          mountPath: /config
+        - name: app-keys
+          mountPath: /app-keys
+        - name: tokens
+          mountPath: /var/run/secrets/tokens
+          readOnly: true
+      volumes:
+      - name: idcat-noa-re-config
+        configMap:
+          name: idcat-noa-re-config
+      - name: app-keys
+        secret:
+          secretName: app-keys
+      - name: tokens
+        projected:
+          sources:
+          - serviceAccountToken:
+              path: nats
+              expirationSeconds: 3600
+              audience: nats

@@ -1,0 +1,15 @@
+# Source: relcoord.noa.re
+apiVersion: v1
+kind: Service
+metadata:
+  name: relcoord-noa-re
+  namespace: relcoord
+  annotations:
+    noa.re/deploy-id: e18827f79ff691f0
+spec:
+  selector:
+    app: relcoord-noa-re
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 8080

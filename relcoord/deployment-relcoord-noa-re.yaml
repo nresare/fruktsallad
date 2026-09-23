@@ -1,0 +1,50 @@
+# Source: relcoord.noa.re
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: relcoord-noa-re
+  labels:
+    app: relcoord-noa-re
+  namespace: relcoord
+  annotations:
+    noa.re/deploy-id: e18827f79ff691f0
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: relcoord-noa-re
+  template:
+    metadata:
+      labels:
+        app: relcoord-noa-re
+      annotations:
+        checksum/config: a8adb195d1e5df1d392345f86f63564579d4e1b4c74a4a0cea885756b2b59e50
+    spec:
+      containers:
+      - name: relcoord-noa-re
+        image: public.ecr.aws/portswigger-platform/relcoord:0.2.0-83fb2305
+        livenessProbe:
+          httpGet:
+            path: /healthz
+            port: 8080
+        volumeMounts:
+        - name: relcoord-noa-re-config
+          mountPath: /config
+        - name: tokens
+          mountPath: /var/run/secrets/tokens
+          readOnly: true
+      volumes:
+      - name: relcoord-noa-re-config
+        configMap:
+          name: relcoord-noa-re-config
+      - name: tokens
+        projected:
+          sources:
+          - serviceAccountToken:
+              path: idmouse
+              expirationSeconds: 3600
+              audience: idmouse
+          - serviceAccountToken:
+              path: idcat.noa.re
+              expirationSeconds: 3600
+              audience: idcat.noa.re

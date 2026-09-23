@@ -1,0 +1,20 @@
+# Source: relcoord.noa.re
+apiVersion: gateway.networking.k8s.io/v1
+kind: Gateway
+metadata:
+  name: relcoord-noa-re
+  namespace: relcoord
+  annotations:
+    noa.re/deploy-id: e18827f79ff691f0
+spec:
+  gatewayClassName: eg
+  listeners:
+  - name: relcoord-noa-re
+    protocol: HTTPS
+    hostname: relcoord.noa.re
+    port: 443
+    tls:
+      certificateRefs:
+      - name: relcoord-noa-re-tls
+        group: ''
+        kind: Secret

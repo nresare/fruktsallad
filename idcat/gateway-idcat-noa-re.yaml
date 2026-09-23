@@ -1,0 +1,20 @@
+# Source: idcat.noa.re
+apiVersion: gateway.networking.k8s.io/v1
+kind: Gateway
+metadata:
+  name: idcat-noa-re
+  namespace: idcat
+  annotations:
+    noa.re/deploy-id: e18827f79ff691f0
+spec:
+  gatewayClassName: eg
+  listeners:
+  - name: idcat-noa-re
+    protocol: HTTPS
+    hostname: idcat.noa.re
+    port: 443
+    tls:
+      certificateRefs:
+      - name: idcat-noa-re-tls
+        group: ''
+        kind: Secret

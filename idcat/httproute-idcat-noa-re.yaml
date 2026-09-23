@@ -1,0 +1,26 @@
+# Source: idcat.noa.re
+apiVersion: gateway.networking.k8s.io/v1
+kind: HTTPRoute
+metadata:
+  name: idcat-noa-re
+  namespace: idcat
+  annotations:
+    noa.re/deploy-id: e18827f79ff691f0
+spec:
+  parentRefs:
+  - name: idcat-noa-re
+    group: gateway.networking.k8s.io
+    kind: Gateway
+  hostnames:
+  - idcat.noa.re
+  rules:
+  - backendRefs:
+    - name: idcat-noa-re
+      port: 80
+      group: ''
+      kind: Service
+      weight: 1
+    matches:
+    - path:
+        type: PathPrefix
+        value: /
