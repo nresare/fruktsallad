@@ -7,7 +7,7 @@ metadata:
     app: id-noa-re
   namespace: idelephant
   annotations:
-    noa.re/deploy-id: 371dd1d82ab354a4
+    noa.re/deploy-id: a0ee99fb57e0dde0
 spec:
   replicas: 1
   selector:
@@ -18,7 +18,7 @@ spec:
       labels:
         app: id-noa-re
       annotations:
-        checksum/config: 09332ec988002604668436938754ae699aa7080e64423584323f499dd9235d1f
+        checksum/config: b9fe14bd70ced5037feb30fa7a97115301e8c93000b0e6704f22dc0f5ecdd85e
     spec:
       containers:
       - name: id-noa-re
