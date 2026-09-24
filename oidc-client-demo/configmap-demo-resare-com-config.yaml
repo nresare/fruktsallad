@@ -1,0 +1,20 @@
+# Source: demo.resare.com
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: demo-resare-com-config
+  namespace: oidc-client-demo
+  annotations:
+    noa.re/deploy-id: dc003dfbf789b829
+data:
+  config.toml: |
+    # Application configuration for oidc-client-demo
+
+    [app]
+    secret_key_path = "/random-secrets/session-key"
+    base_url = "https://demo.resare.com"
+
+    [oidc]
+    issuer = "https://id.noa.re"
+    client_id = "oidc-client-demo"
+    scopes = ["openid", "profile", "email"]

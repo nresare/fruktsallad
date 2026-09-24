@@ -1,0 +1,44 @@
+# Source: demo.resare.com
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: demo-resare-com
+  labels:
+    app: demo-resare-com
+  namespace: oidc-client-demo
+  annotations:
+    noa.re/deploy-id: dc003dfbf789b829
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: demo-resare-com
+  template:
+    metadata:
+      labels:
+        app: demo-resare-com
+      annotations:
+        checksum/config: 82edec44e64efc89224e313198e388ff22651c13d7aebabf7a6144fdbca257f2
+    spec:
+      containers:
+      - name: demo-resare-com
+        image: repo.noa.re/oidc-client-demo:0.1.0-afa3f2d8
+        args:
+        - -c
+        - /config/config.toml
+        livenessProbe:
+          httpGet:
+            path: /healthz
+            port: 8080
+        volumeMounts:
+        - name: demo-resare-com-config
+          mountPath: /config
+        - name: random-secrets
+          mountPath: /random-secrets
+      volumes:
+      - name: demo-resare-com-config
+        configMap:
+          name: demo-resare-com-config
+      - name: random-secrets
+        secret:
+          secretName: demo-resare-com
