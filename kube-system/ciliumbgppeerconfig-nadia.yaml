@@ -1,0 +1,20 @@
+# Source: cilium
+apiVersion: cilium.io/v2
+kind: CiliumBGPPeerConfig
+metadata:
+  name: nadia
+  namespace: kube-system
+  annotations:
+    noa.re/deploy-id: 8603bdb910f37a40
+spec:
+  families:
+  - afi: ipv4
+    safi: unicast
+    advertisements:
+      matchLabels:
+        advertise: fruktsallad-pod-cidrs
+  - afi: ipv6
+    safi: unicast
+    advertisements:
+      matchLabels:
+        advertise: fruktsallad-pod-cidrs

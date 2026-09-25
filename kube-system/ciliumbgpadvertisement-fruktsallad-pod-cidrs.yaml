@@ -1,0 +1,13 @@
+# Source: cilium
+apiVersion: cilium.io/v2
+kind: CiliumBGPAdvertisement
+metadata:
+  name: fruktsallad-pod-cidrs
+  labels:
+    advertise: fruktsallad-pod-cidrs
+  namespace: kube-system
+  annotations:
+    noa.re/deploy-id: 8603bdb910f37a40
+spec:
+  advertisements:
+  - advertisementType: PodCIDR

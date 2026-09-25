@@ -1,0 +1,19 @@
+# Source: cilium
+apiVersion: cilium.io/v2
+kind: CiliumBGPClusterConfig
+metadata:
+  name: fruktsallad
+  namespace: kube-system
+  annotations:
+    noa.re/deploy-id: 8603bdb910f37a40
+spec:
+  nodeSelector: {}
+  bgpInstances:
+  - name: fruktsallad
+    localASN: 64513
+    peers:
+    - name: nadia
+      peerASN: 64512
+      peerAddress: 192.168.168.1
+      peerConfigRef:
+        name: nadia
