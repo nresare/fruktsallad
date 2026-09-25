@@ -5,8 +5,9 @@ metadata:
   name: nadia
   namespace: kube-system
   annotations:
-    noa.re/deploy-id: 8603bdb910f37a40
+    noa.re/deploy-id: 04b84b57e0c2d22e
 spec:
+  authSecretRef: nadia-bgp-auth
   families:
   - afi: ipv4
     safi: unicast
