@@ -2,18 +2,13 @@
 apiVersion: cilium.io/v2
 kind: CiliumBGPPeerConfig
 metadata:
-  name: nadia
+  name: nadia-ipv6
   namespace: kube-system
   annotations:
-    noa.re/deploy-id: 04b84b57e0c2d22e
+    noa.re/deploy-id: eac27d93fc83db32
 spec:
   authSecretRef: nadia-bgp-auth
   families:
-  - afi: ipv4
-    safi: unicast
-    advertisements:
-      matchLabels:
-        advertise: fruktsallad-pod-cidrs
   - afi: ipv6
     safi: unicast
     advertisements:
