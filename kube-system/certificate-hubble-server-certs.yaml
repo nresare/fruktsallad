@@ -1,0 +1,26 @@
+# Source: cilium
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: hubble-server-certs
+  namespace: kube-system
+  annotations:
+    noa.re/deploy-id: 1db3ce2cb79879ba
+spec:
+  issuerRef:
+    group: cert-manager.io
+    kind: ClusterIssuer
+    name: cluster-local
+  secretName: hubble-server-certs
+  commonName: '*.default.hubble-grpc.cilium.io'
+  dnsNames:
+  - '*.default.hubble-grpc.cilium.io'
+  duration: 8760h0m0s
+  privateKey:
+    rotationPolicy: Always
+  isCA: false
+  usages:
+  - signing
+  - key encipherment
+  - server auth
+  - client auth
