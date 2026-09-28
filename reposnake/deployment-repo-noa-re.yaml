@@ -7,7 +7,7 @@ metadata:
     app: repo-noa-re
   namespace: reposnake
   annotations:
-    noa.re/deploy-id: 0b55efb7a3d1edc6
+    noa.re/manifest-id: 49bb1bbc856f2cf4
 spec:
   replicas: 2
   selector:

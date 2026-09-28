@@ -5,7 +5,7 @@ metadata:
   name: unifi-backend-ca
   namespace: envoy-gateway-system
   annotations:
-    noa.re/deploy-id: adb18aacd20879bd
+    noa.re/manifest-id: 1591a2fbb97974a3
 data:
   ca.crt: |
     -----BEGIN CERTIFICATE-----

@@ -9,7 +9,7 @@ metadata:
     app.kubernetes.io/instance: rook
     app.kubernetes.io/version: v1.0.4
   annotations:
-    noa.re/deploy-id: ea4539c613483289
+    noa.re/manifest-id: bc4de0873d7365af
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: Role

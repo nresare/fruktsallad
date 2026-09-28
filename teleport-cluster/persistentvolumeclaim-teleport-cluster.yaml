@@ -11,7 +11,7 @@ metadata:
     app.kubernetes.io/version: 18.11.0
     teleport.dev/majorVersion: '18'
   annotations:
-    noa.re/deploy-id: 948e299904c493ff
+    noa.re/manifest-id: 8e34f4f0b3b4e8ca
 spec:
   accessModes:
   - ReadWriteOnce

@@ -9,7 +9,7 @@ metadata:
     app.kubernetes.io/instance: kubelet-csr-approver
     app.kubernetes.io/version: v1.2.15
   annotations:
-    noa.re/deploy-id: ebca94d31b0b2503
+    noa.re/manifest-id: 12754a89f8754c43
 spec:
   replicas: 2
   selector:

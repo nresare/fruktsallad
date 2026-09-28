@@ -5,7 +5,7 @@ metadata:
   name: noa-re-extra
   namespace: web
   annotations:
-    noa.re/deploy-id: b720b21606ad7431
+    noa.re/manifest-id: ea0962f29add4ce6
 spec:
   dnsNames:
   - nadia.resare.com

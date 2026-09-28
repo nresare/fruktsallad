@@ -5,7 +5,7 @@ metadata:
   name: teleport-cluster
   annotations:
     noa-was-here: yup
-    noa.re/deploy-id: c98c3d6c66e5a0f3
+    noa.re/manifest-id: 8c27b7879d9818f4
   namespace: teleport-cluster
 spec:
   gatewayClassName: eg

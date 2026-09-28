@@ -5,6 +5,6 @@ metadata:
   name: cluster-local-selfsigned
   namespace: cert-manager
   annotations:
-    noa.re/deploy-id: 964b51b71783fe70
+    noa.re/manifest-id: 3af60a71cb9cd01f
 spec:
   selfSigned: {}

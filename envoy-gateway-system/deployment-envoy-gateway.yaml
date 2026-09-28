@@ -10,7 +10,7 @@ metadata:
     app.kubernetes.io/instance: envoy-gateway
     app.kubernetes.io/version: v1.9.1
   annotations:
-    noa.re/deploy-id: adb18aacd20879bd
+    noa.re/manifest-id: 3ced59a21ee0b61f
 spec:
   replicas: 1
   selector:

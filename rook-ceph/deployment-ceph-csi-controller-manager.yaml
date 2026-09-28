@@ -10,7 +10,7 @@ metadata:
     app.kubernetes.io/instance: rook
     app.kubernetes.io/version: v1.0.4
   annotations:
-    noa.re/deploy-id: ea4539c613483289
+    noa.re/manifest-id: 61e6f685d87a1f0f
 spec:
   replicas: 1
   selector:

@@ -4,4 +4,4 @@ metadata:
   name: rook-ceph
   annotations:
     argocd.argoproj.io/sync-options: PruneLast=true
-    noa.re/deploy-id: ea4539c613483289
+    noa.re/manifest-id: c15f982ccd32fd25

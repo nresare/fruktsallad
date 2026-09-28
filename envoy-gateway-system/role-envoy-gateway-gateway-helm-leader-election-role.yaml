@@ -9,7 +9,7 @@ metadata:
     app.kubernetes.io/instance: envoy-gateway
     app.kubernetes.io/version: v1.9.1
   annotations:
-    noa.re/deploy-id: adb18aacd20879bd
+    noa.re/manifest-id: 5f66e73ffdf6a615
 rules:
 - apiGroups:
   - ''

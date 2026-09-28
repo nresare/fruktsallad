@@ -12,7 +12,7 @@ metadata:
     app.kubernetes.io/part-of: rook-ceph-operator
     app.kubernetes.io/created-by: helm
   annotations:
-    noa.re/deploy-id: ea4539c613483289
+    noa.re/manifest-id: 32258a5d14317aea
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole

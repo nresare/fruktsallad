@@ -10,7 +10,7 @@ metadata:
     app.kubernetes.io/version: v0.25.0
   annotations:
     cert-manager.io/inject-ca-from-secret: cert-manager/trust-manager-tls
-    noa.re/deploy-id: 964b51b71783fe70
+    noa.re/manifest-id: 73e96809479047e9
 webhooks:
 - name: trust.cert-manager.io
   rules:

@@ -10,7 +10,7 @@ metadata:
     app.kubernetes.io/version: 18.11.0
     teleport.dev/majorVersion: '18'
   annotations:
-    noa.re/deploy-id: c98c3d6c66e5a0f3
+    noa.re/manifest-id: d95c00b5fc5ed7fd
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole

@@ -5,7 +5,7 @@ metadata:
   name: acme-dns
   namespace: acme-dns
   annotations:
-    noa.re/deploy-id: 6dd7558df49c1956
+    noa.re/manifest-id: bd3412a586f154da
 spec:
   accessModes:
   - ReadWriteOnce

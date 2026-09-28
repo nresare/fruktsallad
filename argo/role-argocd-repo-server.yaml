@@ -11,5 +11,5 @@ metadata:
     app.kubernetes.io/part-of: argocd
     app.kubernetes.io/version: v3.5.2
   annotations:
-    noa.re/deploy-id: 7e7ae041eb0e1fd6
+    noa.re/manifest-id: b29b40802f1553bc
 rules: null

@@ -10,7 +10,7 @@ metadata:
     app.kubernetes.io/part-of: grafana-operator
     app.kubernetes.io/component: operator
   annotations:
-    noa.re/deploy-id: 9367e1b63d6c7fc9
+    noa.re/manifest-id: 7ac4bb0521521c04
 rules:
 - apiGroups:
   - ''

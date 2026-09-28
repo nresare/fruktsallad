@@ -5,7 +5,7 @@ metadata:
   name: rook-ceph.rbd.csi.ceph.com
   namespace: rook-ceph
   annotations:
-    noa.re/deploy-id: ea4539c613483289
+    noa.re/manifest-id: c57a33f2945b625b
 spec:
   log:
     verbosity: 0

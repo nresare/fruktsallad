@@ -4,7 +4,7 @@ kind: ClusterRoleBinding
 metadata:
   name: kubelet-csr-approver
   annotations:
-    noa.re/deploy-id: ebca94d31b0b2503
+    noa.re/manifest-id: 82c7b3b02cfc3329
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole

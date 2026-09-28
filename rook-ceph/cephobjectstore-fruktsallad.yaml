@@ -5,7 +5,7 @@ metadata:
   name: fruktsallad
   namespace: rook-ceph
   annotations:
-    noa.re/deploy-id: a196fea3a245a26f
+    noa.re/manifest-id: bf5ebfa8c80b0d12
 spec:
   metadataPool:
     failureDomain: host

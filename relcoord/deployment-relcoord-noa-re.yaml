@@ -7,7 +7,7 @@ metadata:
     app: relcoord-noa-re
   namespace: relcoord
   annotations:
-    noa.re/deploy-id: 06318e0ae3b9deca
+    noa.re/manifest-id: b3d1dabdf4d29c24
 spec:
   replicas: 2
   selector:

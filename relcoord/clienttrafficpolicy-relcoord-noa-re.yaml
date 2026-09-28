@@ -5,7 +5,7 @@ metadata:
   name: relcoord-noa-re
   namespace: relcoord
   annotations:
-    noa.re/deploy-id: e18827f79ff691f0
+    noa.re/manifest-id: 6ee50c656c4855ba
 spec:
   http3: {}
   targetRefs:

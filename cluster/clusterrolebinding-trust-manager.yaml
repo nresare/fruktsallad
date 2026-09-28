@@ -8,7 +8,7 @@ metadata:
     app.kubernetes.io/version: v0.25.0
   name: trust-manager
   annotations:
-    noa.re/deploy-id: 964b51b71783fe70
+    noa.re/manifest-id: 4c9720289ea38438
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole

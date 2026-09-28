@@ -11,7 +11,7 @@ metadata:
   name: argocd-repo-server
   namespace: argo
   annotations:
-    noa.re/deploy-id: 7e7ae041eb0e1fd6
+    noa.re/manifest-id: b47c6104953fc9ef
 spec:
   ingress:
   - from:

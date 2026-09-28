@@ -4,4 +4,4 @@ metadata:
   name: reposnake
   annotations:
     argocd.argoproj.io/sync-options: PruneLast=true
-    noa.re/deploy-id: 4106059d76fb24bf
+    noa.re/manifest-id: 1c8951e0057233ae

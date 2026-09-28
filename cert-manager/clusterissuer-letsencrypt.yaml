@@ -5,7 +5,7 @@ metadata:
   name: letsencrypt
   namespace: cert-manager
   annotations:
-    noa.re/deploy-id: 964b51b71783fe70
+    noa.re/manifest-id: b3dce14fc52a141f
 spec:
   acme:
     email: noa@resare.com

@@ -4,7 +4,7 @@ kind: ClusterRole
 metadata:
   name: rook-ceph-rbd-csi-ceph-com-ctrlplugin-cr
   annotations:
-    noa.re/deploy-id: ea4539c613483289
+    noa.re/manifest-id: 73e847db3378e528
 rules:
 - apiGroups:
   - ''

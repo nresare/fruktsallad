@@ -5,7 +5,7 @@ metadata:
   name: rook-ceph-block
   annotations:
     storageclass.kubernetes.io/is-default-class: 'true'
-    noa.re/deploy-id: bd5240c6e71459c8
+    noa.re/manifest-id: 8dd524529f562fae
 provisioner: rook-ceph.rbd.csi.ceph.com
 parameters:
   clusterID: rook-ceph

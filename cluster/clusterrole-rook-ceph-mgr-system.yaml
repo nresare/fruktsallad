@@ -12,7 +12,7 @@ metadata:
     app.kubernetes.io/part-of: rook-ceph-operator
     app.kubernetes.io/created-by: helm
   annotations:
-    noa.re/deploy-id: ea4539c613483289
+    noa.re/manifest-id: ec85a2259be7632a
 rules:
 - apiGroups:
   - ''

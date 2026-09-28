@@ -11,7 +11,7 @@ metadata:
     app.kubernetes.io/part-of: argocd
     app.kubernetes.io/version: v3.5.2
   annotations:
-    noa.re/deploy-id: 1db3ce2cb79879ba
+    noa.re/manifest-id: 1ff339a5b93df422
 data:
   admin.enabled: 'true'
   application.instanceLabelKey: argocd.argoproj.io/instance

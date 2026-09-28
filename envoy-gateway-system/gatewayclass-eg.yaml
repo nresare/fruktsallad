@@ -5,7 +5,7 @@ metadata:
   name: eg
   namespace: envoy-gateway-system
   annotations:
-    noa.re/deploy-id: adb18aacd20879bd
+    noa.re/manifest-id: 39189e9829457de2
 spec:
   controllerName: gateway.envoyproxy.io/gatewayclass-controller
   parametersRef:

@@ -8,7 +8,7 @@ metadata:
     app.kubernetes.io/instance: rook
     app.kubernetes.io/version: v1.0.4
   annotations:
-    noa.re/deploy-id: ea4539c613483289
+    noa.re/manifest-id: 72986f90593a45b9
 rules:
 - apiGroups:
   - csi.ceph.io

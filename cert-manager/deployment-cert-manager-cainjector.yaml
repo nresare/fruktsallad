@@ -11,7 +11,7 @@ metadata:
     app.kubernetes.io/component: cainjector
     app.kubernetes.io/version: v1.21.2
   annotations:
-    noa.re/deploy-id: 964b51b71783fe70
+    noa.re/manifest-id: bab37c9a159d3bc6
 spec:
   replicas: 1
   selector:

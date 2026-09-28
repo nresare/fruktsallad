@@ -5,7 +5,7 @@ metadata:
   name: teleport-cluster
   namespace: teleport-cluster
   annotations:
-    noa.re/deploy-id: c98c3d6c66e5a0f3
+    noa.re/manifest-id: 503007be46dbeef2
 spec:
   parentRefs:
   - name: teleport-cluster

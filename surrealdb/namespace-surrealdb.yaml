@@ -4,4 +4,4 @@ metadata:
   name: surrealdb
   annotations:
     argocd.argoproj.io/sync-options: PruneLast=true
-    noa.re/deploy-id: eb1871c44f60f7de
+    noa.re/manifest-id: a523211db013f641

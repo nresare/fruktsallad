@@ -5,7 +5,7 @@ metadata:
   name: cluster-local
   namespace: cert-manager
   annotations:
-    noa.re/deploy-id: 964b51b71783fe70
+    noa.re/manifest-id: 50e71b5d5db1c591
 spec:
   ca:
     secretName: cluster-local-ca

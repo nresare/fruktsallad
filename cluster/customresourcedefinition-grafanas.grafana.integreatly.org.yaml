@@ -5,7 +5,7 @@ metadata:
   annotations:
     controller-gen.kubebuilder.io/version: v0.21.0
     argocd.argoproj.io/sync-options: ServerSideApply=true
-    noa.re/deploy-id: c4b4371a96faa100
+    noa.re/manifest-id: 2f9705066ed63c51
   name: grafanas.grafana.integreatly.org
 spec:
   group: grafana.integreatly.org

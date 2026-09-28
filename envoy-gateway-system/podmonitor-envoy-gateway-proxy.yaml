@@ -5,7 +5,7 @@ metadata:
   name: envoy-gateway-proxy
   namespace: envoy-gateway-system
   annotations:
-    noa.re/deploy-id: adb18aacd20879bd
+    noa.re/manifest-id: 1ac2ab5bf3fcc01c
 spec:
   selector:
     matchLabels:

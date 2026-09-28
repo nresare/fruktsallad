@@ -5,7 +5,7 @@ metadata:
   name: noa-re
   namespace: web
   annotations:
-    noa.re/deploy-id: b720b21606ad7431
+    noa.re/manifest-id: 12964901e7eeb4af
 spec:
   selector:
     app: noa-re

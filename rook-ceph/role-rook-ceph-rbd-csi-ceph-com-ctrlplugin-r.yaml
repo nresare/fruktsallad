@@ -5,7 +5,7 @@ metadata:
   name: rook-ceph-rbd-csi-ceph-com-ctrlplugin-r
   namespace: rook-ceph
   annotations:
-    noa.re/deploy-id: ea4539c613483289
+    noa.re/manifest-id: 4a5b3f835c9572d6
 rules:
 - apiGroups:
   - coordination.k8s.io

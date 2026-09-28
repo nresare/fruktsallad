@@ -5,7 +5,7 @@ metadata:
   annotations:
     gateway.networking.k8s.io/bundle-version: v1.6.1
     gateway.networking.k8s.io/channel: standard
-    noa.re/deploy-id: adb18aacd20879bd
+    noa.re/manifest-id: 18682dd49447d774
   name: safe-upgrades.gateway.networking.k8s.io
   namespace: envoy-gateway-system
 spec:

@@ -4,7 +4,7 @@ kind: CustomResourceDefinition
 metadata:
   name: objectbucketclaims.objectbucket.io
   annotations:
-    noa.re/deploy-id: ea4539c613483289
+    noa.re/manifest-id: 711b5623dbe86e8c
 spec:
   group: objectbucket.io
   names:

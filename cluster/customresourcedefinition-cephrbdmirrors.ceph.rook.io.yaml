@@ -4,7 +4,7 @@ kind: CustomResourceDefinition
 metadata:
   annotations:
     controller-gen.kubebuilder.io/version: v0.19.0
-    noa.re/deploy-id: ea4539c613483289
+    noa.re/manifest-id: ff16caae3c01c9cb
   name: cephrbdmirrors.ceph.rook.io
 spec:
   group: ceph.rook.io

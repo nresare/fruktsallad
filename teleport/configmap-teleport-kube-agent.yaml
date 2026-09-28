@@ -5,7 +5,7 @@ metadata:
   name: teleport-kube-agent
   namespace: teleport
   annotations:
-    noa.re/deploy-id: b141d0a0798b88fd
+    noa.re/manifest-id: ad5dc548602c9640
 data:
   teleport.yaml: |
     app_service:

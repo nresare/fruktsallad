@@ -5,7 +5,7 @@ metadata:
   name: unifi-noa-re
   namespace: envoy-gateway-system
   annotations:
-    noa.re/deploy-id: adb18aacd20879bd
+    noa.re/manifest-id: fcf5c3570ef8c42a
 spec:
   gatewayClassName: eg
   listeners:

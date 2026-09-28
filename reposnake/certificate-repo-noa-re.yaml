@@ -5,7 +5,7 @@ metadata:
   name: repo-noa-re
   namespace: reposnake
   annotations:
-    noa.re/deploy-id: 4106059d76fb24bf
+    noa.re/manifest-id: 5f75a2ed5d99b943
 spec:
   dnsNames:
   - repo.noa.re

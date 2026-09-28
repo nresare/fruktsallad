@@ -4,7 +4,7 @@ kind: CustomResourceDefinition
 metadata:
   annotations:
     controller-gen.kubebuilder.io/version: v0.19.0
-    noa.re/deploy-id: ea4539c613483289
+    noa.re/manifest-id: 016c1f757af579a0
   name: cephbucketnotifications.ceph.rook.io
 spec:
   group: ceph.rook.io

@@ -5,7 +5,7 @@ metadata:
   name: repo-noa-re-config
   namespace: reposnake
   annotations:
-    noa.re/deploy-id: 70fbb76bf74a5394
+    noa.re/manifest-id: 554d2a23a553ffd4
 data:
   reposnake.toml: |
     bind-address = "0.0.0.0:8080"

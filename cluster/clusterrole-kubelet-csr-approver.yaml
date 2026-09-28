@@ -4,7 +4,7 @@ kind: ClusterRole
 metadata:
   name: kubelet-csr-approver
   annotations:
-    noa.re/deploy-id: ebca94d31b0b2503
+    noa.re/manifest-id: cce8da7065bf3787
 rules:
 - apiGroups:
   - coordination.k8s.io

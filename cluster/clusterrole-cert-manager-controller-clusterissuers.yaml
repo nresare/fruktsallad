@@ -10,7 +10,7 @@ metadata:
     app.kubernetes.io/component: controller
     app.kubernetes.io/version: v1.21.2
   annotations:
-    noa.re/deploy-id: 964b51b71783fe70
+    noa.re/manifest-id: b22e9f37b920f9b7
 rules:
 - apiGroups:
   - cert-manager.io

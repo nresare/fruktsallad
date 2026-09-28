@@ -11,7 +11,7 @@ metadata:
   name: argocd-application-controller
   namespace: argo
   annotations:
-    noa.re/deploy-id: 7e7ae041eb0e1fd6
+    noa.re/manifest-id: 3bdc8b2f6cd05c5c
 spec:
   ingress:
   - from:

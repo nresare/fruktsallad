@@ -9,7 +9,7 @@ metadata:
     rbac.authorization.k8s.io/aggregate-to-cluster-reader: 'true'
   name: trust-manager-cluster-view
   annotations:
-    noa.re/deploy-id: 964b51b71783fe70
+    noa.re/manifest-id: 3856b7035c5c0475
 rules:
 - apiGroups:
   - trust.cert-manager.io

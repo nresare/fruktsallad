@@ -4,7 +4,7 @@ kind: ClusterRole
 metadata:
   name: teleport-kube-agent
   annotations:
-    noa.re/deploy-id: c98c3d6c66e5a0f3
+    noa.re/manifest-id: 11ccb1f7b2298306
 rules:
 - apiGroups:
   - ''

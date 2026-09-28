@@ -5,7 +5,7 @@ metadata:
   name: relcoord-noa-re-config
   namespace: relcoord
   annotations:
-    noa.re/deploy-id: c4b4371a96faa100
+    noa.re/manifest-id: 73c7c2a5b1ac274d
 data:
   relcoord.toml: |
     listen = "0.0.0.0"

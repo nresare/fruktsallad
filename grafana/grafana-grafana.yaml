@@ -5,7 +5,7 @@ metadata:
   name: grafana
   namespace: grafana
   annotations:
-    noa.re/deploy-id: 9367e1b63d6c7fc9
+    noa.re/manifest-id: e74066c7a36c848d
 spec:
   persistentVolumeClaim:
     spec:

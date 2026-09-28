@@ -4,7 +4,7 @@ kind: ClusterRoleBinding
 metadata:
   name: rook-ceph-rbd-csi-ceph-com-nodeplugin-crb
   annotations:
-    noa.re/deploy-id: ea4539c613483289
+    noa.re/manifest-id: e933d6a3845edda2
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole

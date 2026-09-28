@@ -5,7 +5,7 @@ metadata:
   name: relcoord-noa-re
   namespace: relcoord
   annotations:
-    noa.re/deploy-id: e18827f79ff691f0
+    noa.re/manifest-id: c79ab71e72948d00
 spec:
   selector:
     app: relcoord-noa-re

@@ -12,7 +12,7 @@ metadata:
     teleport.dev/majorVersion: '18'
     app: teleport-cluster
   annotations:
-    noa.re/deploy-id: c98c3d6c66e5a0f3
+    noa.re/manifest-id: 0b4afae71bc82a7b
 spec:
   replicas: 1
   strategy:

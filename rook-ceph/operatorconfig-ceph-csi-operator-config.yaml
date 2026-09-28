@@ -5,7 +5,7 @@ metadata:
   name: ceph-csi-operator-config
   namespace: rook-ceph
   annotations:
-    noa.re/deploy-id: e35d63c21070af1d
+    noa.re/manifest-id: 493aeb7e7bc8f933
 spec:
   driverSpecDefaults:
     log:

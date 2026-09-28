@@ -8,7 +8,7 @@ metadata:
     app.kubernetes.io/instance: envoy-gateway
     app.kubernetes.io/version: v1.9.1
   annotations:
-    noa.re/deploy-id: adb18aacd20879bd
+    noa.re/manifest-id: 3951e7a768c6eb9c
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole

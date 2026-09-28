@@ -4,7 +4,7 @@ kind: CustomResourceDefinition
 metadata:
   annotations:
     controller-gen.kubebuilder.io/version: v0.21.0
-    noa.re/deploy-id: 9367e1b63d6c7fc9
+    noa.re/manifest-id: 567d99a7ae66e0de
   name: grafanafolders.grafana.integreatly.org
 spec:
   group: grafana.integreatly.org

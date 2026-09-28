@@ -11,7 +11,7 @@ metadata:
     app.kubernetes.io/part-of: grafana-operator
     app.kubernetes.io/component: operator
   annotations:
-    noa.re/deploy-id: 9367e1b63d6c7fc9
+    noa.re/manifest-id: 451affdf09f01463
 subjects:
 - kind: ServiceAccount
   name: grafana-operator

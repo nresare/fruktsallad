@@ -9,7 +9,7 @@ metadata:
     app.kubernetes.io/part-of: cilium
     app.kubernetes.io/name: hubble-peer
   annotations:
-    noa.re/deploy-id: 2ca554aa1f007f58
+    noa.re/manifest-id: 329fc4bda9f94cdc
 spec:
   selector:
     k8s-app: cilium

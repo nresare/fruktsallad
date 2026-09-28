@@ -11,7 +11,7 @@ metadata:
   name: argocd-repo-server
   namespace: argo
   annotations:
-    noa.re/deploy-id: 7e7ae041eb0e1fd6
+    noa.re/manifest-id: 90feb77b9ac6af0b
 spec:
   ports:
   - name: tcp-repo-server

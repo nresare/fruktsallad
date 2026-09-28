@@ -11,7 +11,7 @@ metadata:
     app.kubernetes.io/part-of: argocd
     app.kubernetes.io/version: v3.5.2
   annotations:
-    noa.re/deploy-id: 1db3ce2cb79879ba
+    noa.re/manifest-id: 7d7560f3012380c8
 spec:
   replicas: 1
   revisionHistoryLimit: 3

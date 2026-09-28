@@ -5,7 +5,7 @@ metadata:
   name: custom-proxy-config
   namespace: envoy-gateway-system
   annotations:
-    noa.re/deploy-id: adb18aacd20879bd
+    noa.re/manifest-id: f92e366cffbbc814
 spec:
   mergeGateways: true
   provider:

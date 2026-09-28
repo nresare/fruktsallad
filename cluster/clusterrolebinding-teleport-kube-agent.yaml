@@ -4,7 +4,7 @@ kind: ClusterRoleBinding
 metadata:
   name: teleport-kube-agent
   annotations:
-    noa.re/deploy-id: c98c3d6c66e5a0f3
+    noa.re/manifest-id: d3751187babd23a2
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole

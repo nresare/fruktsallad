@@ -8,7 +8,7 @@ metadata:
   namespace: web
   annotations:
     hugo: https://github.com/nresare/zq.lu
-    noa.re/deploy-id: b720b21606ad7431
+    noa.re/manifest-id: 3139317e3f666909
 spec:
   replicas: 2
   selector:

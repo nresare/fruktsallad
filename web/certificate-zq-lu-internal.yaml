@@ -5,7 +5,7 @@ metadata:
   name: zq-lu-internal
   namespace: web
   annotations:
-    noa.re/deploy-id: b720b21606ad7431
+    noa.re/manifest-id: 6f498397fbda3276
 spec:
   dnsNames:
   - zq-lu.web.svc

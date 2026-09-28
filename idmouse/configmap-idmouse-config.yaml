@@ -5,7 +5,7 @@ metadata:
   name: idmouse-config
   namespace: idmouse
   annotations:
-    noa.re/deploy-id: 671eaddcdde7d3d1
+    noa.re/manifest-id: e711fbd94e379d83
 data:
   idmouse.toml: |
     bind_address = "0.0.0.0:8080"

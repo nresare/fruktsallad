@@ -4,4 +4,4 @@ metadata:
   name: jwksproxy
   annotations:
     argocd.argoproj.io/sync-options: PruneLast=true
-    noa.re/deploy-id: 72352810274facd5
+    noa.re/manifest-id: 3ffd4d0e5573c362

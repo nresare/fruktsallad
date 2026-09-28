@@ -4,4 +4,4 @@ metadata:
   name: cert-manager
   annotations:
     argocd.argoproj.io/sync-options: PruneLast=true
-    noa.re/deploy-id: 964b51b71783fe70
+    noa.re/manifest-id: 9d6294b71f0bcdb7

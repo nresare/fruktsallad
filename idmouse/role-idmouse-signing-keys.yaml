@@ -5,7 +5,7 @@ metadata:
   name: idmouse-signing-keys
   namespace: idmouse
   annotations:
-    noa.re/deploy-id: f5b39b5ee9a8bcd5
+    noa.re/manifest-id: da5f6e5088605e93
 rules:
 - apiGroups:
   - ''

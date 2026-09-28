@@ -11,7 +11,7 @@ metadata:
     app.kubernetes.io/version: 18.11.0
     teleport.dev/majorVersion: '18'
   annotations:
-    noa.re/deploy-id: c98c3d6c66e5a0f3
+    noa.re/manifest-id: c137c30609515374
 spec:
   secretName: teleport-tls
   dnsNames:

@@ -5,7 +5,7 @@ metadata:
   name: k8s-noa-re
   namespace: jwksproxy
   annotations:
-    noa.re/deploy-id: 72352810274facd5
+    noa.re/manifest-id: 5d27da9a1c89c01f
 spec:
   gatewayClassName: eg
   listeners:

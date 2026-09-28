@@ -5,7 +5,7 @@ metadata:
   name: idcat-noa-re
   namespace: idcat
   annotations:
-    noa.re/deploy-id: e18827f79ff691f0
+    noa.re/manifest-id: aada8e4799a6ad9c
 spec:
   gatewayClassName: eg
   listeners:

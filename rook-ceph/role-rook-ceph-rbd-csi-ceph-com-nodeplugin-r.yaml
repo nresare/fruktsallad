@@ -5,7 +5,7 @@ metadata:
   name: rook-ceph-rbd-csi-ceph-com-nodeplugin-r
   namespace: rook-ceph
   annotations:
-    noa.re/deploy-id: ea4539c613483289
+    noa.re/manifest-id: b3800e73deec7edc
 rules:
 - apiGroups:
   - csiaddons.openshift.io

@@ -10,7 +10,7 @@ metadata:
     app.kubernetes.io/component: controller
     app.kubernetes.io/version: v1.21.2
   annotations:
-    noa.re/deploy-id: 964b51b71783fe70
+    noa.re/manifest-id: 39bbc2d0a0966620
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole

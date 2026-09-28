@@ -5,7 +5,7 @@ metadata:
   name: idcat-noa-re-config
   namespace: idcat
   annotations:
-    noa.re/deploy-id: e18827f79ff691f0
+    noa.re/manifest-id: 8fb72e43cb87cc4f
 data:
   idcat.toml: |
     bind-address = "0.0.0.0:8080"

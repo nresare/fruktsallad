@@ -14,7 +14,7 @@ metadata:
   annotations:
     teleport.dev/name: argo
     teleport.dev/port: http
-    noa.re/deploy-id: 7e7ae041eb0e1fd6
+    noa.re/manifest-id: 78c9fbd7fe2ac9a3
 spec:
   type: ClusterIP
   sessionAffinity: None

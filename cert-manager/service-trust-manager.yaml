@@ -10,7 +10,7 @@ metadata:
     app.kubernetes.io/instance: trust-manager
     app.kubernetes.io/version: v0.25.0
   annotations:
-    noa.re/deploy-id: 964b51b71783fe70
+    noa.re/manifest-id: 0f2d78a039070330
 spec:
   type: ClusterIP
   ports:

@@ -12,7 +12,7 @@ metadata:
     rbac.authorization.k8s.io/aggregate-to-edit: 'true'
     rbac.authorization.k8s.io/aggregate-to-admin: 'true'
   annotations:
-    noa.re/deploy-id: 964b51b71783fe70
+    noa.re/manifest-id: f875d360109333b6
 rules:
 - apiGroups:
   - cert-manager.io

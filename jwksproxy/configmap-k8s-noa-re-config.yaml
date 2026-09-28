@@ -5,7 +5,7 @@ metadata:
   name: k8s-noa-re-config
   namespace: jwksproxy
   annotations:
-    noa.re/deploy-id: 8912c10454c4e72c
+    noa.re/manifest-id: 8220f3a55f03b728
 data:
   jwksproxy.toml: |-
     origin = "k8s.noa.re"

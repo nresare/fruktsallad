@@ -10,7 +10,7 @@ metadata:
     app.kubernetes.io/component: cert-manager
     app.kubernetes.io/version: v1.21.2
   annotations:
-    noa.re/deploy-id: 964b51b71783fe70
+    noa.re/manifest-id: f0ea1d837caa612a
 rules:
 - apiGroups:
   - certificates.k8s.io

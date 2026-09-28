@@ -13,7 +13,7 @@ metadata:
     app.kubernetes.io/part-of: rook-ceph-operator
     app.kubernetes.io/created-by: helm
   annotations:
-    noa.re/deploy-id: ea4539c613483289
+    noa.re/manifest-id: 70029d2f8b072d91
 data:
   ROOK_LOG_LEVEL: INFO
   ROOK_CEPH_COMMANDS_TIMEOUT_SECONDS: '15'

@@ -5,7 +5,7 @@ metadata:
   name: fruktsallad
   namespace: kube-system
   annotations:
-    noa.re/deploy-id: 97d3ce8b79e54b73
+    noa.re/manifest-id: 64191e61881864b6
 spec:
   nodeSelector: {}
   bgpInstances:

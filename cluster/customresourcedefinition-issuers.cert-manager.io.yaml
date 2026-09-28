@@ -10,7 +10,7 @@ metadata:
     app.kubernetes.io/component: crds
     app.kubernetes.io/version: v1.21.2
   annotations:
-    noa.re/deploy-id: 964b51b71783fe70
+    noa.re/manifest-id: bbbc8237a44980c0
 spec:
   group: cert-manager.io
   names:

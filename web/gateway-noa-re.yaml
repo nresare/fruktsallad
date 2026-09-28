@@ -5,7 +5,7 @@ metadata:
   name: noa-re
   namespace: web
   annotations:
-    noa.re/deploy-id: b720b21606ad7431
+    noa.re/manifest-id: eebe057a4d55de13
 spec:
   gatewayClassName: eg
   listeners:

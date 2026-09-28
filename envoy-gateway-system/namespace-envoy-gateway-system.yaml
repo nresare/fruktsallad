@@ -4,4 +4,4 @@ metadata:
   name: envoy-gateway-system
   annotations:
     argocd.argoproj.io/sync-options: PruneLast=true
-    noa.re/deploy-id: adb18aacd20879bd
+    noa.re/manifest-id: acc9cf0bb6bddd1f

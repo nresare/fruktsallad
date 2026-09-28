@@ -5,7 +5,7 @@ metadata:
   name: zq-lu
   namespace: web
   annotations:
-    noa.re/deploy-id: b720b21606ad7431
+    noa.re/manifest-id: 2b7298c0dd5b4bc6
 spec:
   gatewayClassName: eg
   listeners:

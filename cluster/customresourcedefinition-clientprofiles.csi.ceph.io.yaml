@@ -5,7 +5,7 @@ metadata:
   name: clientprofiles.csi.ceph.io
   annotations:
     controller-gen.kubebuilder.io/version: v0.17.2
-    noa.re/deploy-id: ea4539c613483289
+    noa.re/manifest-id: 499f64baa235ce1d
   labels:
     app.kubernetes.io/name: ceph-csi
     app.kubernetes.io/instance: rook

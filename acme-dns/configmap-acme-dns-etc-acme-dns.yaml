@@ -5,7 +5,7 @@ metadata:
   name: acme-dns-etc-acme-dns
   namespace: acme-dns
   annotations:
-    noa.re/deploy-id: 909655b7e03c03f3
+    noa.re/manifest-id: a01474d644a06f3f
 data:
   config.cfg: |
     [general]

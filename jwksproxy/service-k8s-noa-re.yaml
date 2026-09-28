@@ -5,7 +5,7 @@ metadata:
   name: k8s-noa-re
   namespace: jwksproxy
   annotations:
-    noa.re/deploy-id: 72352810274facd5
+    noa.re/manifest-id: 6e4b167e2779abed
 spec:
   selector:
     app: k8s-noa-re

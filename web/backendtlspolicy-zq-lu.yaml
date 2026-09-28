@@ -5,7 +5,7 @@ metadata:
   name: zq-lu
   namespace: web
   annotations:
-    noa.re/deploy-id: b720b21606ad7431
+    noa.re/manifest-id: fe93dd85961b383c
 spec:
   targetRefs:
   - group: ''

@@ -4,7 +4,7 @@ kind: CustomResourceDefinition
 metadata:
   annotations:
     controller-gen.kubebuilder.io/version: v0.11.1
-    noa.re/deploy-id: 9367e1b63d6c7fc9
+    noa.re/manifest-id: 6b8c26741df700d8
   creationTimestamp: null
   name: podmonitors.monitoring.coreos.com
 spec:

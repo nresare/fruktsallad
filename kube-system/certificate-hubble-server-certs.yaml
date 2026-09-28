@@ -5,7 +5,7 @@ metadata:
   name: hubble-server-certs
   namespace: kube-system
   annotations:
-    noa.re/deploy-id: 1db3ce2cb79879ba
+    noa.re/manifest-id: d8d19f0ddcae5be7
 spec:
   issuerRef:
     group: cert-manager.io

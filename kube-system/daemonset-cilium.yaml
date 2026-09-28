@@ -9,7 +9,7 @@ metadata:
     app.kubernetes.io/part-of: cilium
     app.kubernetes.io/name: cilium-agent
   annotations:
-    noa.re/deploy-id: 2ca554aa1f007f58
+    noa.re/manifest-id: 62600d46912a61c4
 spec:
   selector:
     matchLabels:

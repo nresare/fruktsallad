@@ -5,7 +5,7 @@ metadata:
   name: idcat-noa-re
   namespace: idcat
   annotations:
-    noa.re/deploy-id: e18827f79ff691f0
+    noa.re/manifest-id: 1e5994db7689e657
 spec:
   parentRefs:
   - name: idcat-noa-re
