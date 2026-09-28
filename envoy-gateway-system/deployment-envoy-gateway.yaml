@@ -8,9 +8,9 @@ metadata:
     control-plane: envoy-gateway
     app.kubernetes.io/name: gateway-helm
     app.kubernetes.io/instance: envoy-gateway
-    app.kubernetes.io/version: v1.9.1
+    app.kubernetes.io/version: v1.9.2
   annotations:
-    noa.re/manifest-id: 3ced59a21ee0b61f
+    noa.re/manifest-id: 219722bc61875739
 spec:
   replicas: 1
   selector:
@@ -47,9 +47,16 @@ spec:
             fieldRef:
               apiVersion: v1
               fieldPath: metadata.namespace
+        - name: ENVOY_GATEWAY_SERVICE_ACCOUNT
+          valueFrom:
+            fieldRef:
+              apiVersion: v1
+              fieldPath: spec.serviceAccountName
+        - name: ENVOY_GATEWAY_FULLNAME
+          value: envoy-gateway-gateway-helm
         - name: KUBERNETES_CLUSTER_DOMAIN
           value: cluster.local
-        image: docker.io/envoyproxy/gateway:v1.9.1
+        image: docker.io/envoyproxy/gateway:v1.9.2
         imagePullPolicy: IfNotPresent
         startupProbe:
           failureThreshold: 30

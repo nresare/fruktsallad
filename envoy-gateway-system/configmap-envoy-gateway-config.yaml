@@ -7,9 +7,9 @@ metadata:
   labels:
     app.kubernetes.io/name: gateway-helm
     app.kubernetes.io/instance: envoy-gateway
-    app.kubernetes.io/version: v1.9.1
+    app.kubernetes.io/version: v1.9.2
   annotations:
-    noa.re/manifest-id: 0cdcce30d5ff0189
+    noa.re/manifest-id: 6d6f4acce36d53e4
 data:
   envoy-gateway.yaml: |
     apiVersion: gateway.envoyproxy.io/v1alpha1
@@ -25,7 +25,7 @@ data:
       kubernetes:
         rateLimitDeployment:
           container:
-            image: docker.io/envoyproxy/ratelimit:8fe6ea42
+            image: docker.io/envoyproxy/ratelimit:0482748e
           patch:
             type: StrategicMerge
             value:
@@ -36,5 +36,5 @@ data:
                     - imagePullPolicy: IfNotPresent
                       name: envoy-ratelimit
         shutdownManager:
-          image: docker.io/envoyproxy/gateway:v1.9.1
+          image: docker.io/envoyproxy/gateway:v1.9.2
       type: Kubernetes
