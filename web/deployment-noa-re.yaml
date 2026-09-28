@@ -8,7 +8,7 @@ metadata:
   namespace: web
   annotations:
     hugo: https://github.com/nresare/noa.re
-    noa.re/manifest-id: 96695ec811ead165
+    noa.re/manifest-id: 23f46d27942495d4
 spec:
   replicas: 2
   selector:
@@ -63,7 +63,7 @@ spec:
         - mountPath: /src
           name: src
       - name: hugo
-        image: floryn90/hugo:0.165.0
+        image: floryn90/hugo:0.167.0
         volumeMounts:
         - mountPath: /src
           name: src
