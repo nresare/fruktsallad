@@ -6,8 +6,7 @@ metadata:
     api-approved.kubernetes.io: https://github.com/kubernetes-sigs/gateway-api/pull/4530
     gateway.networking.k8s.io/bundle-version: v1.6.1
     gateway.networking.k8s.io/channel: experimental
-    argocd.argoproj.io/sync-options: ServerSideApply=true
-    noa.re/deploy-id: adb18aacd20879bd
+    noa.re/deploy-id: 515be956cad496ae
   name: httproutes.gateway.networking.k8s.io
 spec:
   group: gateway.networking.k8s.io

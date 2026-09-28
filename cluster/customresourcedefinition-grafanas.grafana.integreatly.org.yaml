@@ -4,8 +4,7 @@ kind: CustomResourceDefinition
 metadata:
   annotations:
     controller-gen.kubebuilder.io/version: v0.21.0
-    argocd.argoproj.io/sync-options: ServerSideApply=true
-    noa.re/deploy-id: 9367e1b63d6c7fc9
+    noa.re/deploy-id: 515be956cad496ae
   name: grafanas.grafana.integreatly.org
 spec:
   group: grafana.integreatly.org
