@@ -7,7 +7,7 @@ metadata:
     app: relcoord-noa-re
   namespace: relcoord
   annotations:
-    noa.re/deploy-id: 515be956cad496ae
+    noa.re/deploy-id: 2b99f12ed1c7add6
 spec:
   replicas: 2
   selector:
@@ -22,7 +22,7 @@ spec:
     spec:
       containers:
       - name: relcoord-noa-re
-        image: public.ecr.aws/portswigger-platform/relcoord:0.2.0-83fb2305
+        image: public.ecr.aws/portswigger-platform/relcoord:0.2.0-ea962458
         livenessProbe:
           httpGet:
             path: /healthz
