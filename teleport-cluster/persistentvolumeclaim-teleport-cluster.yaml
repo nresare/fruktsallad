@@ -8,10 +8,10 @@ metadata:
     app.kubernetes.io/name: teleport-cluster
     app.kubernetes.io/instance: teleport-cluster
     app.kubernetes.io/component: auth
-    app.kubernetes.io/version: 18.11.0
+    app.kubernetes.io/version: 18.11.2
     teleport.dev/majorVersion: '18'
   annotations:
-    noa.re/manifest-id: 8e34f4f0b3b4e8ca
+    noa.re/manifest-id: 7d350de40d2b287c
 spec:
   accessModes:
   - ReadWriteOnce
