@@ -9,9 +9,9 @@ metadata:
     app.kubernetes.io/instance: argocd
     app.kubernetes.io/component: redis
     app.kubernetes.io/part-of: argocd
-    app.kubernetes.io/version: v3.5.2
+    app.kubernetes.io/version: v3.5.3
   annotations:
-    noa.re/manifest-id: 49545974c7b3ca20
+    noa.re/manifest-id: d1969b765d8b81f5
 spec:
   replicas: 1
   revisionHistoryLimit: 3
@@ -25,7 +25,7 @@ spec:
         app.kubernetes.io/instance: argocd
         app.kubernetes.io/component: redis
         app.kubernetes.io/part-of: argocd
-        app.kubernetes.io/version: v3.5.2
+        app.kubernetes.io/version: v3.5.3
     spec:
       securityContext:
         runAsNonRoot: true

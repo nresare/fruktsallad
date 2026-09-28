@@ -9,9 +9,9 @@ metadata:
     app.kubernetes.io/instance: argocd
     app.kubernetes.io/component: applicationset-controller
     app.kubernetes.io/part-of: argocd
-    app.kubernetes.io/version: v3.5.2
+    app.kubernetes.io/version: v3.5.3
   annotations:
-    noa.re/manifest-id: bbf8fbf281ea0e79
+    noa.re/manifest-id: 5c0605774ab8652c
 spec:
   replicas: 1
   revisionHistoryLimit: 3
@@ -28,14 +28,14 @@ spec:
         app.kubernetes.io/instance: argocd
         app.kubernetes.io/component: applicationset-controller
         app.kubernetes.io/part-of: argocd
-        app.kubernetes.io/version: v3.5.2
+        app.kubernetes.io/version: v3.5.3
     spec:
       terminationGracePeriodSeconds: 30
       serviceAccountName: argocd-applicationset-controller
       automountServiceAccountToken: true
       containers:
       - name: applicationset-controller
-        image: quay.io/argoproj/argocd:v3.5.2
+        image: quay.io/argoproj/argocd:v3.5.3
         imagePullPolicy: IfNotPresent
         args:
         - /usr/local/bin/argocd-applicationset-controller
@@ -47,6 +47,12 @@ spec:
           valueFrom:
             fieldRef:
               fieldPath: metadata.namespace
+        - name: GRPC_ENABLE_TXT_SERVICE_CONFIG
+          valueFrom:
+            configMapKeyRef:
+              key: applicationsetcontroller.grpc.enable.txt.service.config
+              name: argocd-cmd-params-cm
+              optional: true
         - name: ARGOCD_APPLICATIONSET_CONTROLLER_GLOBAL_PRESERVED_ANNOTATIONS
           valueFrom:
             configMapKeyRef:

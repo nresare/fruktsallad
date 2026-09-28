@@ -9,9 +9,9 @@ metadata:
     app.kubernetes.io/instance: argocd
     app.kubernetes.io/component: server
     app.kubernetes.io/part-of: argocd
-    app.kubernetes.io/version: v3.5.2
+    app.kubernetes.io/version: v3.5.3
   annotations:
-    noa.re/manifest-id: 3ce0cc2372135e13
+    noa.re/manifest-id: f557e0e00f58ebaa
 rules:
 - apiGroups:
   - ''
