@@ -11,12 +11,22 @@ metadata:
     app.kubernetes.io/part-of: argocd
     app.kubernetes.io/version: v3.5.2
   annotations:
-    noa.re/deploy-id: 7e7ae041eb0e1fd6
+    noa.re/deploy-id: 8aaf7c4e1dba553d
 data:
   admin.enabled: 'true'
   application.instanceLabelKey: argocd.argoproj.io/instance
   application.sync.impersonation.enabled: 'false'
   exec.enabled: 'false'
+  oidc.config: |
+    name: idelephant
+    issuer: https://id.noa.re
+    clientId: argo-fruktsallad
+    clientSecret: ignored
+    enablePKCEAuthentication: true
+    requestedScopes:
+     - openid
+     - profile
+     - email
   resource.customizations.ignoreResourceUpdates.ConfigMap: |
     jqPathExpressions:
       # Ignore the cluster-autoscaler status
