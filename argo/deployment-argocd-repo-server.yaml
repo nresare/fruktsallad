@@ -11,7 +11,7 @@ metadata:
     app.kubernetes.io/part-of: argocd
     app.kubernetes.io/version: v3.5.3
   annotations:
-    noa.re/manifest-id: b88342d11b9bea1b
+    noa.re/manifest-id: fb4d8d5d9d58b281
 spec:
   replicas: 1
   revisionHistoryLimit: 3
@@ -23,7 +23,7 @@ spec:
     metadata:
       annotations:
         checksum/cmd-params: 9c85abf9c554c08c61658f021916801447d343c878fdc2f829db80203e936763
-        checksum/cm: dc464a85355a2699be89d6da021b2ef0cf3a4be419add87aa74f3d7119ce6493
+        checksum/cm: 2906da76bc661664f2c05299973b700eaed4a35d2cc59e5d892df27b909315bb
       labels:
         app.kubernetes.io/name: argocd-repo-server
         app.kubernetes.io/instance: argocd

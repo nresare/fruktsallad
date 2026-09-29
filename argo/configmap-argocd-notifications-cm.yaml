@@ -11,7 +11,7 @@ metadata:
     app.kubernetes.io/part-of: argocd
     app.kubernetes.io/version: v3.5.3
   annotations:
-    noa.re/manifest-id: 8dac961587e19819
+    noa.re/manifest-id: 9616eaf568d1f7e3
 data:
   context: |
-    argocdUrl: https://argocd.example.com
+    argocdUrl: https://argo.teleport.noa.re

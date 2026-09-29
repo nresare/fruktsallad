@@ -11,14 +11,14 @@ metadata:
     app.kubernetes.io/part-of: argocd
     app.kubernetes.io/version: v3.5.3
   annotations:
-    noa.re/manifest-id: 92d2c562210bd4fa
+    noa.re/manifest-id: d8b7f77af2a55f61
 data:
   admin.enabled: 'true'
   application.instanceLabelKey: argocd.argoproj.io/instance
   application.sync.impersonation.enabled: 'false'
   exec.enabled: 'false'
   oidc.config: |
-    name: idelephant
+    name: idElephant
     issuer: https://id.noa.re
     clientId: argo-fruktsallad
     clientSecret: ignored
@@ -120,4 +120,4 @@ data:
   timeout.hard.reconciliation: 0s
   timeout.reconciliation: 120s
   timeout.reconciliation.jitter: 60s
-  url: https://argocd.example.com
+  url: https://argo.teleport.noa.re
