@@ -5,7 +5,7 @@ metadata:
   name: demo-resare-com
   namespace: oidc-client-demo
   annotations:
-    noa.re/deploy-id: dc003dfbf789b829
+    noa.re/manifest-id: 549778ba3a2ec56e
 spec:
   gatewayClassName: eg
   listeners:

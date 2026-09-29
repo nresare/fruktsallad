@@ -5,7 +5,7 @@ metadata:
   name: demo-resare-com
   namespace: oidc-client-demo
   annotations:
-    noa.re/deploy-id: dc003dfbf789b829
+    noa.re/manifest-id: 980bc2c6b44679e9
 spec:
   dnsNames:
   - demo.resare.com

@@ -4,4 +4,4 @@ metadata:
   name: oidc-client-demo
   annotations:
     argocd.argoproj.io/sync-options: PruneLast=true
-    noa.re/deploy-id: dc003dfbf789b829
+    noa.re/manifest-id: e7903a2861ca53bd

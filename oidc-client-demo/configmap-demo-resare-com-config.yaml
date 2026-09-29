@@ -5,7 +5,7 @@ metadata:
   name: demo-resare-com-config
   namespace: oidc-client-demo
   annotations:
-    noa.re/deploy-id: dc003dfbf789b829
+    noa.re/manifest-id: 2bc3af3159cb0bce
 data:
   config.toml: |
     # Application configuration for oidc-client-demo
