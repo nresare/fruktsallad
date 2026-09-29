@@ -7,7 +7,7 @@ metadata:
     app: demo-resare-com
   namespace: oidc-client-demo
   annotations:
-    noa.re/manifest-id: cb24a267aa7f391d
+    noa.re/manifest-id: 267379e8d56c9f4b
 spec:
   replicas: 2
   selector:
@@ -18,7 +18,7 @@ spec:
       labels:
         app: demo-resare-com
       annotations:
-        checksum/config: 82edec44e64efc89224e313198e388ff22651c13d7aebabf7a6144fdbca257f2
+        checksum/config: 8ca3e05616423f1c24583e0ad290dc47bfca23865a59a8a0e174301345018170
     spec:
       containers:
       - name: demo-resare-com
@@ -33,12 +33,17 @@ spec:
         volumeMounts:
         - name: demo-resare-com-config
           mountPath: /config
+        - name: secret
+          mountPath: /secret
         - name: random-secrets
           mountPath: /random-secrets
       volumes:
       - name: demo-resare-com-config
         configMap:
           name: demo-resare-com-config
+      - name: secret
+        secret:
+          secretName: secret
       - name: random-secrets
         secret:
           secretName: demo-resare-com
