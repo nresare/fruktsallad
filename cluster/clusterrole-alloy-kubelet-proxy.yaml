@@ -1,0 +1,14 @@
+# Source: alloy
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: alloy-kubelet-proxy
+  annotations:
+    noa.re/manifest-id: a8ab378634ed72dc
+rules:
+- apiGroups:
+  - ''
+  resources:
+  - nodes/proxy
+  verbs:
+  - get

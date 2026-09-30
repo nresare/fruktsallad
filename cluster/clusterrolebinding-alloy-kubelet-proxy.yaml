@@ -1,0 +1,15 @@
+# Source: alloy
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: alloy-kubelet-proxy
+  annotations:
+    noa.re/manifest-id: 85ca9c2d78c73503
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: alloy-kubelet-proxy
+subjects:
+- kind: ServiceAccount
+  name: alloy
+  namespace: alloy

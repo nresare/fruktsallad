@@ -1,0 +1,21 @@
+# Source: alloy
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: alloy-log-forwarder
+  labels:
+    app.kubernetes.io/name: alloy
+    app.kubernetes.io/instance: alloy-log-forwarder
+    app.kubernetes.io/version: v1.19.2
+    app.kubernetes.io/part-of: alloy
+    app.kubernetes.io/component: rbac
+  annotations:
+    noa.re/manifest-id: 2dbe68629e4ae0b0
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: alloy-log-forwarder
+subjects:
+- kind: ServiceAccount
+  name: alloy-log-forwarder
+  namespace: alloy

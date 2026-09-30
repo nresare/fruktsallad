@@ -1,0 +1,25 @@
+# Source: alloy
+apiVersion: v1
+kind: Service
+metadata:
+  name: alloy
+  namespace: alloy
+  labels:
+    app.kubernetes.io/name: alloy
+    app.kubernetes.io/instance: alloy
+    app.kubernetes.io/version: v1.19.2
+    app.kubernetes.io/part-of: alloy
+    app.kubernetes.io/component: networking
+  annotations:
+    noa.re/manifest-id: c1be5c47fd02ecda
+spec:
+  type: ClusterIP
+  selector:
+    app.kubernetes.io/name: alloy
+    app.kubernetes.io/instance: alloy
+  internalTrafficPolicy: Cluster
+  ports:
+  - name: http-metrics
+    port: 12345
+    targetPort: 12345
+    protocol: TCP
