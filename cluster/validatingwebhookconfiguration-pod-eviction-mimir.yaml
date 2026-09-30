@@ -1,0 +1,39 @@
+# Source: mimir
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingWebhookConfiguration
+metadata:
+  name: pod-eviction-mimir
+  labels:
+    grafana.com/inject-rollout-operator-ca: 'true'
+    grafana.com/namespace: mimir
+    app.kubernetes.io/name: rollout-operator
+    app.kubernetes.io/instance: mimir
+    app.kubernetes.io/version: v0.38.1
+  annotations:
+    noa.re/manifest-id: 05ca4992d2e7e4f7
+webhooks:
+- name: pod-eviction-mimir.grafana.com
+  clientConfig:
+    service:
+      namespace: mimir
+      name: mimir-rollout-operator
+      path: /admission/pod-eviction
+      port: 443
+  rules:
+  - operations:
+    - CREATE
+    apiGroups:
+    - ''
+    apiVersions:
+    - v1
+    resources:
+    - pods/eviction
+    scope: Namespaced
+  admissionReviewVersions:
+  - v1
+  namespaceSelector:
+    matchLabels:
+      kubernetes.io/metadata.name: mimir
+  sideEffects: None
+  timeoutSeconds: 10
+  failurePolicy: Fail

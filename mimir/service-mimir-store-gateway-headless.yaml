@@ -1,0 +1,31 @@
+# Source: mimir
+apiVersion: v1
+kind: Service
+metadata:
+  name: mimir-store-gateway-headless
+  labels:
+    app.kubernetes.io/name: mimir
+    app.kubernetes.io/instance: mimir
+    app.kubernetes.io/component: store-gateway
+    app.kubernetes.io/part-of: memberlist
+    app.kubernetes.io/version: 3.2.0
+    prometheus.io/service-monitor: 'false'
+  namespace: mimir
+  annotations:
+    noa.re/manifest-id: 818072fe80ed898d
+spec:
+  type: ClusterIP
+  clusterIP: None
+  ports:
+  - port: 8080
+    protocol: TCP
+    name: http-metrics
+    targetPort: http-metrics
+  - port: 9095
+    protocol: TCP
+    name: grpc
+    targetPort: grpc
+  selector:
+    app.kubernetes.io/name: mimir
+    app.kubernetes.io/instance: mimir
+    app.kubernetes.io/component: store-gateway

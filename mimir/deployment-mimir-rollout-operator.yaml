@@ -1,0 +1,74 @@
+# Source: mimir
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mimir-rollout-operator
+  namespace: mimir
+  labels:
+    app.kubernetes.io/name: rollout-operator
+    app.kubernetes.io/instance: mimir
+    app.kubernetes.io/version: v0.38.1
+  annotations:
+    noa.re/manifest-id: 8e55096d988cf194
+spec:
+  replicas: 1
+  revisionHistoryLimit: 10
+  minReadySeconds: 10
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: rollout-operator
+      app.kubernetes.io/instance: mimir
+  strategy:
+    rollingUpdate:
+      maxSurge: 0
+      maxUnavailable: 1
+  template:
+    metadata:
+      namespace: mimir
+      labels:
+        app.kubernetes.io/name: rollout-operator
+        app.kubernetes.io/instance: mimir
+    spec:
+      serviceAccountName: mimir-rollout-operator
+      securityContext:
+        fsGroup: 10001
+        runAsGroup: 10001
+        runAsNonRoot: true
+        runAsUser: 10001
+        seccompProfile:
+          type: RuntimeDefault
+      containers:
+      - name: rollout-operator
+        securityContext:
+          allowPrivilegeEscalation: false
+          capabilities:
+            drop:
+            - ALL
+          readOnlyRootFilesystem: true
+        image: docker.io/grafana/rollout-operator:v0.38.1
+        imagePullPolicy: IfNotPresent
+        args:
+        - -kubernetes.namespace=mimir
+        - -zpdb.pod-ready-annotation-patch-timeout=5s
+        - -server-tls.enabled=true
+        - -server-tls.self-signed-cert.secret-name=certificate
+        - -server-tls.self-signed-cert.dns-name=mimir-rollout-operator.mimir.svc
+        ports:
+        - name: http-metrics
+          containerPort: 8001
+          protocol: TCP
+        - name: https
+          containerPort: 8443
+          protocol: TCP
+        readinessProbe:
+          httpGet:
+            path: /ready
+            port: http-metrics
+          initialDelaySeconds: 5
+          timeoutSeconds: 1
+        resources:
+          limits:
+            memory: 200Mi
+          requests:
+            cpu: 100m
+            memory: 100Mi

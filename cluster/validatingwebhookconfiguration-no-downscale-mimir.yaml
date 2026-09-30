@@ -1,0 +1,39 @@
+# Source: mimir
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingWebhookConfiguration
+metadata:
+  name: no-downscale-mimir
+  labels:
+    grafana.com/inject-rollout-operator-ca: 'true'
+    grafana.com/namespace: mimir
+    app.kubernetes.io/name: rollout-operator
+    app.kubernetes.io/instance: mimir
+    app.kubernetes.io/version: v0.38.1
+  annotations:
+    noa.re/manifest-id: 700288d6b26e0f8a
+webhooks:
+- name: no-downscale-mimir.grafana.com
+  clientConfig:
+    service:
+      namespace: mimir
+      name: mimir-rollout-operator
+      path: /admission/no-downscale
+      port: 443
+  rules:
+  - operations:
+    - UPDATE
+    apiGroups:
+    - apps
+    apiVersions:
+    - v1
+    resources:
+    - statefulsets
+    - statefulsets/scale
+    scope: Namespaced
+  admissionReviewVersions:
+  - v1
+  namespaceSelector:
+    matchLabels:
+      kubernetes.io/metadata.name: mimir
+  sideEffects: None
+  failurePolicy: Fail

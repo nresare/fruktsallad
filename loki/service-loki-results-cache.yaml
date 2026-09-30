@@ -1,0 +1,27 @@
+# Source: loki
+apiVersion: v1
+kind: Service
+metadata:
+  name: loki-results-cache
+  labels:
+    app.kubernetes.io/name: loki
+    app.kubernetes.io/instance: loki
+    app.kubernetes.io/version: 3.7.7
+    app.kubernetes.io/component: memcached-results-cache
+  namespace: loki
+  annotations:
+    noa.re/manifest-id: 14ed3ad6052bfa43
+spec:
+  type: ClusterIP
+  clusterIP: None
+  ports:
+  - name: memcached-client
+    port: 11211
+    targetPort: client
+  - name: http-metrics
+    port: 9150
+    targetPort: http-metrics
+  selector:
+    app.kubernetes.io/name: loki
+    app.kubernetes.io/instance: loki
+    app.kubernetes.io/component: memcached-results-cache

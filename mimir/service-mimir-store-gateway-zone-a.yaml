@@ -1,0 +1,35 @@
+# Source: mimir
+apiVersion: v1
+kind: Service
+metadata:
+  name: mimir-store-gateway-zone-a
+  labels:
+    app.kubernetes.io/name: mimir
+    app.kubernetes.io/instance: mimir
+    app.kubernetes.io/component: store-gateway
+    app.kubernetes.io/part-of: memberlist
+    app.kubernetes.io/version: 3.2.0
+    name: store-gateway-zone-a
+    rollout-group: store-gateway
+    zone: zone-a
+  namespace: mimir
+  annotations:
+    noa.re/manifest-id: c25cbcb0106c57e8
+spec:
+  type: ClusterIP
+  internalTrafficPolicy: Cluster
+  ports:
+  - port: 8080
+    protocol: TCP
+    name: http-metrics
+    targetPort: http-metrics
+  - port: 9095
+    protocol: TCP
+    name: grpc
+    targetPort: grpc
+  selector:
+    app.kubernetes.io/name: mimir
+    app.kubernetes.io/instance: mimir
+    app.kubernetes.io/component: store-gateway
+    rollout-group: store-gateway
+    zone: zone-a

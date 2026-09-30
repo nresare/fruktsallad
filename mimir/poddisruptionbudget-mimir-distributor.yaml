@@ -1,0 +1,20 @@
+# Source: mimir
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: mimir-distributor
+  labels:
+    app.kubernetes.io/name: mimir
+    app.kubernetes.io/instance: mimir
+    app.kubernetes.io/component: distributor
+    app.kubernetes.io/version: 3.2.0
+  namespace: mimir
+  annotations:
+    noa.re/manifest-id: 813269f56159ea4f
+spec:
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: mimir
+      app.kubernetes.io/instance: mimir
+      app.kubernetes.io/component: distributor
+  maxUnavailable: 1

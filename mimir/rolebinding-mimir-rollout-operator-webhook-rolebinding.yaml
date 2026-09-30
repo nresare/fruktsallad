@@ -1,0 +1,16 @@
+# Source: mimir
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: mimir-rollout-operator-webhook-rolebinding
+  namespace: mimir
+  annotations:
+    noa.re/manifest-id: 14835425179c4a57
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: mimir-rollout-operator-webhook-role
+subjects:
+- kind: ServiceAccount
+  name: mimir-rollout-operator
+  namespace: mimir

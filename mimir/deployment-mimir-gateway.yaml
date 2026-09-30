@@ -1,0 +1,121 @@
+# Source: mimir
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app.kubernetes.io/name: mimir
+    app.kubernetes.io/instance: mimir
+    app.kubernetes.io/component: gateway
+    app.kubernetes.io/version: 3.2.0
+  name: mimir-gateway
+  namespace: mimir
+  annotations:
+    noa.re/manifest-id: 1a8e4d02d1cec844
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: mimir
+      app.kubernetes.io/instance: mimir
+      app.kubernetes.io/component: gateway
+  strategy:
+    rollingUpdate:
+      maxSurge: 15%
+      maxUnavailable: 0
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: mimir
+        app.kubernetes.io/instance: mimir
+        app.kubernetes.io/version: 3.2.0
+        app.kubernetes.io/component: gateway
+      annotations:
+        checksum/config: 971f084ccd1ca420c558f2d0d63dd386ea03cedfcb8ff96a13d313c5df74c6df
+      namespace: mimir
+    spec:
+      serviceAccountName: mimir
+      securityContext:
+        fsGroup: 10001
+        runAsGroup: 10001
+        runAsNonRoot: true
+        runAsUser: 10001
+        seccompProfile:
+          type: RuntimeDefault
+      containers:
+      - name: gateway
+        image: docker.io/nginxinc/nginx-unprivileged:1.29-alpine
+        imagePullPolicy: IfNotPresent
+        volumeMounts:
+        - mountPath: /var/run/secrets/tokens
+          name: tokens
+          readOnly: true
+        - name: nginx-config
+          mountPath: /etc/nginx/nginx.conf
+          subPath: nginx.conf
+        - name: tmp
+          mountPath: /tmp
+        - name: docker-entrypoint-d-override
+          mountPath: /docker-entrypoint.d
+        ports:
+        - name: http-metrics
+          containerPort: 8080
+          protocol: TCP
+        readinessProbe:
+          httpGet:
+            path: /ready
+            port: http-metrics
+          initialDelaySeconds: 15
+          timeoutSeconds: 1
+        resources: {}
+        securityContext:
+          allowPrivilegeEscalation: false
+          capabilities:
+            drop:
+            - ALL
+          readOnlyRootFilesystem: true
+        env:
+        - name: AWS_ROLE_ARN
+          value: arn:aws:iam:::role/mimir
+        - name: AWS_WEB_IDENTITY_TOKEN_FILE
+          value: /var/run/secrets/tokens/sts.amazonaws.com
+        - name: AWS_REGION
+          value: us-east-1
+        - name: AWS_ENDPOINT_URL
+          value: http://rook-ceph-rgw-berries.rook-ceph.svc
+        - name: AWS_ENDPOINT_URL_STS
+          value: http://rook-ceph-rgw-berries.rook-ceph.svc
+      topologySpreadConstraints:
+      - maxSkew: 1
+        topologyKey: kubernetes.io/hostname
+        whenUnsatisfiable: ScheduleAnyway
+        labelSelector:
+          matchLabels:
+            app.kubernetes.io/name: mimir
+            app.kubernetes.io/instance: mimir
+            app.kubernetes.io/component: gateway
+      terminationGracePeriodSeconds: 30
+      volumes:
+      - name: config
+        configMap:
+          name: mimir-config
+          items:
+          - key: mimir.yaml
+            path: mimir.yaml
+      - name: runtime-config
+        configMap:
+          name: mimir-runtime
+      - name: nginx-config
+        configMap:
+          name: mimir-gateway-nginx
+      - name: docker-entrypoint-d-override
+        emptyDir: {}
+      - name: tmp
+        emptyDir: {}
+      - name: tokens
+        projected:
+          sources:
+          - serviceAccountToken:
+              audience: sts.amazonaws.com
+              expirationSeconds: 3600
+              path: sts.amazonaws.com

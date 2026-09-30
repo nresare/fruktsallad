@@ -1,0 +1,29 @@
+# Source: mimir
+apiVersion: v1
+kind: Service
+metadata:
+  name: mimir-query-scheduler
+  namespace: mimir
+  labels:
+    app.kubernetes.io/name: mimir
+    app.kubernetes.io/instance: mimir
+    app.kubernetes.io/component: query-scheduler
+    app.kubernetes.io/version: 3.2.0
+  annotations:
+    noa.re/manifest-id: e03a4d43afb3eaf2
+spec:
+  type: ClusterIP
+  internalTrafficPolicy: Cluster
+  ports:
+  - port: 8080
+    protocol: TCP
+    name: http-metrics
+    targetPort: http-metrics
+  - port: 9095
+    protocol: TCP
+    name: grpc
+    targetPort: grpc
+  selector:
+    app.kubernetes.io/name: mimir
+    app.kubernetes.io/instance: mimir
+    app.kubernetes.io/component: query-scheduler

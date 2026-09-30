@@ -1,0 +1,20 @@
+# Source: mimir
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: mimir-compactor
+  labels:
+    app.kubernetes.io/name: mimir
+    app.kubernetes.io/instance: mimir
+    app.kubernetes.io/component: compactor
+    app.kubernetes.io/version: 3.2.0
+  namespace: mimir
+  annotations:
+    noa.re/manifest-id: 0e262a7b52dc3572
+spec:
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: mimir
+      app.kubernetes.io/instance: mimir
+      app.kubernetes.io/component: compactor
+  maxUnavailable: 1

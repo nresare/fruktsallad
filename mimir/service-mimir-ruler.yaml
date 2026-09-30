@@ -1,0 +1,26 @@
+# Source: mimir
+apiVersion: v1
+kind: Service
+metadata:
+  name: mimir-ruler
+  labels:
+    app.kubernetes.io/name: mimir
+    app.kubernetes.io/instance: mimir
+    app.kubernetes.io/component: ruler
+    app.kubernetes.io/part-of: memberlist
+    app.kubernetes.io/version: 3.2.0
+  namespace: mimir
+  annotations:
+    noa.re/manifest-id: ca2b434cc3638449
+spec:
+  type: ClusterIP
+  internalTrafficPolicy: Cluster
+  ports:
+  - port: 8080
+    protocol: TCP
+    name: http-metrics
+    targetPort: http-metrics
+  selector:
+    app.kubernetes.io/name: mimir
+    app.kubernetes.io/instance: mimir
+    app.kubernetes.io/component: ruler

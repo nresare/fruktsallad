@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: loki
+  annotations:
+    argocd.argoproj.io/sync-options: PruneLast=true
+    noa.re/manifest-id: 0c5eb55057e9d9c7

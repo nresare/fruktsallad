@@ -1,0 +1,20 @@
+# Source: mimir
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: mimir-query-frontend
+  labels:
+    app.kubernetes.io/name: mimir
+    app.kubernetes.io/instance: mimir
+    app.kubernetes.io/component: query-frontend
+    app.kubernetes.io/version: 3.2.0
+  namespace: mimir
+  annotations:
+    noa.re/manifest-id: e811a99d79bffab5
+spec:
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: mimir
+      app.kubernetes.io/instance: mimir
+      app.kubernetes.io/component: query-frontend
+  maxUnavailable: 1

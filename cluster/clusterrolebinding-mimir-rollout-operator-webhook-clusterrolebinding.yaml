@@ -1,0 +1,15 @@
+# Source: mimir
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: mimir-rollout-operator-webhook-clusterrolebinding
+  annotations:
+    noa.re/manifest-id: 5e3d656d4037f0ca
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: mimir-rollout-operator-webhook-clusterrole
+subjects:
+- kind: ServiceAccount
+  name: mimir-rollout-operator
+  namespace: mimir

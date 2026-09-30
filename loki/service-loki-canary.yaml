@@ -1,0 +1,24 @@
+# Source: loki
+apiVersion: v1
+kind: Service
+metadata:
+  name: loki-canary
+  namespace: loki
+  labels:
+    app.kubernetes.io/name: loki
+    app.kubernetes.io/instance: loki
+    app.kubernetes.io/version: 3.7.7
+    app.kubernetes.io/component: canary
+  annotations:
+    noa.re/manifest-id: 7e6eb184457397cc
+spec:
+  type: ClusterIP
+  ports:
+  - name: http-metrics
+    port: 3500
+    targetPort: http-metrics
+    protocol: TCP
+  selector:
+    app.kubernetes.io/name: loki
+    app.kubernetes.io/instance: loki
+    app.kubernetes.io/component: canary

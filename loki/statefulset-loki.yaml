@@ -1,0 +1,161 @@
+# Source: loki
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: loki
+  namespace: loki
+  labels:
+    app.kubernetes.io/name: loki
+    app.kubernetes.io/instance: loki
+    app.kubernetes.io/version: 3.7.7
+    app.kubernetes.io/component: single-binary
+  annotations:
+    noa.re/manifest-id: 175dfbf73ae33748
+spec:
+  replicas: 3
+  podManagementPolicy: Parallel
+  updateStrategy:
+    rollingUpdate:
+      partition: 0
+  serviceName: loki-headless
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: loki
+      app.kubernetes.io/instance: loki
+      app.kubernetes.io/component: single-binary
+  template:
+    metadata:
+      annotations:
+        checksum/config: e8d9d66ce9b0ef09c3812004e584ed1891547baa7581326c4195bcfa623ce641
+        storage/size: 10Gi
+        kubectl.kubernetes.io/default-container: loki
+      labels:
+        app.kubernetes.io/name: loki
+        app.kubernetes.io/instance: loki
+        app.kubernetes.io/version: 3.7.7
+        app.kubernetes.io/component: single-binary
+        app.kubernetes.io/part-of: memberlist
+    spec:
+      serviceAccountName: loki
+      enableServiceLinks: true
+      automountServiceAccountToken: true
+      securityContext:
+        fsGroup: 10001
+        fsGroupChangePolicy: OnRootMismatch
+        runAsGroup: 10001
+        runAsNonRoot: true
+        runAsUser: 10001
+        seccompProfile:
+          type: RuntimeDefault
+      terminationGracePeriodSeconds: 30
+      affinity:
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+          - labelSelector:
+              matchLabels:
+                app.kubernetes.io/component: single-binary
+                app.kubernetes.io/instance: loki
+                app.kubernetes.io/name: loki
+            topologyKey: kubernetes.io/hostname
+      volumes:
+      - name: temp
+        emptyDir: {}
+      - name: config
+        configMap:
+          name: loki
+          items:
+          - key: config.yaml
+            path: config.yaml
+      - name: runtime-config
+        configMap:
+          name: loki-runtime
+      - name: tokens
+        projected:
+          sources:
+          - serviceAccountToken:
+              audience: sts.amazonaws.com
+              expirationSeconds: 3600
+              path: sts.amazonaws.com
+      containers:
+      - name: loki
+        image: docker.io/grafana/loki:3.7.7
+        imagePullPolicy: IfNotPresent
+        args:
+        - -config.file=/etc/loki/config/config.yaml
+        - -config.expand-env=true
+        - -memberlist.advertise-addr=$(POD_IP)
+        - -target=all
+        ports:
+        - name: http-metrics
+          containerPort: 3100
+          protocol: TCP
+        - name: grpc
+          containerPort: 9095
+          protocol: TCP
+        - name: http-memberlist
+          containerPort: 7946
+          protocol: TCP
+        env:
+        - name: AWS_ROLE_ARN
+          value: arn:aws:iam:::role/loki
+        - name: AWS_WEB_IDENTITY_TOKEN_FILE
+          value: /var/run/secrets/tokens/sts.amazonaws.com
+        - name: AWS_REGION
+          value: us-east-1
+        - name: AWS_ENDPOINT_URL_STS
+          value: http://rook-ceph-rgw-berries.rook-ceph.svc
+        - name: GOGC
+          value: '80'
+        - name: POD_IP
+          valueFrom:
+            fieldRef:
+              fieldPath: status.podIP
+        securityContext:
+          allowPrivilegeEscalation: false
+          capabilities:
+            drop:
+            - ALL
+          readOnlyRootFilesystem: true
+          seccompProfile:
+            type: RuntimeDefault
+        livenessProbe:
+          failureThreshold: 10
+          httpGet:
+            path: /loki/api/v1/status/buildinfo
+            port: http-metrics
+          periodSeconds: 30
+          successThreshold: 1
+          timeoutSeconds: 1
+        readinessProbe:
+          failureThreshold: 3
+          httpGet:
+            path: /ready
+            port: http-metrics
+          initialDelaySeconds: 15
+          periodSeconds: 10
+          successThreshold: 1
+          timeoutSeconds: 1
+        volumeMounts:
+        - name: config
+          mountPath: /etc/loki/config
+        - name: runtime-config
+          mountPath: /etc/loki/runtime-config
+        - name: storage
+          mountPath: /var/loki
+        - name: temp
+          mountPath: /tmp
+        - mountPath: /var/run/secrets/tokens
+          name: tokens
+          readOnly: true
+  volumeClaimTemplates:
+  - apiVersion: v1
+    kind: PersistentVolumeClaim
+    metadata:
+      name: storage
+    spec:
+      accessModes:
+      - ReadWriteOnce
+      resources:
+        requests:
+          storage: 10Gi

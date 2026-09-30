@@ -1,0 +1,35 @@
+# Source: mimir
+apiVersion: v1
+kind: Service
+metadata:
+  name: mimir-ingester-zone-a
+  labels:
+    app.kubernetes.io/name: mimir
+    app.kubernetes.io/instance: mimir
+    app.kubernetes.io/component: ingester
+    app.kubernetes.io/part-of: memberlist
+    app.kubernetes.io/version: 3.2.0
+    name: ingester-zone-a
+    rollout-group: ingester
+    zone: zone-a
+  namespace: mimir
+  annotations:
+    noa.re/manifest-id: ab53943fab82543c
+spec:
+  type: ClusterIP
+  internalTrafficPolicy: Cluster
+  ports:
+  - port: 8080
+    protocol: TCP
+    name: http-metrics
+    targetPort: http-metrics
+  - port: 9095
+    protocol: TCP
+    name: grpc
+    targetPort: grpc
+  selector:
+    app.kubernetes.io/name: mimir
+    app.kubernetes.io/instance: mimir
+    app.kubernetes.io/component: ingester
+    rollout-group: ingester
+    zone: zone-a

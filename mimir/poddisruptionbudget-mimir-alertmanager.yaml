@@ -1,0 +1,20 @@
+# Source: mimir
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: mimir-alertmanager
+  labels:
+    app.kubernetes.io/name: mimir
+    app.kubernetes.io/instance: mimir
+    app.kubernetes.io/component: alertmanager
+    app.kubernetes.io/version: 3.2.0
+  namespace: mimir
+  annotations:
+    noa.re/manifest-id: 4e96933f1df7a88e
+spec:
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: mimir
+      app.kubernetes.io/instance: mimir
+      app.kubernetes.io/component: alertmanager
+  maxUnavailable: 1

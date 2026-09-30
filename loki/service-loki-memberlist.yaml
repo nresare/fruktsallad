@@ -1,0 +1,24 @@
+# Source: loki
+apiVersion: v1
+kind: Service
+metadata:
+  name: loki-memberlist
+  namespace: loki
+  labels:
+    app.kubernetes.io/name: loki
+    app.kubernetes.io/instance: loki
+    app.kubernetes.io/version: 3.7.7
+  annotations:
+    noa.re/manifest-id: 2fced3f18b43dbe5
+spec:
+  type: ClusterIP
+  clusterIP: None
+  ports:
+  - name: tcp
+    port: 7946
+    targetPort: http-memberlist
+    protocol: TCP
+  selector:
+    app.kubernetes.io/name: loki
+    app.kubernetes.io/instance: loki
+    app.kubernetes.io/part-of: memberlist

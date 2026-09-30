@@ -1,0 +1,17 @@
+# Source: mimir
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: mimir-rollout-operator-webhook-clusterrole
+  annotations:
+    noa.re/manifest-id: 8073055de8f0a19b
+rules:
+- apiGroups:
+  - admissionregistration.k8s.io
+  resources:
+  - validatingwebhookconfigurations
+  - mutatingwebhookconfigurations
+  verbs:
+  - list
+  - patch
+  - watch

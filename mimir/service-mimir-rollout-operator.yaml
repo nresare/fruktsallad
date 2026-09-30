@@ -1,0 +1,22 @@
+# Source: mimir
+apiVersion: v1
+kind: Service
+metadata:
+  name: mimir-rollout-operator
+  namespace: mimir
+  labels:
+    app.kubernetes.io/name: rollout-operator
+    app.kubernetes.io/instance: mimir
+    app.kubernetes.io/version: v0.38.1
+  annotations:
+    noa.re/manifest-id: b431ab9de0860dd9
+spec:
+  type: ClusterIP
+  ports:
+  - port: 443
+    protocol: TCP
+    targetPort: 8443
+    name: https
+  selector:
+    app.kubernetes.io/name: rollout-operator
+    app.kubernetes.io/instance: mimir
