@@ -11,7 +11,7 @@ metadata:
     app.kubernetes.io/version: 3.2.0
   namespace: mimir
   annotations:
-    noa.re/manifest-id: 2c7f3c2ca65eb2ef
+    noa.re/manifest-id: 7cfc4743008719c1
 spec:
   replicas: 1
   selector:
@@ -42,7 +42,7 @@ spec:
         app.kubernetes.io/component: alertmanager
         app.kubernetes.io/part-of: memberlist
       annotations:
-        checksum/config: 578ac0aa5b1ce000dfab83e5aa19e410f5a9de7730e66cce82a561435bd1b5c8
+        checksum/config: 9e7e609e279072d64416144e964d8f47ee26ebcbc2bbe2d8887038d9b9518d0f
         checksum/alertmanager-fallback-config: 65c723978f4c311b8d5fb8a1e332334a6e9f3cfb9c0208c6e37173da93a8a958
       namespace: mimir
     spec:
@@ -141,9 +141,9 @@ spec:
           readOnlyRootFilesystem: true
         env:
         - name: AWS_ENDPOINT_URL
-          value: http://rook-ceph-rgw-berries.rook-ceph.svc
+          value: http://rook-ceph-rgw-fruktsallad.rook-ceph.svc
         - name: AWS_ENDPOINT_URL_STS
-          value: http://rook-ceph-rgw-berries.rook-ceph.svc
+          value: http://rook-ceph-rgw-fruktsallad.rook-ceph.svc
         - name: AWS_REGION
           value: us-east-1
         - name: AWS_ROLE_ARN

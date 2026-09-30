@@ -19,7 +19,7 @@ metadata:
     grafana.com/prepare-downscale-http-path: store-gateway/prepare-shutdown
     grafana.com/prepare-downscale-http-port: '8080'
     grafana.com/rollout-downscale-leader: mimir-store-gateway-zone-b
-    noa.re/manifest-id: 96b5271d6bdba144
+    noa.re/manifest-id: bfc3f35903d0be43
   namespace: mimir
 spec:
   podManagementPolicy: OrderedReady
@@ -57,7 +57,7 @@ spec:
         rollout-group: store-gateway
         zone: zone-c
       annotations:
-        checksum/config: 578ac0aa5b1ce000dfab83e5aa19e410f5a9de7730e66cce82a561435bd1b5c8
+        checksum/config: 9e7e609e279072d64416144e964d8f47ee26ebcbc2bbe2d8887038d9b9518d0f
       namespace: mimir
     spec:
       serviceAccountName: mimir
@@ -151,9 +151,9 @@ spec:
         - name: GOMEMLIMIT
           value: '536870912'
         - name: AWS_ENDPOINT_URL
-          value: http://rook-ceph-rgw-berries.rook-ceph.svc
+          value: http://rook-ceph-rgw-fruktsallad.rook-ceph.svc
         - name: AWS_ENDPOINT_URL_STS
-          value: http://rook-ceph-rgw-berries.rook-ceph.svc
+          value: http://rook-ceph-rgw-fruktsallad.rook-ceph.svc
         - name: AWS_REGION
           value: us-east-1
         - name: AWS_ROLE_ARN

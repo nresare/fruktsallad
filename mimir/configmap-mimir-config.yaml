@@ -9,7 +9,7 @@ metadata:
     app.kubernetes.io/version: 3.2.0
   namespace: mimir
   annotations:
-    noa.re/manifest-id: 2b213f517f837d4c
+    noa.re/manifest-id: 5619a2d7ac7ce17c
 data:
   mimir.yaml: |2
 
@@ -36,7 +36,7 @@ data:
         s3:
           bucket_lookup_type: path
           bucket_name: mimir-data
-          endpoint: rook-ceph-rgw-berries.rook-ceph.svc:80
+          endpoint: rook-ceph-rgw-fruktsallad.rook-ceph.svc:80
           insecure: true
           native_aws_auth_enabled: true
           region: us-east-1

@@ -10,7 +10,7 @@ metadata:
     app.kubernetes.io/version: 3.7.7
     app.kubernetes.io/component: single-binary
   annotations:
-    noa.re/manifest-id: 175dfbf73ae33748
+    noa.re/manifest-id: 7209851a691eb4af
 spec:
   replicas: 3
   podManagementPolicy: Parallel
@@ -27,7 +27,7 @@ spec:
   template:
     metadata:
       annotations:
-        checksum/config: e8d9d66ce9b0ef09c3812004e584ed1891547baa7581326c4195bcfa623ce641
+        checksum/config: 7e5afb47a3653c19fe367584eb6de8f6d27a699d7a28a7f45cf313aba0079a1d
         storage/size: 10Gi
         kubectl.kubernetes.io/default-container: loki
       labels:
@@ -104,7 +104,7 @@ spec:
         - name: AWS_REGION
           value: us-east-1
         - name: AWS_ENDPOINT_URL_STS
-          value: http://rook-ceph-rgw-berries.rook-ceph.svc
+          value: http://rook-ceph-rgw-fruktsallad.rook-ceph.svc
         - name: GOGC
           value: '80'
         - name: POD_IP

@@ -11,7 +11,7 @@ metadata:
     app.kubernetes.io/version: 3.2.0
   namespace: mimir
   annotations:
-    noa.re/manifest-id: 9027b327f4cb1fe0
+    noa.re/manifest-id: 9685842f4ff37f0f
 spec:
   replicas: 1
   selector:
@@ -33,7 +33,7 @@ spec:
         app.kubernetes.io/component: ruler
         app.kubernetes.io/part-of: memberlist
       annotations:
-        checksum/config: 578ac0aa5b1ce000dfab83e5aa19e410f5a9de7730e66cce82a561435bd1b5c8
+        checksum/config: 9e7e609e279072d64416144e964d8f47ee26ebcbc2bbe2d8887038d9b9518d0f
       namespace: mimir
     spec:
       serviceAccountName: mimir
@@ -94,9 +94,9 @@ spec:
           readOnlyRootFilesystem: true
         env:
         - name: AWS_ENDPOINT_URL
-          value: http://rook-ceph-rgw-berries.rook-ceph.svc
+          value: http://rook-ceph-rgw-fruktsallad.rook-ceph.svc
         - name: AWS_ENDPOINT_URL_STS
-          value: http://rook-ceph-rgw-berries.rook-ceph.svc
+          value: http://rook-ceph-rgw-fruktsallad.rook-ceph.svc
         - name: AWS_REGION
           value: us-east-1
         - name: AWS_ROLE_ARN

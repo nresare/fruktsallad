@@ -18,7 +18,7 @@ metadata:
     rollout-max-unavailable: '50'
     grafana.com/prepare-downscale-http-path: ingester/prepare-shutdown
     grafana.com/prepare-downscale-http-port: '8080'
-    noa.re/manifest-id: 7452d94fb9f9fd9f
+    noa.re/manifest-id: ef6aa966db5761d3
   namespace: mimir
 spec:
   podManagementPolicy: Parallel
@@ -56,7 +56,7 @@ spec:
         rollout-group: ingester
         zone: zone-a
       annotations:
-        checksum/config: 578ac0aa5b1ce000dfab83e5aa19e410f5a9de7730e66cce82a561435bd1b5c8
+        checksum/config: 9e7e609e279072d64416144e964d8f47ee26ebcbc2bbe2d8887038d9b9518d0f
       namespace: mimir
     spec:
       serviceAccountName: mimir
@@ -148,9 +148,9 @@ spec:
         - name: GOMAXPROCS
           value: '4'
         - name: AWS_ENDPOINT_URL
-          value: http://rook-ceph-rgw-berries.rook-ceph.svc
+          value: http://rook-ceph-rgw-fruktsallad.rook-ceph.svc
         - name: AWS_ENDPOINT_URL_STS
-          value: http://rook-ceph-rgw-berries.rook-ceph.svc
+          value: http://rook-ceph-rgw-fruktsallad.rook-ceph.svc
         - name: AWS_REGION
           value: us-east-1
         - name: AWS_ROLE_ARN
