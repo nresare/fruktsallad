@@ -7,10 +7,10 @@ metadata:
   labels:
     app.kubernetes.io/name: loki
     app.kubernetes.io/instance: loki
-    app.kubernetes.io/version: 3.7.7
+    app.kubernetes.io/version: 3.7.8
     app.kubernetes.io/component: canary
   annotations:
-    noa.re/manifest-id: dfdbeabbc1d6ea27
+    noa.re/manifest-id: 8d979e47e1f8abc7
 spec:
   selector:
     matchLabels:
@@ -40,7 +40,7 @@ spec:
           type: RuntimeDefault
       containers:
       - name: canary
-        image: docker.io/grafana/loki-canary:3.7.7
+        image: docker.io/grafana/loki-canary:3.7.8
         imagePullPolicy: IfNotPresent
         args:
         - -addr=loki-gateway.loki.svc.cluster.local.:80

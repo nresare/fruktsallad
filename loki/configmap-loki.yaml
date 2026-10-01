@@ -7,9 +7,9 @@ metadata:
   labels:
     app.kubernetes.io/name: loki
     app.kubernetes.io/instance: loki
-    app.kubernetes.io/version: 3.7.7
+    app.kubernetes.io/version: 3.7.8
   annotations:
-    noa.re/manifest-id: f704a243efd6cc93
+    noa.re/manifest-id: 3dfb4dbba9511de6
 data:
   config.yaml: |2
 

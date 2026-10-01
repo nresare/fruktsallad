@@ -7,10 +7,10 @@ metadata:
   labels:
     app.kubernetes.io/name: loki
     app.kubernetes.io/instance: loki
-    app.kubernetes.io/version: 3.7.7
+    app.kubernetes.io/version: 3.7.8
     app.kubernetes.io/component: canary
   annotations:
-    noa.re/manifest-id: 7e6eb184457397cc
+    noa.re/manifest-id: 9e32525736d690e9
 spec:
   type: ClusterIP
   ports:

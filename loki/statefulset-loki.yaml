@@ -7,10 +7,10 @@ metadata:
   labels:
     app.kubernetes.io/name: loki
     app.kubernetes.io/instance: loki
-    app.kubernetes.io/version: 3.7.7
+    app.kubernetes.io/version: 3.7.8
     app.kubernetes.io/component: single-binary
   annotations:
-    noa.re/manifest-id: 7209851a691eb4af
+    noa.re/manifest-id: 262549a5967afe60
 spec:
   replicas: 3
   podManagementPolicy: Parallel
@@ -33,7 +33,7 @@ spec:
       labels:
         app.kubernetes.io/name: loki
         app.kubernetes.io/instance: loki
-        app.kubernetes.io/version: 3.7.7
+        app.kubernetes.io/version: 3.7.8
         app.kubernetes.io/component: single-binary
         app.kubernetes.io/part-of: memberlist
     spec:
@@ -79,7 +79,7 @@ spec:
               path: sts.amazonaws.com
       containers:
       - name: loki
-        image: docker.io/grafana/loki:3.7.7
+        image: docker.io/grafana/loki:3.7.8
         imagePullPolicy: IfNotPresent
         args:
         - -config.file=/etc/loki/config/config.yaml
