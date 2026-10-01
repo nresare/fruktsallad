@@ -9,11 +9,11 @@ metadata:
     storage-backend: ceph
     app.kubernetes.io/name: rook-ceph
     app.kubernetes.io/instance: rook
-    app.kubernetes.io/version: v1.20.7
+    app.kubernetes.io/version: v1.20.8
     app.kubernetes.io/part-of: rook-ceph-operator
     app.kubernetes.io/created-by: helm
   annotations:
-    noa.re/manifest-id: 70029d2f8b072d91
+    noa.re/manifest-id: 778cd21bfd7ecb07
 data:
   ROOK_LOG_LEVEL: INFO
   ROOK_CEPH_COMMANDS_TIMEOUT_SECONDS: '15'

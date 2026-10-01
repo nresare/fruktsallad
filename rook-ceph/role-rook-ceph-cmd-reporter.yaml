@@ -9,11 +9,11 @@ metadata:
     storage-backend: ceph
     app.kubernetes.io/name: rook-ceph
     app.kubernetes.io/instance: rook
-    app.kubernetes.io/version: v1.20.7
+    app.kubernetes.io/version: v1.20.8
     app.kubernetes.io/part-of: rook-ceph-operator
     app.kubernetes.io/created-by: helm
   annotations:
-    noa.re/manifest-id: bd5c705c5d328426
+    noa.re/manifest-id: d8d2541575e28bfc
 rules:
 - apiGroups:
   - ''
