@@ -4,7 +4,7 @@ kind: ClusterRole
 metadata:
   name: rook-ceph-rbd-csi-ceph-com-nodeplugin-cr
   annotations:
-    noa.re/manifest-id: 8c0163042b1b36bf
+    noa.re/manifest-id: ef4b95d1560cd8e1
 rules:
 - apiGroups:
   - ''
@@ -74,3 +74,4 @@ rules:
   - persistentvolumeclaims
   verbs:
   - get
+  - patch

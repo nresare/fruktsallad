@@ -4,7 +4,7 @@ kind: ClusterRole
 metadata:
   name: rook-ceph-rbd-csi-ceph-com-ctrlplugin-cr
   annotations:
-    noa.re/manifest-id: 73e847db3378e528
+    noa.re/manifest-id: d4ea1e4c3fcc10e3
 rules:
 - apiGroups:
   - ''
@@ -98,6 +98,7 @@ rules:
   - get
   - list
   - watch
+  - update
 - apiGroups:
   - snapshot.storage.k8s.io
   resources:
