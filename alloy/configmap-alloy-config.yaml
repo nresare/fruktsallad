@@ -5,7 +5,7 @@ metadata:
   name: alloy-config
   namespace: alloy
   annotations:
-    noa.re/manifest-id: a14fe244bfbca7e7
+    noa.re/manifest-id: 4c96cea923d68305
 data:
   metrics.cfg: |
     prometheus.remote_write "mimir" {
@@ -94,12 +94,16 @@ data:
           instance    = "hjortron",
         },
         {
-          __address__ = "havtorn:9100",
-          instance    = "havtorn",
+          __address__ = "citron:9100",
+          instance    = "citron",
         },
         {
-          __address__ = "nypon:9100",
-          instance    = "nypon",
+          __address__ = "mango:9100",
+          instance    = "mango",
+        },
+        {
+          __address__ = "banan:9100",
+          instance    = "banan",
         },
         {
           __address__ = "nadia:9100",
