@@ -1,0 +1,39 @@
+# Source: nats-aws-auth
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nats-aws-auth
+  labels:
+    app: nats-aws-auth
+  namespace: nats
+  annotations:
+    noa.re/manifest-id: 0ad0cc90101f0b90
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nats-aws-auth
+  template:
+    metadata:
+      labels:
+        app: nats-aws-auth
+    spec:
+      containers:
+      - name: nats-aws-auth
+        image: nresare/nats-aws-auth:local-key-storage
+        ports:
+        - name: http
+          containerPort: 8080
+        args:
+        - --url=nats://nats.nats
+        - --auth-backend=k8s-oidc
+        - --jwt-issuer=https://k8s.noa.re
+        - --key-storage=directory
+        - --key-dir=/keys
+        volumeMounts:
+        - name: keys
+          mountPath: /keys
+      volumes:
+      - name: keys
+        secret:
+          secretName: keys

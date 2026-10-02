@@ -1,0 +1,16 @@
+# Source: nack
+apiVersion: jetstream.nats.io/v1beta2
+kind: Stream
+metadata:
+  name: github-events
+  namespace: nats
+  annotations:
+    noa.re/manifest-id: 87f368fbe90fbdb7
+spec:
+  name: github-events
+  subjects:
+  - idcat.github.events.>
+  storage: file
+  maxAge: 1h
+  replicas: 3
+  account: app

@@ -1,0 +1,23 @@
+# Source: nats
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app.kubernetes.io/component: nats
+    app.kubernetes.io/instance: nats
+    app.kubernetes.io/name: nats
+    app.kubernetes.io/version: 2.14.6
+  name: nats
+  namespace: nats
+  annotations:
+    noa.re/manifest-id: 52d0a0f1c55e4bb2
+spec:
+  ports:
+  - appProtocol: tcp
+    name: nats
+    port: 4222
+    targetPort: nats
+  selector:
+    app.kubernetes.io/component: nats
+    app.kubernetes.io/instance: nats
+    app.kubernetes.io/name: nats

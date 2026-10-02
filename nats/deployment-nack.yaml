@@ -1,0 +1,72 @@
+# Source: nack
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nack
+  namespace: nats
+  labels:
+    app: nack
+    chart: nack-0.35.0
+  annotations:
+    noa.re/manifest-id: f685ce6acc80584d
+spec:
+  selector:
+    matchLabels:
+      app: nack
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: nack
+        chart: nack-0.35.0
+    spec:
+      terminationGracePeriodSeconds: 30
+      volumes:
+      - name: runtime
+        emptyDir: {}
+      - name: tokens
+        projected:
+          sources:
+          - serviceAccountToken:
+              path: nats
+              expirationSeconds: 3600
+              audience: nats
+      serviceAccountName: jetstream-controller
+      containers:
+      - name: jsc
+        image: nresare/jetstream-controller:v0.24.0-noa.1
+        imagePullPolicy: IfNotPresent
+        workingDir: /nack
+        command:
+        - /jetstream-controller
+        args:
+        - -s=nats://nats.nats.svc
+        - --health-probe-bind-address=:8081
+        - --control-loop
+        env:
+        - name: POD_NAME
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.name
+        - name: POD_NAMESPACE
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.namespace
+        livenessProbe:
+          httpGet:
+            path: /healthz
+            port: 8081
+          initialDelaySeconds: 15
+          periodSeconds: 20
+        readinessProbe:
+          httpGet:
+            path: /readyz
+            port: 8081
+          initialDelaySeconds: 5
+          periodSeconds: 10
+        volumeMounts:
+        - name: runtime
+          mountPath: /nack
+        - name: tokens
+          mountPath: /var/run/secrets/tokens
+          readOnly: true

@@ -1,0 +1,16 @@
+# Source: nats-aws-auth
+apiVersion: v1
+kind: Service
+metadata:
+  name: nats-aws-auth
+  namespace: nats
+  annotations:
+    noa.re/manifest-id: 3094fb16217d08a7
+spec:
+  type: ClusterIP
+  selector:
+    app: nats-aws-auth
+  ports:
+  - name: http
+    port: 80
+    targetPort: http

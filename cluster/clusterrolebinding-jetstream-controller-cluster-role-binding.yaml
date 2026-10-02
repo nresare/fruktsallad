@@ -1,0 +1,18 @@
+# Source: nack
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: jetstream-controller-cluster-role-binding
+  labels:
+    app: nack
+    chart: nack-0.35.0
+  annotations:
+    noa.re/manifest-id: 036c7583e29db95f
+subjects:
+- kind: ServiceAccount
+  name: jetstream-controller
+  namespace: nats
+roleRef:
+  kind: ClusterRole
+  name: jetstream-controller-cluster-role
+  apiGroup: rbac.authorization.k8s.io

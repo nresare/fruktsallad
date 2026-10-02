@@ -1,0 +1,20 @@
+# Source: nats
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  labels:
+    app.kubernetes.io/component: nats
+    app.kubernetes.io/instance: nats
+    app.kubernetes.io/name: nats
+    app.kubernetes.io/version: 2.14.6
+  name: nats
+  namespace: nats
+  annotations:
+    noa.re/manifest-id: a249a7a0d6163ad1
+spec:
+  maxUnavailable: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/component: nats
+      app.kubernetes.io/instance: nats
+      app.kubernetes.io/name: nats
