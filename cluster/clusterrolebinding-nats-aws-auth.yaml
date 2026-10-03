@@ -1,0 +1,15 @@
+# Source: nack
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: nats-aws-auth
+  annotations:
+    noa.re/manifest-id: 88ff7d2128aac957
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: nats-aws-auth
+subjects:
+- kind: ServiceAccount
+  name: default
+  namespace: nats
