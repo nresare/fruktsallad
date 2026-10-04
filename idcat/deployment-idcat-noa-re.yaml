@@ -7,7 +7,7 @@ metadata:
     app: idcat-noa-re
   namespace: idcat
   annotations:
-    noa.re/manifest-id: 8c49f2f65309e003
+    noa.re/manifest-id: 90b11cabea4910c5
 spec:
   replicas: 2
   selector:
@@ -18,7 +18,7 @@ spec:
       labels:
         app: idcat-noa-re
       annotations:
-        checksum/config: 65be50b0b196e2c574ab8b8435c5a66ea39e81e9aeabca9602f7a29a2a1a94bb
+        checksum/config: 774bb53de715cf9fe7897f3c27bd532f6dcd4c9b2e927072a8254763cfb741ed
     spec:
       containers:
       - name: idcat-noa-re

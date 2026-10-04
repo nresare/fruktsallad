@@ -5,12 +5,12 @@ metadata:
   name: argo-poker
   namespace: nats
   annotations:
-    noa.re/manifest-id: b7de6214e1546df4
+    noa.re/manifest-id: d92e74067e6d7245
 spec:
   streamName: github-events
   durableName: argo-poker
   filterSubjects:
-  - idcat.github.events.push.nresare.berries-manifests
+  - idcat.github.events.push.nresare.fruktsallad
   ackPolicy: explicit
   deliverPolicy: last
   account: app
