@@ -1,3 +1,3 @@
 This repo contains generated manifests for the fruktsallad repo.
 
-See https://github.com/nresare/system for input configuratin
+The main config lives in https://github.com/nresare/system 
