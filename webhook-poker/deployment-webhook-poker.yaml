@@ -1,0 +1,45 @@
+# Source: webhook-poker
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: webhook-poker
+  labels:
+    app: webhook-poker
+  namespace: webhook-poker
+  annotations:
+    noa.re/manifest-id: 3ce7fe38fa96e5e6
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: webhook-poker
+  template:
+    metadata:
+      labels:
+        app: webhook-poker
+      annotations:
+        checksum/config: 529cd1f474a1e3a3e947abae95def5b48c83186e978cb47c2d8530a230bab6b8
+    spec:
+      containers:
+      - name: webhook-poker
+        image: public.ecr.aws/portswigger-platform/webhook-poker:0.0.6
+        ports:
+        - name: http
+          containerPort: 8080
+        volumeMounts:
+        - name: webhook-poker-config
+          mountPath: /config
+        - name: tokens
+          mountPath: /var/run/secrets/tokens
+          readOnly: true
+      volumes:
+      - name: webhook-poker-config
+        configMap:
+          name: webhook-poker-config
+      - name: tokens
+        projected:
+          sources:
+          - serviceAccountToken:
+              path: nats
+              expirationSeconds: 3600
+              audience: nats

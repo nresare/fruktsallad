@@ -1,0 +1,16 @@
+# Source: webhook-poker
+apiVersion: v1
+kind: Service
+metadata:
+  name: webhook-poker
+  namespace: webhook-poker
+  annotations:
+    noa.re/manifest-id: f4987d3cb95db33e
+spec:
+  type: ClusterIP
+  selector:
+    app: webhook-poker
+  ports:
+  - name: http
+    port: 80
+    targetPort: http
