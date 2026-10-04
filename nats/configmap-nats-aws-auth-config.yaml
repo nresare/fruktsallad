@@ -5,7 +5,7 @@ metadata:
   name: nats-aws-auth-config
   namespace: nats
   annotations:
-    noa.re/manifest-id: 92248ab422c3f2d7
+    noa.re/manifest-id: 435a0808bce4b60c
 data:
   nats-aws-auth.toml: |
     legacy-serviceaccount-permissions = false
@@ -19,6 +19,6 @@ data:
     subject = "system:serviceaccount:webhook-poker:default"
     allowed-pub-subjects = [
         "$JS.API.CONSUMER.INFO.github-events.argo-poker",
-        "$JS.API.CONSUMER.MSG.NEXT.github-events.argo-poker,",
+        "$JS.API.CONSUMER.MSG.NEXT.github-events.argo-poker",
         "$JS.ACK.github-events.argo-poker.>",
     ]

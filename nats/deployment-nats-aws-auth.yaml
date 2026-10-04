@@ -7,7 +7,7 @@ metadata:
     app: nats-aws-auth
   namespace: nats
   annotations:
-    noa.re/manifest-id: c30e61322d988919
+    noa.re/manifest-id: b518be13ab577d54
 spec:
   replicas: 1
   selector:
@@ -18,7 +18,7 @@ spec:
       labels:
         app: nats-aws-auth
       annotations:
-        checksum/config: 08993d72d27ea1650468207daa6a6173182ddfebdfd294e6208c19296eaa058d
+        checksum/config: 078cad520450b3e7f381d144b9900114fe8fe071e08e9c0028b742ac73c778e4
     spec:
       containers:
       - name: nats-aws-auth
