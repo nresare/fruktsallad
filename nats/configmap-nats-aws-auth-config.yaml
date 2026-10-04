@@ -1,0 +1,16 @@
+# Source: nats-aws-auth
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: nats-aws-auth-config
+  namespace: nats
+  annotations:
+    noa.re/manifest-id: 27a4d400b052d34b
+data:
+  nats-aws-auth.toml: |
+    legacy-serviceaccount-permissions = false
+
+    [[permission]]
+    subject = "system:serviceaccount:nats:jetstream-controller"
+    allowed-pub-subjects = ["$JS.ACK.>", "$JS.API.>"]
+    allowed-sub-subjects = ["$JS.API.>"]

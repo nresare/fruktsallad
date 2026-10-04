@@ -7,7 +7,7 @@ metadata:
     app: nats-aws-auth
   namespace: nats
   annotations:
-    noa.re/manifest-id: 0ad0cc90101f0b90
+    noa.re/manifest-id: 72cd27eb114dd1db
 spec:
   replicas: 1
   selector:
@@ -17,10 +17,12 @@ spec:
     metadata:
       labels:
         app: nats-aws-auth
+      annotations:
+        checksum/config: 0eaeaee89edce81f92ccf316fda927c78723e99ffa4bc9b11c283f4c82425927
     spec:
       containers:
       - name: nats-aws-auth
-        image: nresare/nats-aws-auth:local-key-storage
+        image: nresare/nats-aws-auth:v2026.02.19-1de79ca-12-gafc222e
         ports:
         - name: http
           containerPort: 8080
@@ -28,12 +30,18 @@ spec:
         - --url=nats://nats.nats
         - --auth-backend=k8s-oidc
         - --jwt-issuer=https://k8s.noa.re
+        - --config=/config/nats-aws-auth.toml
         - --key-storage=directory
         - --key-dir=/keys
         volumeMounts:
+        - name: nats-aws-auth-config
+          mountPath: /config
         - name: keys
           mountPath: /keys
       volumes:
+      - name: nats-aws-auth-config
+        configMap:
+          name: nats-aws-auth-config
       - name: keys
         secret:
           secretName: keys
