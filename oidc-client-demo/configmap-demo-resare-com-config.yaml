@@ -5,7 +5,7 @@ metadata:
   name: demo-resare-com-config
   namespace: oidc-client-demo
   annotations:
-    noa.re/manifest-id: 27f6a745458efed3
+    noa.re/manifest-id: 37fd3df638ffedbb
 data:
   config.toml: |
     # Application configuration for oidc-client-demo
@@ -20,3 +20,7 @@ data:
     scopes = ["openid", "profile", "email", "offline_access"]
     #, "https://graph.microsoft.com/User.Read"]
     client_secret_path = "/secret/client_id"
+
+    [otel]
+    endpoint = "http://tempo.tempo.svc:4318/v1/traces"
+    service_name = "oidc-client-demo"
