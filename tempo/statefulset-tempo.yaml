@@ -1,0 +1,125 @@
+# Source: tempo
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: tempo
+  namespace: tempo
+  labels:
+    app.kubernetes.io/name: tempo
+    app.kubernetes.io/instance: tempo
+    app.kubernetes.io/version: 3.1.0
+  annotations:
+    noa.re/manifest-id: a654c391faab9733
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: tempo
+      app.kubernetes.io/instance: tempo
+  serviceName: tempo-headless
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: tempo
+        app.kubernetes.io/instance: tempo
+      annotations:
+        checksum/config: 4c93202309df6d1315f3e2b6a99f46517e896e4398121678348fa28abe90dcf1
+    spec:
+      serviceAccountName: tempo
+      automountServiceAccountToken: true
+      containers:
+      - args:
+        - -config.file=/conf/tempo.yaml
+        image: docker.io/grafana/tempo:3.1.0
+        imagePullPolicy: IfNotPresent
+        name: tempo
+        ports:
+        - containerPort: 3200
+          name: prom-metrics
+        - containerPort: 6831
+          name: jaeger-thrift-c
+          protocol: UDP
+        - containerPort: 6832
+          name: jaeger-thrift-b
+          protocol: UDP
+        - containerPort: 14268
+          name: jaeger-thrift-h
+        - containerPort: 14250
+          name: jaeger-grpc
+        - containerPort: 9411
+          name: zipkin
+        - containerPort: 55680
+          name: otlp-legacy
+        - containerPort: 4317
+          name: otlp-grpc
+        - containerPort: 55681
+          name: otlp-httplegacy
+        - containerPort: 4318
+          name: otlp-http
+        livenessProbe:
+          failureThreshold: 3
+          httpGet:
+            path: /ready
+            port: 3200
+          initialDelaySeconds: 30
+          periodSeconds: 10
+          successThreshold: 1
+          timeoutSeconds: 5
+        readinessProbe:
+          failureThreshold: 3
+          httpGet:
+            path: /ready
+            port: 3200
+          initialDelaySeconds: 20
+          periodSeconds: 10
+          successThreshold: 1
+          timeoutSeconds: 5
+        resources: {}
+        env:
+        - name: AWS_ROLE_ARN
+          value: arn:aws:iam:::role/tempo
+        - name: AWS_WEB_IDENTITY_TOKEN_FILE
+          value: /var/run/secrets/tokens/sts.amazonaws.com
+        - name: AWS_REGION
+          value: us-east-1
+        - name: AWS_ENDPOINT_URL_STS
+          value: http://rook-ceph-rgw-fruktsallad.rook-ceph.svc
+        volumeMounts:
+        - mountPath: /var/run/secrets/tokens
+          name: tokens
+          readOnly: true
+        - mountPath: /conf
+          name: tempo-conf
+        - mountPath: /var/tempo
+          name: storage
+      securityContext:
+        fsGroup: 10001
+        runAsGroup: 10001
+        runAsNonRoot: true
+        runAsUser: 10001
+      volumes:
+      - name: tokens
+        projected:
+          sources:
+          - serviceAccountToken:
+              audience: sts.amazonaws.com
+              expirationSeconds: 3600
+              path: sts.amazonaws.com
+      - configMap:
+          name: tempo
+        name: tempo-conf
+  updateStrategy:
+    type: RollingUpdate
+  volumeClaimTemplates:
+  - apiVersion: v1
+    kind: PersistentVolumeClaim
+    metadata:
+      name: storage
+      annotations: null
+    spec:
+      accessModes:
+      - ReadWriteOnce
+      resources:
+        requests:
+          storage: 10Gi
+      storageClassName: rook-ceph-block

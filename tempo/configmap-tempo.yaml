@@ -1,0 +1,67 @@
+# Source: tempo
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: tempo
+  namespace: tempo
+  labels:
+    app.kubernetes.io/name: tempo
+    app.kubernetes.io/instance: tempo
+    app.kubernetes.io/version: 3.1.0
+  annotations:
+    noa.re/manifest-id: 297f4ef8583bacd3
+data:
+  overrides.yaml: |
+    overrides:
+      {}
+  tempo.yaml: |
+    stream_over_http_enabled: false
+    memberlist:
+      cluster_label: "tempo.tempo"
+    multitenancy_enabled: false
+    usage_report:
+      reporting_enabled: true
+    backend_scheduler:
+          provider:
+            compaction:
+              compaction:
+                block_retention: 720h
+    distributor:
+      receivers:
+            jaeger:
+              protocols:
+                grpc:
+                  endpoint: 0.0.0.0:14250
+                thrift_binary:
+                  endpoint: 0.0.0.0:6832
+                thrift_compact:
+                  endpoint: 0.0.0.0:6831
+                thrift_http:
+                  endpoint: 0.0.0.0:14268
+            otlp:
+              protocols:
+                grpc:
+                  endpoint: 0.0.0.0:4317
+                http:
+                  endpoint: 0.0.0.0:4318
+    server:
+          http_listen_port: 3200
+    storage:
+          trace:
+            backend: s3
+            s3:
+              bucket: tempo-data
+              endpoint: rook-ceph-rgw-fruktsallad.rook-ceph.svc:80
+              forcepathstyle: true
+              insecure: true
+              native_aws_auth_enabled: true
+              region: us-east-1
+            wal:
+              path: /var/tempo/wal
+    querier:
+          {}
+    query_frontend:
+          {}
+    overrides:
+          defaults: {}
+          per_tenant_override_config: /conf/overrides.yaml
