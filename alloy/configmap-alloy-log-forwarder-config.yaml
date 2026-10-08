@@ -5,7 +5,7 @@ metadata:
   name: alloy-log-forwarder-config
   namespace: alloy
   annotations:
-    noa.re/manifest-id: 32297f0caeb2a1d2
+    noa.re/manifest-id: 85f357b2eaaec539
 data:
   log-forwarder.cfg: |
     loki.write "central" {
@@ -49,6 +49,14 @@ data:
       rule {
         source_labels = ["__meta_kubernetes_pod_container_name"]
         target_label  = "container"
+      }
+
+      // The runtime ID changes on container restarts, even when the pod name is reused.
+      rule {
+        source_labels = ["__meta_kubernetes_pod_container_id"]
+        regex         = "[^:]+://(.+)"
+        replacement   = "$1"
+        target_label  = "container_id"
       }
 
       rule {
