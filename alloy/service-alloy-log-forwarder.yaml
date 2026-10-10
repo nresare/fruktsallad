@@ -7,11 +7,11 @@ metadata:
   labels:
     app.kubernetes.io/name: alloy
     app.kubernetes.io/instance: alloy-log-forwarder
-    app.kubernetes.io/version: v1.20.0
+    app.kubernetes.io/version: v1.20.1
     app.kubernetes.io/part-of: alloy
     app.kubernetes.io/component: networking
   annotations:
-    noa.re/manifest-id: d23b3104372f654e
+    noa.re/manifest-id: 9807ea79cad472de
 spec:
   type: ClusterIP
   selector:
