@@ -7,7 +7,7 @@ metadata:
     app: id-noa-re
   namespace: idelephant
   annotations:
-    noa.re/deploy-id: 2991b459824f9edc
+    noa.re/manifest-id: 938280f9ab14bae6
 spec:
   replicas: 1
   selector:
@@ -18,19 +18,22 @@ spec:
       labels:
         app: id-noa-re
       annotations:
-        checksum/config: 09332ec988002604668436938754ae699aa7080e64423584323f499dd9235d1f
+        checksum/config: bfa2dc85ae0e1ba687f4ca8b431dfffc84510d6cbcd07402533a8a5fd82b06a4
     spec:
       containers:
       - name: id-noa-re
-        image: repo.noa.re/idelephant:0.2.3-f107350d
+        image: repo.noa.re/idelephant:0.2.3-80bc6519
         args:
         - -c
         - /config/idelephant.toml
-        livenessProbe:
-          httpGet:
-            path: /healthz
-            port: 8080
+        ports:
+        - name: https
+          containerPort: 8443
+          protocol: TCP
         volumeMounts:
+        - name: tls
+          mountPath: /tls
+          readOnly: true
         - name: id-noa-re-config
           mountPath: /config
         - name: email-password
@@ -38,7 +41,15 @@ spec:
         - name: tokens
           mountPath: /var/run/secrets/tokens
           readOnly: true
+        livenessProbe:
+          httpGet:
+            path: /healthz
+            port: https
+            scheme: HTTPS
       volumes:
+      - name: tls
+        secret:
+          secretName: id-noa-re-internal-tls
       - name: id-noa-re-config
         configMap:
           name: id-noa-re-config

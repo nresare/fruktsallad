@@ -5,12 +5,14 @@ metadata:
   name: id-noa-re-config
   namespace: idelephant
   annotations:
-    noa.re/deploy-id: 4e7e9393e5aa6527
+    noa.re/manifest-id: d50eb815b026ff5b
 data:
   idelephant.toml: |
     root_key = "zq.luDCkyil5qf1qCJwm5lnSe97x5mROvXUMfwpOASJ0MgalZTIj"
 
     origin = "https://id.noa.re"
+    tls_cert_path = "/tls/tls.crt"
+    tls_key_path = "/tls/tls.key"
 
     [email]
     sender_email = "noa@resare.com"

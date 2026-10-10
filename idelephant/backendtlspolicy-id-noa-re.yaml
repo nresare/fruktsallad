@@ -1,0 +1,20 @@
+# Source: id.noa.re
+apiVersion: gateway.networking.k8s.io/v1
+kind: BackendTLSPolicy
+metadata:
+  name: id-noa-re
+  namespace: idelephant
+  annotations:
+    noa.re/manifest-id: 46905facb11e704b
+spec:
+  targetRefs:
+  - group: ''
+    kind: Service
+    name: id-noa-re
+    sectionName: https
+  validation:
+    caCertificateRefs:
+    - group: ''
+      kind: ConfigMap
+      name: cluster-local-ca
+    hostname: id-noa-re.idelephant.svc
