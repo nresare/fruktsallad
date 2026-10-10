@@ -7,7 +7,7 @@ metadata:
     app: demo-resare-com
   namespace: oidc-client-demo
   annotations:
-    noa.re/manifest-id: 9c1e1947b8bfb181
+    noa.re/manifest-id: 3e42df5260cbc22b
 spec:
   replicas: 1
   selector:
@@ -18,26 +18,37 @@ spec:
       labels:
         app: demo-resare-com
       annotations:
-        checksum/config: 619714723c90c34f0957f6d2ba45525b5935d1915d438f27b625604b8638d49e
+        checksum/config: 95b75399a7d31edd65aa47b68e9be34fb73b76862a00896d85785d2ee6b36dc2
     spec:
       containers:
       - name: demo-resare-com
-        image: repo.noa.re/oidc-client-demo:0.1.0-7c1fd01a
+        image: repo.noa.re/oidc-client-demo:0.1.0-838ec27b
         args:
         - -c
         - /config/config.toml
-        livenessProbe:
-          httpGet:
-            path: /healthz
-            port: 8080
+        ports:
+        - name: https
+          containerPort: 8443
+          protocol: TCP
         volumeMounts:
+        - name: tls
+          mountPath: /tls
+          readOnly: true
         - name: demo-resare-com-config
           mountPath: /config
         - name: secret
           mountPath: /secret
         - name: random-secrets
           mountPath: /random-secrets
+        livenessProbe:
+          httpGet:
+            path: /healthz
+            port: https
+            scheme: HTTPS
       volumes:
+      - name: tls
+        secret:
+          secretName: demo-resare-com-internal-tls
       - name: demo-resare-com-config
         configMap:
           name: demo-resare-com-config

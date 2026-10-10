@@ -5,11 +5,13 @@ metadata:
   name: demo-resare-com
   namespace: oidc-client-demo
   annotations:
-    noa.re/manifest-id: 83d1775bca5e1873
+    noa.re/manifest-id: 0cff4e086cc21a45
 spec:
   selector:
     app: demo-resare-com
   ports:
-  - protocol: TCP
-    port: 80
-    targetPort: 8080
+  - name: https
+    appProtocol: https
+    protocol: TCP
+    port: 443
+    targetPort: https

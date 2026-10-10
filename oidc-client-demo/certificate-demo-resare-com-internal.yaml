@@ -1,0 +1,25 @@
+# Source: demo.resare.com
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: demo-resare-com-internal
+  namespace: oidc-client-demo
+  annotations:
+    noa.re/manifest-id: 67aa9607d4fd5144
+spec:
+  dnsNames:
+  - demo-resare-com.oidc-client-demo.svc
+  duration: 2160h
+  issuerRef:
+    name: cluster-local
+    kind: ClusterIssuer
+    group: cert-manager.io
+  privateKey:
+    algorithm: ECDSA
+    size: 256
+    rotationPolicy: Always
+  renewBefore: 360h
+  secretName: demo-resare-com-internal-tls
+  usages:
+  - digital signature
+  - server auth

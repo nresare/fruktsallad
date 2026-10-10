@@ -5,7 +5,7 @@ metadata:
   name: demo-resare-com
   namespace: oidc-client-demo
   annotations:
-    noa.re/manifest-id: bcbed7286a36161c
+    noa.re/manifest-id: 3d48b82da10777b4
 spec:
   parentRefs:
   - name: demo-resare-com
@@ -16,7 +16,7 @@ spec:
   rules:
   - backendRefs:
     - name: demo-resare-com
-      port: 80
+      port: 443
       group: ''
       kind: Service
       weight: 1

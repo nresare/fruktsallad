@@ -1,0 +1,20 @@
+# Source: demo.resare.com
+apiVersion: gateway.networking.k8s.io/v1
+kind: BackendTLSPolicy
+metadata:
+  name: demo-resare-com
+  namespace: oidc-client-demo
+  annotations:
+    noa.re/manifest-id: 6aa80a3b3192de7c
+spec:
+  targetRefs:
+  - group: ''
+    kind: Service
+    name: demo-resare-com
+    sectionName: https
+  validation:
+    caCertificateRefs:
+    - group: ''
+      kind: ConfigMap
+      name: cluster-local-ca
+    hostname: demo-resare-com.oidc-client-demo.svc
