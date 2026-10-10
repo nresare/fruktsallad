@@ -7,11 +7,11 @@ metadata:
     app.kubernetes.io/instance: argocd
     app.kubernetes.io/component: redis
     app.kubernetes.io/part-of: argocd
-    app.kubernetes.io/version: v3.5.3
+    app.kubernetes.io/version: v3.5.4
   name: argocd-redis
   namespace: argo
   annotations:
-    noa.re/manifest-id: b6bf67ed7aeefce5
+    noa.re/manifest-id: bd8a8664c63fd508
 spec:
   ingress:
   - from:

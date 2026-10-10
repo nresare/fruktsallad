@@ -7,11 +7,11 @@ metadata:
     app.kubernetes.io/instance: argocd
     app.kubernetes.io/component: application-controller
     app.kubernetes.io/part-of: argocd
-    app.kubernetes.io/version: v3.5.3
+    app.kubernetes.io/version: v3.5.4
   name: argocd-application-controller
   namespace: argo
   annotations:
-    noa.re/manifest-id: 0654164397fb22a0
+    noa.re/manifest-id: d2e02a0155e95e72
 spec:
   ingress:
   - from:

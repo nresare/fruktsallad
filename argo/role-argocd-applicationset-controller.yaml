@@ -9,9 +9,9 @@ metadata:
     app.kubernetes.io/instance: argocd
     app.kubernetes.io/component: applicationset-controller
     app.kubernetes.io/part-of: argocd
-    app.kubernetes.io/version: v3.5.3
+    app.kubernetes.io/version: v3.5.4
   annotations:
-    noa.re/manifest-id: a213cc5d60c90aa5
+    noa.re/manifest-id: fedf5b0c9099c667
 rules:
 - apiGroups:
   - argoproj.io
