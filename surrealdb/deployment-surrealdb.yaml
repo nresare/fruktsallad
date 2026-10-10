@@ -9,7 +9,7 @@ metadata:
     app.kubernetes.io/version: 2.6.5
   namespace: surrealdb
   annotations:
-    noa.re/manifest-id: 48f68b31ed7150f2
+    noa.re/manifest-id: 2f75c6b8041b0c57
 spec:
   strategy:
     type: Recreate
@@ -30,7 +30,7 @@ spec:
       containers:
       - name: surrealdb
         securityContext: {}
-        image: surrealdb/surrealdb:v3.3
+        image: surrealdb/surrealdb:v3.3.3
         imagePullPolicy: IfNotPresent
         args:
         - start
