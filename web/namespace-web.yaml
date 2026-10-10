@@ -2,6 +2,7 @@ apiVersion: v1
 kind: Namespace
 metadata:
   name: web
+  labels:
+    trust: cluster-local
   annotations:
     argocd.argoproj.io/sync-options: PruneLast=true
-    noa.re/manifest-id: bbe3b387992af0a7

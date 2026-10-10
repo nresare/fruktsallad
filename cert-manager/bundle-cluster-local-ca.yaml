@@ -5,7 +5,7 @@ metadata:
   name: cluster-local-ca
   namespace: cert-manager
   annotations:
-    noa.re/manifest-id: d42edf52f47e230d
+    noa.re/manifest-id: 9a5dfc75ed97f9cc
 spec:
   sources:
   - secret:
@@ -16,4 +16,4 @@ spec:
       key: ca.crt
     namespaceSelector:
       matchLabels:
-        kubernetes.io/metadata.name: web
+        trust: cluster-local

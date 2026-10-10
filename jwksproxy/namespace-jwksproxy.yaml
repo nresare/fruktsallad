@@ -2,6 +2,7 @@ apiVersion: v1
 kind: Namespace
 metadata:
   name: jwksproxy
+  labels:
+    trust: cluster-local
   annotations:
     argocd.argoproj.io/sync-options: PruneLast=true
-    noa.re/manifest-id: 3ffd4d0e5573c362
