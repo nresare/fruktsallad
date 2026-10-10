@@ -1,0 +1,25 @@
+# Source: repo.noa.re
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: repo-noa-re-internal
+  namespace: reposnake
+  annotations:
+    noa.re/manifest-id: c8e56d18a9dcfd41
+spec:
+  dnsNames:
+  - repo-noa-re.reposnake.svc
+  duration: 2160h
+  issuerRef:
+    name: cluster-local
+    kind: ClusterIssuer
+    group: cert-manager.io
+  privateKey:
+    algorithm: ECDSA
+    size: 256
+    rotationPolicy: Always
+  renewBefore: 360h
+  secretName: repo-noa-re-internal-tls
+  usages:
+  - digital signature
+  - server auth

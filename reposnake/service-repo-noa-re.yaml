@@ -5,11 +5,13 @@ metadata:
   name: repo-noa-re
   namespace: reposnake
   annotations:
-    noa.re/manifest-id: 143a35ef22d04b09
+    noa.re/manifest-id: d17f660dde68f738
 spec:
   selector:
     app: repo-noa-re
   ports:
-  - protocol: TCP
-    port: 80
-    targetPort: 8080
+  - name: https
+    appProtocol: https
+    protocol: TCP
+    port: 443
+    targetPort: https

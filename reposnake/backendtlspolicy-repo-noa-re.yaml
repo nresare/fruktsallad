@@ -1,0 +1,20 @@
+# Source: repo.noa.re
+apiVersion: gateway.networking.k8s.io/v1
+kind: BackendTLSPolicy
+metadata:
+  name: repo-noa-re
+  namespace: reposnake
+  annotations:
+    noa.re/manifest-id: 6f7c4f2e04f2f689
+spec:
+  targetRefs:
+  - group: ''
+    kind: Service
+    name: repo-noa-re
+    sectionName: https
+  validation:
+    caCertificateRefs:
+    - group: ''
+      kind: ConfigMap
+      name: cluster-local-ca
+    hostname: repo-noa-re.reposnake.svc

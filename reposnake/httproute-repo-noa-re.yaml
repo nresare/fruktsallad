@@ -5,7 +5,7 @@ metadata:
   name: repo-noa-re
   namespace: reposnake
   annotations:
-    noa.re/manifest-id: 26ec32503eb09a64
+    noa.re/manifest-id: 0b83a834b02737df
 spec:
   parentRefs:
   - name: repo-noa-re
@@ -16,7 +16,7 @@ spec:
   rules:
   - backendRefs:
     - name: repo-noa-re
-      port: 80
+      port: 443
       group: ''
       kind: Service
       weight: 1
