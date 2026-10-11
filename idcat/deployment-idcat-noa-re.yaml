@@ -7,7 +7,7 @@ metadata:
     app: idcat-noa-re
   namespace: idcat
   annotations:
-    noa.re/manifest-id: f3f07e8619cda0c3
+    noa.re/manifest-id: 78cdbec72582294a
 spec:
   replicas: 2
   selector:
@@ -23,6 +23,7 @@ spec:
       containers:
       - name: idcat-noa-re
         image: public.ecr.aws/portswigger-platform/idcat:934b43e7
+        imagePullPolicy: IfNotPresent
         args:
         - --debug
         livenessProbe:

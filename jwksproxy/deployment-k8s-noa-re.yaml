@@ -7,7 +7,7 @@ metadata:
     app: k8s-noa-re
   namespace: jwksproxy
   annotations:
-    noa.re/manifest-id: 61c221fc2fd86d4d
+    noa.re/manifest-id: 4c5b7422beb35e9f
 spec:
   replicas: 1
   selector:
@@ -23,6 +23,7 @@ spec:
       containers:
       - name: k8s-noa-re
         image: nresare/jwksproxy:0.2.0
+        imagePullPolicy: IfNotPresent
         livenessProbe:
           httpGet:
             path: /healthz

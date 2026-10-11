@@ -8,7 +8,7 @@ metadata:
   namespace: web
   annotations:
     hugo: https://github.com/nresare/zq.lu
-    noa.re/manifest-id: 7d76f369bea8d439
+    noa.re/manifest-id: 3b7673e8f34195f4
 spec:
   replicas: 2
   selector:
@@ -31,6 +31,7 @@ spec:
           value: /tls/tls.key
         name: web
         image: ghcr.io/static-web-server/static-web-server:2.44
+        imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 8443
           name: https
@@ -50,6 +51,7 @@ spec:
       initContainers:
       - name: git
         image: alpine/git:v2.54.0
+        imagePullPolicy: IfNotPresent
         command:
         - /bin/sh
         - -c
@@ -64,6 +66,7 @@ spec:
           name: src
       - name: hugo
         image: floryn90/hugo:0.167.0
+        imagePullPolicy: IfNotPresent
         volumeMounts:
         - mountPath: /src
           name: src
