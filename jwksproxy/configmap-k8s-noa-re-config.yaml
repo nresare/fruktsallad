@@ -5,8 +5,10 @@ metadata:
   name: k8s-noa-re-config
   namespace: jwksproxy
   annotations:
-    noa.re/manifest-id: 8220f3a55f03b728
+    noa.re/manifest-id: 28316e5c81cde8c9
 data:
-  jwksproxy.toml: |-
+  jwksproxy.toml: |
     origin = "k8s.noa.re"
     emit_x5c = true
+    tls_cert_path = "/tls/tls.crt"
+    tls_key_path = "/tls/tls.key"

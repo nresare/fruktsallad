@@ -5,7 +5,7 @@ metadata:
   name: k8s-noa-re
   namespace: jwksproxy
   annotations:
-    noa.re/manifest-id: 8f647507fa1c51cb
+    noa.re/manifest-id: 212c9f4e01bc0cb2
 spec:
   parentRefs:
   - name: k8s-noa-re
@@ -16,7 +16,7 @@ spec:
   rules:
   - backendRefs:
     - name: k8s-noa-re
-      port: 80
+      port: 443
       group: ''
       kind: Service
       weight: 1

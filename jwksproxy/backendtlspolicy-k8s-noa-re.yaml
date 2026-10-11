@@ -1,0 +1,20 @@
+# Source: k8s.noa.re
+apiVersion: gateway.networking.k8s.io/v1
+kind: BackendTLSPolicy
+metadata:
+  name: k8s-noa-re
+  namespace: jwksproxy
+  annotations:
+    noa.re/manifest-id: 97b1d51964e65c6d
+spec:
+  targetRefs:
+  - group: ''
+    kind: Service
+    name: k8s-noa-re
+    sectionName: https
+  validation:
+    caCertificateRefs:
+    - group: ''
+      kind: ConfigMap
+      name: cluster-local-ca
+    hostname: k8s-noa-re.jwksproxy.svc

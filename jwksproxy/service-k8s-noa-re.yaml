@@ -5,11 +5,13 @@ metadata:
   name: k8s-noa-re
   namespace: jwksproxy
   annotations:
-    noa.re/manifest-id: 6e4b167e2779abed
+    noa.re/manifest-id: 13a3992e62cca2f6
 spec:
   selector:
     app: k8s-noa-re
   ports:
-  - protocol: TCP
-    port: 80
-    targetPort: 8080
+  - name: https
+    appProtocol: https
+    protocol: TCP
+    port: 443
+    targetPort: https

@@ -1,0 +1,25 @@
+# Source: k8s.noa.re
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: k8s-noa-re-internal
+  namespace: jwksproxy
+  annotations:
+    noa.re/manifest-id: 1834edaacab99b13
+spec:
+  dnsNames:
+  - k8s-noa-re.jwksproxy.svc
+  duration: 2160h
+  issuerRef:
+    name: cluster-local
+    kind: ClusterIssuer
+    group: cert-manager.io
+  privateKey:
+    algorithm: ECDSA
+    size: 256
+    rotationPolicy: Always
+  renewBefore: 360h
+  secretName: k8s-noa-re-internal-tls
+  usages:
+  - digital signature
+  - server auth

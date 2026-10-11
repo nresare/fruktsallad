@@ -7,7 +7,7 @@ metadata:
     app: k8s-noa-re
   namespace: jwksproxy
   annotations:
-    noa.re/manifest-id: 4c5b7422beb35e9f
+    noa.re/manifest-id: 1188c886db6f97a6
 spec:
   replicas: 1
   selector:
@@ -18,20 +18,31 @@ spec:
       labels:
         app: k8s-noa-re
       annotations:
-        checksum/config: d2b765400d15d9fe660ad8dc3350133e132b662ed4453716bf0bc9c279a13116
+        checksum/config: 2c38d9f04e77ea4d2316fd49f43ef7d3a1a51823c0ed341364acbe7b4f181bd1
     spec:
       containers:
       - name: k8s-noa-re
-        image: nresare/jwksproxy:0.2.0
+        image: repo.noa.re/jwksproxy:0.2.0-21fd437b
         imagePullPolicy: IfNotPresent
+        ports:
+        - name: https
+          containerPort: 8443
+          protocol: TCP
+        volumeMounts:
+        - name: tls
+          mountPath: /tls
+          readOnly: true
+        - name: k8s-noa-re-config
+          mountPath: /config
         livenessProbe:
           httpGet:
             path: /healthz
-            port: 8080
-        volumeMounts:
-        - name: k8s-noa-re-config
-          mountPath: /config
+            port: https
+            scheme: HTTPS
       volumes:
+      - name: tls
+        secret:
+          secretName: k8s-noa-re-internal-tls
       - name: k8s-noa-re-config
         configMap:
           name: k8s-noa-re-config
