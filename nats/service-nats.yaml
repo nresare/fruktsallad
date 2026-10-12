@@ -6,11 +6,11 @@ metadata:
     app.kubernetes.io/component: nats
     app.kubernetes.io/instance: nats
     app.kubernetes.io/name: nats
-    app.kubernetes.io/version: 2.14.6
+    app.kubernetes.io/version: 2.15.0
   name: nats
   namespace: nats
   annotations:
-    noa.re/manifest-id: 52d0a0f1c55e4bb2
+    noa.re/manifest-id: dfb229b48bf668f7
 spec:
   ports:
   - appProtocol: tcp
