@@ -9,9 +9,9 @@ metadata:
     app.kubernetes.io/instance: argocd
     app.kubernetes.io/component: server
     app.kubernetes.io/part-of: argocd
-    app.kubernetes.io/version: v3.5.4
+    app.kubernetes.io/version: v3.5.5
   annotations:
-    noa.re/manifest-id: aed80258b010123e
+    noa.re/manifest-id: ecb0e03cafd18e58
 data:
   applicationsetcontroller.enable.leader.election: 'false'
   applicationsetcontroller.log.format: text
