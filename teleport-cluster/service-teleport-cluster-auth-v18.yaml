@@ -8,10 +8,10 @@ metadata:
     app.kubernetes.io/name: teleport-cluster
     app.kubernetes.io/instance: teleport-cluster
     app.kubernetes.io/component: auth
-    app.kubernetes.io/version: 18.11.2
+    app.kubernetes.io/version: 18.11.3
     teleport.dev/majorVersion: '18'
   annotations:
-    noa.re/manifest-id: d0c7d8e8b8f9785b
+    noa.re/manifest-id: d2434d5ef6223d69
 spec:
   clusterIP: None
   publishNotReadyAddresses: true
