@@ -4,7 +4,7 @@ kind: CustomResourceDefinition
 metadata:
   annotations:
     controller-gen.kubebuilder.io/version: v0.19.0
-    noa.re/manifest-id: 82914144c63f45c8
+    noa.re/manifest-id: f34b9e3a6dfef88d
   name: cephfilesystemmirrors.ceph.rook.io
 spec:
   group: ceph.rook.io
@@ -694,7 +694,7 @@ spec:
                     status:
                       type: string
                     type:
-                      description: ConditionType represent a resource's status
+                      description: ConditionType represents a resource's status
                       type: string
                   type: object
                 type: array

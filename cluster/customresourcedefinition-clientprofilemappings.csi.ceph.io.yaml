@@ -5,11 +5,11 @@ metadata:
   name: clientprofilemappings.csi.ceph.io
   annotations:
     controller-gen.kubebuilder.io/version: v0.17.2
-    noa.re/manifest-id: eb58e4be4bafc9a1
+    noa.re/manifest-id: 4c29c3c18b6fde31
   labels:
     app.kubernetes.io/name: ceph-csi
     app.kubernetes.io/instance: rook
-    app.kubernetes.io/version: v1.0.4
+    app.kubernetes.io/version: v1.1.0
 spec:
   group: csi.ceph.io
   names:

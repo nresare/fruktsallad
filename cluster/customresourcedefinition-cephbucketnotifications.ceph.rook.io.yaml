@@ -4,7 +4,7 @@ kind: CustomResourceDefinition
 metadata:
   annotations:
     controller-gen.kubebuilder.io/version: v0.19.0
-    noa.re/manifest-id: 6b991a226c462b5d
+    noa.re/manifest-id: 793fa30c556f365c
   name: cephbucketnotifications.ceph.rook.io
 spec:
   group: ceph.rook.io
@@ -47,13 +47,13 @@ spec:
           metadata:
             type: object
           spec:
-            description: BucketNotificationSpec represent the spec of a Bucket Notification
+            description: BucketNotificationSpec represents the spec of a Bucket Notification
             properties:
               events:
                 description: List of events that should trigger the notification
                 items:
                   description: |-
-                    BucketNotificationEvent represent the event type of the bucket notification
+                    BucketNotificationEvent represents the event type of the bucket notification
                     See: https://docs.ceph.com/en/latest/radosgw/s3-notification-compatibility/#event-types
                   type: string
                 type: array
@@ -63,7 +63,7 @@ spec:
                   keyFilters:
                     description: Filters based on the object's key
                     items:
-                      description: NotificationKeyFilterRule represent a single key
+                      description: NotificationKeyFilterRule represents a single key
                         rule in the Notification Filter spec
                       properties:
                         name:
@@ -84,7 +84,7 @@ spec:
                   metadataFilters:
                     description: Filters based on the object's metadata
                     items:
-                      description: NotificationFilterRule represent a single rule
+                      description: NotificationFilterRule represents a single rule
                         in the Notification Filter spec
                       properties:
                         name:
@@ -102,7 +102,7 @@ spec:
                   tagFilters:
                     description: Filters based on the object's tags
                     items:
-                      description: NotificationFilterRule represent a single rule
+                      description: NotificationFilterRule represents a single rule
                         in the Notification Filter spec
                       properties:
                         name:
@@ -147,7 +147,7 @@ spec:
                     status:
                       type: string
                     type:
-                      description: ConditionType represent a resource's status
+                      description: ConditionType represents a resource's status
                       type: string
                   type: object
                 type: array

@@ -6,9 +6,9 @@ metadata:
   labels:
     app.kubernetes.io/name: ceph-csi
     app.kubernetes.io/instance: rook
-    app.kubernetes.io/version: v1.0.4
+    app.kubernetes.io/version: v1.1.0
   annotations:
-    noa.re/manifest-id: 433ee30db8315287
+    noa.re/manifest-id: 11913f8659df2dfb
 rules:
 - apiGroups:
   - ''
@@ -44,14 +44,6 @@ rules:
   - update
   - watch
 - apiGroups:
-  - cbt.storage.k8s.io
-  resources:
-  - snapshotmetadataservices
-  verbs:
-  - get
-  - list
-  - watch
-- apiGroups:
   - csi.ceph.io
   resources:
   - cephconnections
@@ -65,6 +57,7 @@ rules:
   - csi.ceph.io
   resources:
   - clientprofilemappings
+  - clientprofilereplications
   - clientprofiles
   - drivers
   verbs:
@@ -79,6 +72,7 @@ rules:
   - csi.ceph.io
   resources:
   - clientprofilemappings/finalizers
+  - clientprofilereplications/finalizers
   - clientprofiles/finalizers
   - drivers/finalizers
   verbs:
@@ -87,6 +81,7 @@ rules:
   - csi.ceph.io
   resources:
   - clientprofilemappings/status
+  - clientprofilereplications/status
   - clientprofiles/status
   - drivers/status
   verbs:
@@ -100,6 +95,18 @@ rules:
   verbs:
   - get
   - list
+  - watch
+- apiGroups:
+  - networking.k8s.io
+  resources:
+  - networkpolicies
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
   - watch
 - apiGroups:
   - storage.k8s.io

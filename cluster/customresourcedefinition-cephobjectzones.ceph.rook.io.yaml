@@ -4,7 +4,7 @@ kind: CustomResourceDefinition
 metadata:
   annotations:
     controller-gen.kubebuilder.io/version: v0.19.0
-    noa.re/manifest-id: 9184c7624b4098f2
+    noa.re/manifest-id: 7146c763149acc44
   name: cephobjectzones.ceph.rook.io
 spec:
   group: ceph.rook.io
@@ -47,7 +47,7 @@ spec:
           metadata:
             type: object
           spec:
-            description: ObjectZoneSpec represent the spec of an ObjectZone
+            description: ObjectZoneSpec represents the spec of a CephObjectZone
             properties:
               customEndpoints:
                 description: |-
@@ -203,8 +203,8 @@ spec:
                             scheduling settings of a mirrored pool
                           properties:
                             interval:
-                              description: Interval represent the periodicity of the
-                                snapshot.
+                              description: Interval represents the periodicity of
+                                the snapshot.
                               type: string
                             path:
                               description: Path is the path to snapshot, only valid
@@ -450,8 +450,8 @@ spec:
                             scheduling settings of a mirrored pool
                           properties:
                             interval:
-                              description: Interval represent the periodicity of the
-                                snapshot.
+                              description: Interval represents the periodicity of
+                                the snapshot.
                               type: string
                             path:
                               description: Path is the path to snapshot, only valid
@@ -692,7 +692,7 @@ spec:
                     status:
                       type: string
                     type:
-                      description: ConditionType represent a resource's status
+                      description: ConditionType represents a resource's status
                       type: string
                   type: object
                 type: array

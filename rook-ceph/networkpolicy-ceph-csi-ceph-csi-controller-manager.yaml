@@ -1,0 +1,21 @@
+# Source: rook
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: ceph-csi-ceph-csi-controller-manager
+  namespace: rook-ceph
+  labels:
+    app.kubernetes.io/name: ceph-csi
+    app.kubernetes.io/instance: rook
+    app.kubernetes.io/version: v1.1.0
+  annotations:
+    noa.re/manifest-id: 25bc6ba0f3d43250
+spec:
+  egress:
+  - {}
+  podSelector:
+    matchLabels:
+      control-plane: ceph-csi-op-controller-manager
+  policyTypes:
+  - Ingress
+  - Egress

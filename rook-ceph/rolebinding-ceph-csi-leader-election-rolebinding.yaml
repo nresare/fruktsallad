@@ -7,9 +7,9 @@ metadata:
   labels:
     app.kubernetes.io/name: ceph-csi
     app.kubernetes.io/instance: rook
-    app.kubernetes.io/version: v1.0.4
+    app.kubernetes.io/version: v1.1.0
   annotations:
-    noa.re/manifest-id: bc4de0873d7365af
+    noa.re/manifest-id: 35c5c98814016fa2
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: Role

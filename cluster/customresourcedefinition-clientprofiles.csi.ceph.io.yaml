@@ -5,11 +5,11 @@ metadata:
   name: clientprofiles.csi.ceph.io
   annotations:
     controller-gen.kubebuilder.io/version: v0.17.2
-    noa.re/manifest-id: 499f64baa235ce1d
+    noa.re/manifest-id: 21b104517fc48c8e
   labels:
     app.kubernetes.io/name: ceph-csi
     app.kubernetes.io/instance: rook
-    app.kubernetes.io/version: v1.0.4
+    app.kubernetes.io/version: v1.1.0
 spec:
   group: csi.ceph.io
   names:
@@ -90,6 +90,21 @@ spec:
                             type: string
                         type: object
                         x-kubernetes-map-type: atomic
+                      nodePublishSecret:
+                        description: |-
+                          SecretReference represents a Secret Reference. It has enough information to retrieve secret
+                          in any namespace
+                        properties:
+                          name:
+                            description: name is unique within a namespace to reference
+                              a secret resource.
+                            type: string
+                          namespace:
+                            description: namespace defines the space within which
+                              the secret name must be unique.
+                            type: string
+                        type: object
+                        x-kubernetes-map-type: atomic
                     type: object
                   fuseMountOptions:
                     additionalProperties:
@@ -120,6 +135,21 @@ spec:
                       on volumes.
                     properties:
                       controllerPublishSecret:
+                        description: |-
+                          SecretReference represents a Secret Reference. It has enough information to retrieve secret
+                          in any namespace
+                        properties:
+                          name:
+                            description: name is unique within a namespace to reference
+                              a secret resource.
+                            type: string
+                          namespace:
+                            description: namespace defines the space within which
+                              the secret name must be unique.
+                            type: string
+                        type: object
+                        x-kubernetes-map-type: atomic
+                      nodePublishSecret:
                         description: |-
                           SecretReference represents a Secret Reference. It has enough information to retrieve secret
                           in any namespace
@@ -165,6 +195,21 @@ spec:
                             type: string
                         type: object
                         x-kubernetes-map-type: atomic
+                      nodePublishSecret:
+                        description: |-
+                          SecretReference represents a Secret Reference. It has enough information to retrieve secret
+                          in any namespace
+                        properties:
+                          name:
+                            description: name is unique within a namespace to reference
+                              a secret resource.
+                            type: string
+                          namespace:
+                            description: namespace defines the space within which
+                              the secret name must be unique.
+                            type: string
+                        type: object
+                        x-kubernetes-map-type: atomic
                     type: object
                   radosNamespace:
                     type: string
@@ -180,6 +225,14 @@ spec:
               ClientProfileStatus defines the observed state of Ceph CSI
               configuration for volumes and snapshots configured to use
               this profile
+            properties:
+              message:
+                description: Message provides human-readable details about the current
+                  phase
+                type: string
+              phase:
+                description: Phase indicates the current state of this CR
+                type: string
             type: object
         type: object
     served: true

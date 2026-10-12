@@ -4,7 +4,7 @@ kind: CustomResourceDefinition
 metadata:
   annotations:
     controller-gen.kubebuilder.io/version: v0.19.0
-    noa.re/manifest-id: 8c81fd9ac0549fd9
+    noa.re/manifest-id: 5a149f32b111694d
   name: cephnvmeofgateways.ceph.rook.io
 spec:
   group: ceph.rook.io
@@ -126,6 +126,13 @@ spec:
                       grpc:
                         description: GRPC specifies a GRPC HealthCheckRequest.
                         properties:
+                          mode:
+                            description: |-
+                              mode specifies the connection mode for the gRPC health probe.
+                              Set to "TLS" to use TLS without certificate verification.
+                              Set to "Plaintext" to use a plaintext (insecure) connection explicitly.
+                              If not specified, the probe uses a plaintext (insecure) connection.
+                            type: string
                           port:
                             description: Port number of the gRPC service. Number must
                               be in the range 1 to 65535.
@@ -183,6 +190,11 @@ spec:
                               Number must be in the range 1 to 65535.
                               Name must be an IANA_SVC_NAME.
                             x-kubernetes-int-or-string: true
+                          protocol:
+                            description: |-
+                              Protocol selects the wire protocol for the probe connection.
+                              Nil defaults to HTTP/1.1.
+                            type: string
                           scheme:
                             description: |-
                               Scheme to use for connecting to the host.
@@ -758,11 +770,6 @@ spec:
                       type: object
                     type: array
                 type: object
-              pool:
-                description: Pool is the RADOS pool where NVMe-oF configuration is
-                  stored
-                minLength: 1
-                type: string
               ports:
                 description: Ports configuration for the NVMe-oF gateway
                 properties:
@@ -860,7 +867,6 @@ spec:
             required:
             - group
             - instances
-            - pool
             type: object
           status:
             description: NVMeOFGatewayStatus represents the status of Ceph NVMe-oF
@@ -918,7 +924,7 @@ spec:
                     status:
                       type: string
                     type:
-                      description: ConditionType represent a resource's status
+                      description: ConditionType represents a resource's status
                       type: string
                   type: object
                 type: array

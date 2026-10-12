@@ -4,7 +4,7 @@ kind: CustomResourceDefinition
 metadata:
   annotations:
     controller-gen.kubebuilder.io/version: v0.19.0
-    noa.re/manifest-id: d86ed93aedebce69
+    noa.re/manifest-id: c46d9cff07955cf1
   name: cephobjectstoreaccounts.ceph.rook.io
 spec:
   group: ceph.rook.io
@@ -25,7 +25,7 @@ spec:
     name: v1
     schema:
       openAPIV3Schema:
-        description: CephObjectStoreAccount represent the RGW user account
+        description: CephObjectStoreAccount represents the RGW user account
         properties:
           apiVersion:
             description: |-
@@ -45,7 +45,7 @@ spec:
           metadata:
             type: object
           spec:
-            description: ObjectStoreAccountSpec represent the spec of a RGW Account
+            description: ObjectStoreAccountSpec represents the spec of an RGW Account
             properties:
               accountID:
                 description: |-

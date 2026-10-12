@@ -4,7 +4,7 @@ kind: CustomResourceDefinition
 metadata:
   annotations:
     controller-gen.kubebuilder.io/version: v0.19.0
-    noa.re/manifest-id: c5bcc634c857ab13
+    noa.re/manifest-id: bac9b09259704a98
   name: cephblockpoolradosnamespaces.ceph.rook.io
 spec:
   group: ceph.rook.io
@@ -98,7 +98,8 @@ spec:
                         settings of a mirrored pool
                       properties:
                         interval:
-                          description: Interval represent the periodicity of the snapshot.
+                          description: Interval represents the periodicity of the
+                            snapshot.
                           type: string
                         path:
                           description: Path is the path to snapshot, only valid for
@@ -144,7 +145,7 @@ spec:
                     status:
                       type: string
                     type:
-                      description: ConditionType represent a resource's status
+                      description: ConditionType represents a resource's status
                       type: string
                   type: object
                 type: array
@@ -317,7 +318,7 @@ spec:
                     type: object
                 type: object
               phase:
-                description: ConditionType represent a resource's status
+                description: ConditionType represents a resource's status
                 type: string
               snapshotScheduleStatus:
                 description: SnapshotScheduleStatusSpec is the status of the snapshot

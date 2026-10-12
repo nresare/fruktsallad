@@ -4,7 +4,7 @@ kind: CustomResourceDefinition
 metadata:
   annotations:
     controller-gen.kubebuilder.io/version: v0.19.0
-    noa.re/manifest-id: d194df9f568aa188
+    noa.re/manifest-id: 33094089050173c3
   name: cephobjectzonegroups.ceph.rook.io
 spec:
   group: ceph.rook.io
@@ -48,7 +48,7 @@ spec:
           metadata:
             type: object
           spec:
-            description: ObjectZoneGroupSpec represent the spec of an ObjectZoneGroup
+            description: ObjectZoneGroupSpec represents the spec of a CephObjectZoneGroup
             properties:
               realm:
                 description: The name of the realm the zone group is a member of.
@@ -78,7 +78,7 @@ spec:
                     status:
                       type: string
                     type:
-                      description: ConditionType represent a resource's status
+                      description: ConditionType represents a resource's status
                       type: string
                   type: object
                 type: array

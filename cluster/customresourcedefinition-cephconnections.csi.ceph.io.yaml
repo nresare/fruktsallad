@@ -5,11 +5,11 @@ metadata:
   name: cephconnections.csi.ceph.io
   annotations:
     controller-gen.kubebuilder.io/version: v0.17.2
-    noa.re/manifest-id: 955bfd69e2894748
+    noa.re/manifest-id: 38eaa3d9f2982a76
   labels:
     app.kubernetes.io/name: ceph-csi
     app.kubernetes.io/instance: rook
-    app.kubernetes.io/version: v1.0.4
+    app.kubernetes.io/version: v1.1.0
 spec:
   group: csi.ceph.io
   names:

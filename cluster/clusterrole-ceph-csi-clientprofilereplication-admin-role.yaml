@@ -1,0 +1,24 @@
+# Source: rook
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: ceph-csi-clientprofilereplication-admin-role
+  labels:
+    app.kubernetes.io/name: ceph-csi
+    app.kubernetes.io/instance: rook
+    app.kubernetes.io/version: v1.1.0
+  annotations:
+    noa.re/manifest-id: 471562cb8c070e2f
+rules:
+- apiGroups:
+  - csi.ceph.io
+  resources:
+  - clientprofilereplications
+  verbs:
+  - '*'
+- apiGroups:
+  - csi.ceph.io
+  resources:
+  - clientprofilereplications/status
+  verbs:
+  - get
