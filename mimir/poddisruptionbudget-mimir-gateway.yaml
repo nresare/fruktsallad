@@ -7,10 +7,10 @@ metadata:
     app.kubernetes.io/name: mimir
     app.kubernetes.io/instance: mimir
     app.kubernetes.io/component: gateway
-    app.kubernetes.io/version: 3.2.0
+    app.kubernetes.io/version: 3.2.1
   namespace: mimir
   annotations:
-    noa.re/manifest-id: 4d599a66c018737e
+    noa.re/manifest-id: e1bc912a3d1ef5b0
 spec:
   selector:
     matchLabels:

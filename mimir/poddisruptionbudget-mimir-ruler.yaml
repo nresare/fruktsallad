@@ -7,10 +7,10 @@ metadata:
     app.kubernetes.io/name: mimir
     app.kubernetes.io/instance: mimir
     app.kubernetes.io/component: ruler
-    app.kubernetes.io/version: 3.2.0
+    app.kubernetes.io/version: 3.2.1
   namespace: mimir
   annotations:
-    noa.re/manifest-id: 00753317f09459d1
+    noa.re/manifest-id: d0469d0578c28f36
 spec:
   selector:
     matchLabels:

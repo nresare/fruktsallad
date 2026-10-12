@@ -6,10 +6,10 @@ metadata:
   labels:
     app.kubernetes.io/name: mimir
     app.kubernetes.io/instance: mimir
-    app.kubernetes.io/version: 3.2.0
+    app.kubernetes.io/version: 3.2.1
   namespace: mimir
   annotations:
-    noa.re/manifest-id: fdec43e6fec05bca
+    noa.re/manifest-id: 810f1ed7bf59e2a2
 data:
   runtime.yaml: |2
 

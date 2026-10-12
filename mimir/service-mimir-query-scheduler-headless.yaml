@@ -8,10 +8,10 @@ metadata:
     app.kubernetes.io/name: mimir
     app.kubernetes.io/instance: mimir
     app.kubernetes.io/component: query-scheduler
-    app.kubernetes.io/version: 3.2.0
+    app.kubernetes.io/version: 3.2.1
     prometheus.io/service-monitor: 'false'
   annotations:
-    noa.re/manifest-id: 1f35ab7875101c7e
+    noa.re/manifest-id: e42215de93f6d693
 spec:
   type: ClusterIP
   clusterIP: None

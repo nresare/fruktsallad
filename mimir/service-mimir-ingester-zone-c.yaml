@@ -8,13 +8,13 @@ metadata:
     app.kubernetes.io/instance: mimir
     app.kubernetes.io/component: ingester
     app.kubernetes.io/part-of: memberlist
-    app.kubernetes.io/version: 3.2.0
+    app.kubernetes.io/version: 3.2.1
     name: ingester-zone-c
     rollout-group: ingester
     zone: zone-c
   namespace: mimir
   annotations:
-    noa.re/manifest-id: efd615fee161d7de
+    noa.re/manifest-id: eeece6caf652a793
 spec:
   type: ClusterIP
   internalTrafficPolicy: Cluster

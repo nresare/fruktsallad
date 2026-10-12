@@ -8,11 +8,11 @@ metadata:
     app.kubernetes.io/instance: mimir
     app.kubernetes.io/component: store-gateway
     app.kubernetes.io/part-of: memberlist
-    app.kubernetes.io/version: 3.2.0
+    app.kubernetes.io/version: 3.2.1
     prometheus.io/service-monitor: 'false'
   namespace: mimir
   annotations:
-    noa.re/manifest-id: 818072fe80ed898d
+    noa.re/manifest-id: 36991644c73d1a59
 spec:
   type: ClusterIP
   clusterIP: None

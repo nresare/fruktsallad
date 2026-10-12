@@ -7,10 +7,10 @@ metadata:
     app.kubernetes.io/name: mimir
     app.kubernetes.io/instance: mimir
     app.kubernetes.io/component: gateway
-    app.kubernetes.io/version: 3.2.0
+    app.kubernetes.io/version: 3.2.1
   namespace: mimir
   annotations:
-    noa.re/manifest-id: e7e0b4232ebc2c96
+    noa.re/manifest-id: 6cb54b93419a9001
 spec:
   type: ClusterIP
   internalTrafficPolicy: Cluster

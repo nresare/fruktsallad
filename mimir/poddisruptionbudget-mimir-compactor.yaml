@@ -7,10 +7,10 @@ metadata:
     app.kubernetes.io/name: mimir
     app.kubernetes.io/instance: mimir
     app.kubernetes.io/component: compactor
-    app.kubernetes.io/version: 3.2.0
+    app.kubernetes.io/version: 3.2.1
   namespace: mimir
   annotations:
-    noa.re/manifest-id: 0e262a7b52dc3572
+    noa.re/manifest-id: 38ccc4df62fb2b6c
 spec:
   selector:
     matchLabels:

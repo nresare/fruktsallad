@@ -8,10 +8,10 @@ metadata:
     app.kubernetes.io/instance: mimir
     app.kubernetes.io/component: compactor
     app.kubernetes.io/part-of: memberlist
-    app.kubernetes.io/version: 3.2.0
+    app.kubernetes.io/version: 3.2.1
   namespace: mimir
   annotations:
-    noa.re/manifest-id: 7ce86383de8f9996
+    noa.re/manifest-id: 9c2bf1c919cc9e61
 spec:
   podManagementPolicy: OrderedReady
   replicas: 1
@@ -39,11 +39,11 @@ spec:
       labels:
         app.kubernetes.io/name: mimir
         app.kubernetes.io/instance: mimir
-        app.kubernetes.io/version: 3.2.0
+        app.kubernetes.io/version: 3.2.1
         app.kubernetes.io/component: compactor
         app.kubernetes.io/part-of: memberlist
       annotations:
-        checksum/config: 9e7e609e279072d64416144e964d8f47ee26ebcbc2bbe2d8887038d9b9518d0f
+        checksum/config: ce3968ff46e942b11a047ac51738063167b9c372983c43f8b2e9d89e2bc7ba8c
       namespace: mimir
     spec:
       serviceAccountName: mimir
@@ -85,7 +85,7 @@ spec:
         emptyDir: {}
       containers:
       - name: compactor
-        image: docker.io/grafana/mimir:3.2.0
+        image: docker.io/grafana/mimir:3.2.1
         imagePullPolicy: IfNotPresent
         args:
         - -target=compactor
