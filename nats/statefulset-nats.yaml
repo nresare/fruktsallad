@@ -6,11 +6,11 @@ metadata:
     app.kubernetes.io/component: nats
     app.kubernetes.io/instance: nats
     app.kubernetes.io/name: nats
-    app.kubernetes.io/version: 2.15.0
+    app.kubernetes.io/version: 2.15.1
   name: nats
   namespace: nats
   annotations:
-    noa.re/manifest-id: 8db3660f2772470a
+    noa.re/manifest-id: 316f61e3c5fe06f6
 spec:
   podManagementPolicy: Parallel
   replicas: 3
@@ -27,7 +27,7 @@ spec:
         app.kubernetes.io/component: nats
         app.kubernetes.io/instance: nats
         app.kubernetes.io/name: nats
-        app.kubernetes.io/version: 2.15.0
+        app.kubernetes.io/version: 2.15.1
     spec:
       containers:
       - args:
@@ -97,7 +97,7 @@ spec:
         - /var/run/nats/nats.pid
         - -config
         - /etc/nats-config/nats.conf
-        image: natsio/nats-server-config-reloader:0.23.0
+        image: natsio/nats-server-config-reloader:0.24.0
         name: reloader
         volumeMounts:
         - mountPath: /var/run/nats

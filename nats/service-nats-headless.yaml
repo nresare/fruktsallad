@@ -6,11 +6,11 @@ metadata:
     app.kubernetes.io/component: nats
     app.kubernetes.io/instance: nats
     app.kubernetes.io/name: nats
-    app.kubernetes.io/version: 2.15.0
+    app.kubernetes.io/version: 2.15.1
   name: nats-headless
   namespace: nats
   annotations:
-    noa.re/manifest-id: 5bc40ec4ebdec7d0
+    noa.re/manifest-id: b08223d81b640e41
 spec:
   clusterIP: None
   ports:

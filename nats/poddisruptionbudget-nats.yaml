@@ -6,11 +6,11 @@ metadata:
     app.kubernetes.io/component: nats
     app.kubernetes.io/instance: nats
     app.kubernetes.io/name: nats
-    app.kubernetes.io/version: 2.15.0
+    app.kubernetes.io/version: 2.15.1
   name: nats
   namespace: nats
   annotations:
-    noa.re/manifest-id: 12e02c9869bb9dcd
+    noa.re/manifest-id: 55e184d14f15aaa1
 spec:
   maxUnavailable: 1
   selector:
