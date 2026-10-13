@@ -13,7 +13,7 @@ metadata:
     app.kubernetes.io/part-of: rook-ceph-operator
     app.kubernetes.io/created-by: helm
   annotations:
-    noa.re/manifest-id: c7ec0be954da9918
+    noa.re/manifest-id: 4d442578e26c7ac3
 data:
   ROOK_LOG_LEVEL: INFO
   ROOK_CEPH_COMMANDS_TIMEOUT_SECONDS: '15'
@@ -23,4 +23,4 @@ data:
   ROOK_CEPH_MON_RUN_AS_ROOT: 'false'
   ROOK_DELETE_UNUSED_CRUSH_RULES: 'true'
   ROOK_ENABLE_DISCOVERY_DAEMON: 'true'
-  ROOK_CREATE_CSI_OPERATOR_RESOURCES: null
+  ROOK_CREATE_CSI_OPERATOR_RESOURCES: 'true'
