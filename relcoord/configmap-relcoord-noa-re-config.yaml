@@ -5,11 +5,13 @@ metadata:
   name: relcoord-noa-re-config
   namespace: relcoord
   annotations:
-    noa.re/manifest-id: 73c7c2a5b1ac274d
+    noa.re/manifest-id: cbd286f5dc785fa6
 data:
   relcoord.toml: |
     listen = "0.0.0.0"
-    port = 8080
+    port = 8443
+    tls_cert_path = "/tls/tls.crt"
+    tls_key_path = "/tls/tls.key"
     system-repository = "https://github.com/nresare/system"
 
     [persistence]

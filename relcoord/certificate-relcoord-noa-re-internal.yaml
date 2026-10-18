@@ -1,0 +1,25 @@
+# Source: relcoord.noa.re
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: relcoord-noa-re-internal
+  namespace: relcoord
+  annotations:
+    noa.re/manifest-id: 1c8e5c55e75bad47
+spec:
+  dnsNames:
+  - relcoord-noa-re.relcoord.svc
+  duration: 2160h
+  issuerRef:
+    name: cluster-local
+    kind: ClusterIssuer
+    group: cert-manager.io
+  privateKey:
+    algorithm: ECDSA
+    size: 256
+    rotationPolicy: Always
+  renewBefore: 360h
+  secretName: relcoord-noa-re-internal-tls
+  usages:
+  - digital signature
+  - server auth

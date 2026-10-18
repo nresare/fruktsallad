@@ -5,11 +5,13 @@ metadata:
   name: relcoord-noa-re
   namespace: relcoord
   annotations:
-    noa.re/manifest-id: c79ab71e72948d00
+    noa.re/manifest-id: e052f4e33dc48ab5
 spec:
   selector:
     app: relcoord-noa-re
   ports:
-  - protocol: TCP
-    port: 80
-    targetPort: 8080
+  - name: https
+    appProtocol: https
+    protocol: TCP
+    port: 443
+    targetPort: https

@@ -5,7 +5,7 @@ metadata:
   name: relcoord-noa-re
   namespace: relcoord
   annotations:
-    noa.re/manifest-id: 7ec522baf8dfaff0
+    noa.re/manifest-id: 4fcd7c5999cc46fc
 spec:
   parentRefs:
   - name: relcoord-noa-re
@@ -16,7 +16,7 @@ spec:
   rules:
   - backendRefs:
     - name: relcoord-noa-re
-      port: 80
+      port: 443
       group: ''
       kind: Service
       weight: 1
