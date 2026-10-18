@@ -5,7 +5,7 @@ metadata:
   name: idmouse-config
   namespace: idmouse
   annotations:
-    noa.re/manifest-id: e711fbd94e379d83
+    noa.re/manifest-id: 868fef385336b4f7
 data:
   idmouse.toml: |
     bind_address = "0.0.0.0:8080"
@@ -16,13 +16,6 @@ data:
     name = "idelephant-source"
     audience = "idmouse"
     issuer = "https://k8s.noa.re"
-    algorithms = ["ES256"]
-    validation-key = """
-    -----BEGIN PUBLIC KEY-----
-    MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEZ6Ul1nVfkmYhmUPzUjubypoX/VdC
-    W2moaqn5eexnMMuTTpefVloHEbtzrTVx50ZiuvmZ62rq/doNVELFqZt+RA==
-    -----END PUBLIC KEY-----
-    """
 
     [role.claims]
     sub = "system:serviceaccount:idelephant:default"
@@ -31,13 +24,6 @@ data:
     name = "reposnake-source"
     audience = "idmouse"
     issuer = "https://k8s.noa.re"
-    algorithms = ["ES256"]
-    validation-key = """
-    -----BEGIN PUBLIC KEY-----
-    MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEZ6Ul1nVfkmYhmUPzUjubypoX/VdC
-    W2moaqn5eexnMMuTTpefVloHEbtzrTVx50ZiuvmZ62rq/doNVELFqZt+RA==
-    -----END PUBLIC KEY-----
-    """
 
     [role.claims]
     sub = "system:serviceaccount:reposnake:default"
@@ -46,13 +32,6 @@ data:
     name = "relcoord-source"
     audience = "idmouse"
     issuer = "https://k8s.noa.re"
-    algorithms = ["ES256"]
-    validation-key = """
-    -----BEGIN PUBLIC KEY-----
-    MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEZ6Ul1nVfkmYhmUPzUjubypoX/VdC
-    W2moaqn5eexnMMuTTpefVloHEbtzrTVx50ZiuvmZ62rq/doNVELFqZt+RA==
-    -----END PUBLIC KEY-----
-    """
 
     [role.claims]
     sub = "system:serviceaccount:relcoord:default"
