@@ -5,12 +5,15 @@ metadata:
   name: idmouse-config
   namespace: idmouse
   annotations:
-    noa.re/manifest-id: 868fef385336b4f7
+    noa.re/manifest-id: 1f594010dfa3c375
 data:
   idmouse.toml: |
     bind_address = "0.0.0.0:8080"
     origin = "http://idmouse.idmouse.svc"
     signing_key_storage = "kubernetes_secret"
+
+    [tracing]
+    endpoint = "http://tempo.tempo.svc:4317"
 
     [[role]]
     name = "idelephant-source"
