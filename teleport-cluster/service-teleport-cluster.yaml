@@ -8,10 +8,10 @@ metadata:
     app.kubernetes.io/name: teleport-cluster
     app.kubernetes.io/instance: teleport-cluster
     app.kubernetes.io/component: proxy
-    app.kubernetes.io/version: 18.11.3
+    app.kubernetes.io/version: 18.11.4
     teleport.dev/majorVersion: '18'
   annotations:
-    noa.re/manifest-id: 477c5448a70b5291
+    noa.re/manifest-id: ac25d3fa056563bb
 spec:
   type: NodePort
   ports:
