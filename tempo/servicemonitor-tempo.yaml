@@ -6,14 +6,14 @@ metadata:
   namespace: tempo
   labels:
     app: tempo
-    chart: tempo-3.1.0
+    chart: tempo-3.2.0
     heritage: Helm
   annotations:
-    noa.re/manifest-id: c2123c1231a9f908
+    noa.re/manifest-id: 7b7761e44245ee37
 spec:
   selector:
     matchLabels:
-      helm.sh/chart: tempo-3.1.0
+      helm.sh/chart: tempo-3.2.0
       app.kubernetes.io/name: tempo
       app.kubernetes.io/instance: tempo
       app.kubernetes.io/version: 3.1.0

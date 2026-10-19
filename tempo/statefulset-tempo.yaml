@@ -9,7 +9,7 @@ metadata:
     app.kubernetes.io/instance: tempo
     app.kubernetes.io/version: 3.1.0
   annotations:
-    noa.re/manifest-id: 83a7f117f1f7e662
+    noa.re/manifest-id: c8da8be3bdae5b27
 spec:
   replicas: 1
   selector:
@@ -23,7 +23,7 @@ spec:
         app.kubernetes.io/name: tempo
         app.kubernetes.io/instance: tempo
       annotations:
-        checksum/config: 4c93202309df6d1315f3e2b6a99f46517e896e4398121678348fa28abe90dcf1
+        checksum/config: 5a172808f9fd94c94811cab37ec8c109d258fd00b710e1ee48d4f94e6f9e1e43
     spec:
       serviceAccountName: tempo
       automountServiceAccountToken: true
