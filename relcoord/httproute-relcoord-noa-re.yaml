@@ -5,7 +5,7 @@ metadata:
   name: relcoord-noa-re
   namespace: relcoord
   annotations:
-    noa.re/manifest-id: 4fcd7c5999cc46fc
+    noa.re/manifest-id: b7f26a25c4c444fe
 spec:
   parentRefs:
   - name: relcoord-noa-re
@@ -20,6 +20,8 @@ spec:
       group: ''
       kind: Service
       weight: 1
+    timeouts:
+      request: 600s
     matches:
     - path:
         type: PathPrefix
