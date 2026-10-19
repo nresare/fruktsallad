@@ -7,7 +7,7 @@ metadata:
     app: relcoord-noa-re
   namespace: relcoord
   annotations:
-    noa.re/manifest-id: 071236033e2ad288
+    noa.re/manifest-id: 59166a174b6f4cef
 spec:
   replicas: 2
   selector:
@@ -18,11 +18,11 @@ spec:
       labels:
         app: relcoord-noa-re
       annotations:
-        checksum/config: 4786b3852aabd2b28777f80a5e1d65d3ca13c58b10cb699b19cddb4d11dd23f2
+        checksum/config: cb24d65a07c76e1d76973f0c8ad756471f6160195a805fa15c9673ac59cb27c6
     spec:
       containers:
       - name: relcoord-noa-re
-        image: public.ecr.aws/portswigger-platform/relcoord:0.2.0-f19697c5
+        image: public.ecr.aws/portswigger-platform/relcoord:0.2.0-2a3884ee
         imagePullPolicy: IfNotPresent
         ports:
         - name: https

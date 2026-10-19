@@ -5,7 +5,7 @@ metadata:
   annotations:
     controller-gen.kubebuilder.io/version: v0.21.0
     argocd.argoproj.io/sync-options: ServerSideApply=true
-    noa.re/manifest-id: 2f9705066ed63c51
+    noa.re/manifest-id: 61c525d18d3ef754
   name: grafanas.grafana.integreatly.org
 spec:
   group: grafana.integreatly.org
@@ -7471,15 +7471,16 @@ spec:
                                 When no rules matching a request have been successfully attached to the
                                 parent a request is coming from, a HTTP 404 status code MUST be returned.
                               items:
-                                description: "HTTPRouteMatch defines the predicate
-                                  used to match requests to a given\naction. Multiple
-                                  match types are ANDed together, i.e. the match will\nevaluate
-                                  to true only if all conditions are satisfied.\n\nFor
-                                  example, the match below will match a HTTP request
-                                  only if its path\nstarts with `/foo` AND it contains
-                                  the `version: v1` header:\n\n```\nmatch:\n\n\tpath:\n\t
-                                  \ value: \"/foo\"\n\theaders:\n\t- name: \"version\"\n\t
-                                  \ value \"v1\"\n\n```"
+                                description: "HTTPRouteMatch defines the predicate\
+                                  \ used to match requests to a given\naction. Multiple\
+                                  \ match types are ANDed together, i.e. the match\
+                                  \ will\nevaluate to true only if all conditions\
+                                  \ are satisfied.\n\nFor example, the match below\
+                                  \ will match a HTTP request only if its path\nstarts\
+                                  \ with `/foo` AND it contains the `version: v1`\
+                                  \ header:\n\n```\nmatch:\n\n\tpath:\n\t  value:\
+                                  \ \"/foo\"\n\theaders:\n\t- name: \"version\"\n\t\
+                                  \  value \"v1\"\n\n```"
                                 properties:
                                   headers:
                                     description: |-
@@ -8159,33 +8160,34 @@ spec:
                             match, then routed to the backend associated with the matching IngressRuleValue.
                           properties:
                             host:
-                              description: "host is the fully qualified domain name
-                                of a network host, as defined by RFC 3986.\nNote the
-                                following deviations from the \"host\" part of the\nURI
-                                as defined in RFC 3986:\n1. IPs are not allowed. Currently
-                                an IngressRuleValue can only apply to\n   the IP in
-                                the Spec of the parent Ingress.\n2. The `:` delimiter
-                                is not respected because ports are not allowed.\n\t
-                                \ Currently the port of an Ingress is implicitly :80
-                                for http and\n\t  :443 for https.\nBoth these may
-                                change in the future.\nIncoming requests are matched
-                                against the host before the\nIngressRuleValue. If
-                                the host is unspecified, the Ingress routes all\ntraffic
-                                based on the specified IngressRuleValue.\n\nhost can
-                                be \"precise\" which is a domain name without the
-                                terminating dot of\na network host (e.g. \"foo.bar.com\")
-                                or \"wildcard\", which is a domain name\nprefixed
-                                with a single wildcard label (e.g. \"*.foo.com\").\nThe
-                                wildcard character '*' must appear by itself as the
-                                first DNS label and\nmatches only a single label.
-                                You cannot have a wildcard label by itself (e.g. Host
-                                == \"*\").\nRequests will be matched against the Host
-                                field in the following way:\n1. If host is precise,
-                                the request matches this rule if the http host header
-                                is equal to Host.\n2. If host is a wildcard, then
-                                the request matches this rule if the http host header\nis
-                                to equal to the suffix (removing the first label)
-                                of the wildcard rule."
+                              description: "host is the fully qualified domain name\
+                                \ of a network host, as defined by RFC 3986.\nNote\
+                                \ the following deviations from the \"host\" part\
+                                \ of the\nURI as defined in RFC 3986:\n1. IPs are\
+                                \ not allowed. Currently an IngressRuleValue can only\
+                                \ apply to\n   the IP in the Spec of the parent Ingress.\n\
+                                2. The `:` delimiter is not respected because ports\
+                                \ are not allowed.\n\t  Currently the port of an Ingress\
+                                \ is implicitly :80 for http and\n\t  :443 for https.\n\
+                                Both these may change in the future.\nIncoming requests\
+                                \ are matched against the host before the\nIngressRuleValue.\
+                                \ If the host is unspecified, the Ingress routes all\n\
+                                traffic based on the specified IngressRuleValue.\n\
+                                \nhost can be \"precise\" which is a domain name without\
+                                \ the terminating dot of\na network host (e.g. \"\
+                                foo.bar.com\") or \"wildcard\", which is a domain\
+                                \ name\nprefixed with a single wildcard label (e.g.\
+                                \ \"*.foo.com\").\nThe wildcard character '*' must\
+                                \ appear by itself as the first DNS label and\nmatches\
+                                \ only a single label. You cannot have a wildcard\
+                                \ label by itself (e.g. Host == \"*\").\nRequests\
+                                \ will be matched against the Host field in the following\
+                                \ way:\n1. If host is precise, the request matches\
+                                \ this rule if the http host header is equal to Host.\n\
+                                2. If host is a wildcard, then the request matches\
+                                \ this rule if the http host header\nis to equal to\
+                                \ the suffix (removing the first label) of the wildcard\
+                                \ rule."
                               type: string
                             http:
                               description: |-
