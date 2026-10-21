@@ -5,7 +5,7 @@ metadata:
   name: demo-resare-com-config
   namespace: oidc-client-demo
   annotations:
-    noa.re/manifest-id: 9ed3bf5bc1f0a078
+    noa.re/manifest-id: 1e222c5e5b7d7819
 data:
   config.toml: |
     # Application configuration for oidc-client-demo
@@ -31,3 +31,5 @@ data:
     [otel]
     endpoint = "http://tempo.tempo.svc:4318/v1/traces"
     service_name = "oidc-client-demo"
+
+    excluded_paths = ["/healthz"]
