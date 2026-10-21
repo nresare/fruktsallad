@@ -5,7 +5,7 @@ metadata:
   name: demo-resare-com-config
   namespace: oidc-client-demo
   annotations:
-    noa.re/manifest-id: 1e222c5e5b7d7819
+    noa.re/manifest-id: 2ffd86110b5454c8
 data:
   config.toml: |
     # Application configuration for oidc-client-demo
@@ -24,7 +24,7 @@ data:
     #, "https://graph.microsoft.com/User.Read"]
     issuer = "https://id.noa.re"
     client_id = "oidc-client-demo"
-    scopes = ["openid", "profile", "email"]
+    scopes = ["openid", "profile", "email", "offline_access"]
     client_secret_path = "/secret/client_id"
 
 
