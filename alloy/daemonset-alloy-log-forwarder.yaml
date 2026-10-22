@@ -7,10 +7,10 @@ metadata:
   labels:
     app.kubernetes.io/name: alloy
     app.kubernetes.io/instance: alloy-log-forwarder
-    app.kubernetes.io/version: v1.21.0
+    app.kubernetes.io/version: v1.21.1
     app.kubernetes.io/part-of: alloy
   annotations:
-    noa.re/manifest-id: ffe8c43951a14478
+    noa.re/manifest-id: 8c73141a293a0281
 spec:
   minReadySeconds: 10
   selector:
@@ -28,7 +28,7 @@ spec:
       serviceAccountName: alloy-log-forwarder
       containers:
       - name: alloy
-        image: docker.io/grafana/alloy:v1.21.0
+        image: docker.io/grafana/alloy:v1.21.1
         imagePullPolicy: IfNotPresent
         args:
         - run
@@ -74,7 +74,7 @@ spec:
           name: machine-id
           readOnly: true
       - name: config-reloader
-        image: quay.io/prometheus-operator/prometheus-config-reloader:v0.94.0@sha256:142a1f11df8dd165f00375b0b1826aecb9c9adeb05c39855893138d7c7575ff7
+        image: quay.io/prometheus-operator/prometheus-config-reloader:v0.94.2@sha256:a1897c67478bc23434534e91ad3855280771196b1daf17144db9dbcb655bef71
         imagePullPolicy: IfNotPresent
         args:
         - --watched-dir=/etc/alloy
