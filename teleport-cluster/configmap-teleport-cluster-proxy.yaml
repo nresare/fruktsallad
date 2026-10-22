@@ -8,10 +8,10 @@ metadata:
     app.kubernetes.io/name: teleport-cluster
     app.kubernetes.io/instance: teleport-cluster
     app.kubernetes.io/component: proxy
-    app.kubernetes.io/version: 18.11.4
+    app.kubernetes.io/version: 18.11.7
     teleport.dev/majorVersion: '18'
   annotations:
-    noa.re/manifest-id: 611bed57c78c6b9d
+    noa.re/manifest-id: aef517488ef6dced
 data:
   teleport.yaml: |
     auth_service:
