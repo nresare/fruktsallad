@@ -7,9 +7,9 @@ metadata:
   labels:
     app.kubernetes.io/name: tempo
     app.kubernetes.io/instance: tempo
-    app.kubernetes.io/version: 3.1.0
+    app.kubernetes.io/version: 3.1.1
   annotations:
-    noa.re/manifest-id: c8da8be3bdae5b27
+    noa.re/manifest-id: 176f54a365d3c174
 spec:
   replicas: 1
   selector:
@@ -23,14 +23,14 @@ spec:
         app.kubernetes.io/name: tempo
         app.kubernetes.io/instance: tempo
       annotations:
-        checksum/config: 5a172808f9fd94c94811cab37ec8c109d258fd00b710e1ee48d4f94e6f9e1e43
+        checksum/config: 3612aac9134c092cb4b510109a5cd176a2ff1624a9e7b4ab983fd963935f343f
     spec:
       serviceAccountName: tempo
       automountServiceAccountToken: true
       containers:
       - args:
         - -config.file=/conf/tempo.yaml
-        image: docker.io/grafana/tempo:3.1.0
+        image: docker.io/grafana/tempo:3.1.1
         imagePullPolicy: IfNotPresent
         name: tempo
         ports:

@@ -6,17 +6,17 @@ metadata:
   namespace: tempo
   labels:
     app: tempo
-    chart: tempo-3.2.0
+    chart: tempo-3.2.1
     heritage: Helm
   annotations:
-    noa.re/manifest-id: 7b7761e44245ee37
+    noa.re/manifest-id: 569a34d6b8560204
 spec:
   selector:
     matchLabels:
-      helm.sh/chart: tempo-3.2.0
+      helm.sh/chart: tempo-3.2.1
       app.kubernetes.io/name: tempo
       app.kubernetes.io/instance: tempo
-      app.kubernetes.io/version: 3.1.0
+      app.kubernetes.io/version: 3.1.1
       app.kubernetes.io/managed-by: Helm
     matchExpressions:
     - key: prometheus.io/service-monitor
