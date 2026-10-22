@@ -1,0 +1,17 @@
+# Source: grafana-editor.noa.re
+apiVersion: v1
+kind: Service
+metadata:
+  name: grafana-editor-noa-re
+  namespace: grafana-editor
+  annotations:
+    noa.re/manifest-id: 30ef37effa2316f7
+spec:
+  selector:
+    app: grafana-editor-noa-re
+  ports:
+  - name: https
+    appProtocol: https
+    protocol: TCP
+    port: 443
+    targetPort: https

@@ -1,0 +1,28 @@
+# Source: grafana-editor.noa.re
+apiVersion: gateway.networking.k8s.io/v1
+kind: HTTPRoute
+metadata:
+  name: grafana-editor-noa-re
+  namespace: grafana-editor
+  annotations:
+    noa.re/manifest-id: 957f9ce1d976fc3e
+spec:
+  parentRefs:
+  - name: grafana-editor-noa-re
+    group: gateway.networking.k8s.io
+    kind: Gateway
+  hostnames:
+  - grafana-editor.noa.re
+  rules:
+  - backendRefs:
+    - name: grafana-editor-noa-re
+      port: 443
+      group: ''
+      kind: Service
+      weight: 1
+    timeouts:
+      request: 600s
+    matches:
+    - path:
+        type: PathPrefix
+        value: /

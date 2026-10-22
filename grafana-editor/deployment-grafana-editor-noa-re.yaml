@@ -1,0 +1,53 @@
+# Source: grafana-editor.noa.re
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: grafana-editor-noa-re
+  labels:
+    app: grafana-editor-noa-re
+  namespace: grafana-editor
+  annotations:
+    noa.re/manifest-id: 73fc52c39995bb82
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: grafana-editor-noa-re
+  template:
+    metadata:
+      labels:
+        app: grafana-editor-noa-re
+      annotations:
+        checksum/config: 3ccbf8d822a9581e4f07b4f17f3ae04e4a4cadf597db61f3ff8976dcbf59823c
+    spec:
+      containers:
+      - name: grafana-editor-noa-re
+        image: public.ecr.aws/portswigger-platform/grafana-editor:0.1.0-17e379b3
+        imagePullPolicy: IfNotPresent
+        ports:
+        - name: https
+          containerPort: 8443
+          protocol: TCP
+        volumeMounts:
+        - name: tls
+          mountPath: /tls
+          readOnly: true
+        - name: grafana-editor-noa-re-config
+          mountPath: /config
+        - name: grafana-token
+          mountPath: /grafana-token
+        livenessProbe:
+          httpGet:
+            path: /healthz
+            port: https
+            scheme: HTTPS
+      volumes:
+      - name: tls
+        secret:
+          secretName: grafana-editor-noa-re-internal-tls
+      - name: grafana-editor-noa-re-config
+        configMap:
+          name: grafana-editor-noa-re-config
+      - name: grafana-token
+        secret:
+          secretName: grafana-token

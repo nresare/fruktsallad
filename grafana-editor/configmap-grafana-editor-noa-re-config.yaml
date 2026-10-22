@@ -1,0 +1,29 @@
+# Source: grafana-editor.noa.re
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: grafana-editor-noa-re-config
+  namespace: grafana-editor
+  annotations:
+    noa.re/manifest-id: ead6da0ac18e23d9
+data:
+  grafana-editor.toml: |
+    listen = "0.0.0.0"
+    port = 8443
+    tls-cert-path = "/tls/tls.crt"
+    tls-key-path = "/tls/tls.key"
+    log-level = "INFO"
+
+    resource-server-url = "https://grafana-editor.noa.re"
+    origin = "https://id.noa.re"
+    scopes = ["email"]
+
+    [[role]]
+    name = "idelephant"
+    issuer = "https://id.noa.re"
+    audience = "https://grafana-editor.noa.re"
+
+    [grafana]
+    url = "http://grafana-service.grafana.svc:3000"
+    service-account-token-path = "/grafana-token/token"
+    sandbox-folder = "Sandbox"

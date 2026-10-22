@@ -1,0 +1,18 @@
+# Source: grafana-editor.noa.re
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: grafana-editor-noa-re
+  namespace: grafana-editor
+  annotations:
+    noa.re/manifest-id: 1ff37d987b8c8e41
+spec:
+  dnsNames:
+  - grafana-editor.noa.re
+  issuerRef:
+    name: letsencrypt
+    kind: ClusterIssuer
+  privateKey:
+    algorithm: ECDSA
+    rotationPolicy: Always
+  secretName: grafana-editor-noa-re-tls
