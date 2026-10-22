@@ -7,11 +7,11 @@ metadata:
   labels:
     app.kubernetes.io/name: loki
     app.kubernetes.io/instance: loki
-    app.kubernetes.io/version: 3.7.8
+    app.kubernetes.io/version: 3.7.9
     app.kubernetes.io/component: gateway
     prometheus.io/service-monitor: 'false'
   annotations:
-    noa.re/manifest-id: b5131d80ac4d6613
+    noa.re/manifest-id: b79b08ae556df519
 spec:
   type: ClusterIP
   ports:

@@ -7,10 +7,10 @@ metadata:
   labels:
     app.kubernetes.io/name: loki
     app.kubernetes.io/instance: loki
-    app.kubernetes.io/version: 3.7.8
+    app.kubernetes.io/version: 3.7.9
     app.kubernetes.io/component: gateway
   annotations:
-    noa.re/manifest-id: da374dc1a77c5279
+    noa.re/manifest-id: ef0eef349416bda6
 spec:
   replicas: 1
   strategy:
