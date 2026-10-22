@@ -7,7 +7,7 @@ metadata:
     gateway.networking.k8s.io/bundle-version: v1.6.1
     gateway.networking.k8s.io/channel: experimental
     argocd.argoproj.io/sync-options: ServerSideApply=true
-    noa.re/manifest-id: 3b439af1c5def181
+    noa.re/manifest-id: c98fd7edf9fff13d
   name: httproutes.gateway.networking.k8s.io
 spec:
   group: gateway.networking.k8s.io
@@ -3434,15 +3434,14 @@ spec:
                         When no rules matching a request have been successfully attached to the
                         parent a request is coming from, a HTTP 404 status code MUST be returned.
                       items:
-                        description: "HTTPRouteMatch defines the predicate used to\
-                          \ match requests to a given\naction. Multiple match types\
-                          \ are ANDed together, i.e. the match will\nevaluate to true\
-                          \ only if all conditions are satisfied.\n\nFor example,\
-                          \ the match below will match a HTTP request only if its\
-                          \ path\nstarts with `/foo` AND it contains the `version:\
-                          \ v1` header:\n\n```\nmatch:\n\n\tpath:\n\t  value: \"/foo\"\
-                          \n\theaders:\n\t- name: \"version\"\n\t  value \"v1\"\n\n\
-                          ```"
+                        description: "HTTPRouteMatch defines the predicate used to
+                          match requests to a given\naction. Multiple match types
+                          are ANDed together, i.e. the match will\nevaluate to true
+                          only if all conditions are satisfied.\n\nFor example, the
+                          match below will match a HTTP request only if its path\nstarts
+                          with `/foo` AND it contains the `version: v1` header:\n\n```\nmatch:\n\n\tpath:\n\t
+                          \ value: \"/foo\"\n\theaders:\n\t- name: \"version\"\n\t
+                          \ value \"v1\"\n\n```"
                         properties:
                           headers:
                             description: |-
@@ -7690,15 +7689,14 @@ spec:
                         When no rules matching a request have been successfully attached to the
                         parent a request is coming from, a HTTP 404 status code MUST be returned.
                       items:
-                        description: "HTTPRouteMatch defines the predicate used to\
-                          \ match requests to a given\naction. Multiple match types\
-                          \ are ANDed together, i.e. the match will\nevaluate to true\
-                          \ only if all conditions are satisfied.\n\nFor example,\
-                          \ the match below will match a HTTP request only if its\
-                          \ path\nstarts with `/foo` AND it contains the `version:\
-                          \ v1` header:\n\n```\nmatch:\n\n\tpath:\n\t  value: \"/foo\"\
-                          \n\theaders:\n\t- name: \"version\"\n\t  value \"v1\"\n\n\
-                          ```"
+                        description: "HTTPRouteMatch defines the predicate used to
+                          match requests to a given\naction. Multiple match types
+                          are ANDed together, i.e. the match will\nevaluate to true
+                          only if all conditions are satisfied.\n\nFor example, the
+                          match below will match a HTTP request only if its path\nstarts
+                          with `/foo` AND it contains the `version: v1` header:\n\n```\nmatch:\n\n\tpath:\n\t
+                          \ value: \"/foo\"\n\theaders:\n\t- name: \"version\"\n\t
+                          \ value \"v1\"\n\n```"
                         properties:
                           headers:
                             description: |-

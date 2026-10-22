@@ -5,7 +5,7 @@ metadata:
   name: relcoord-noa-re-config
   namespace: relcoord
   annotations:
-    noa.re/manifest-id: 5e6e81ab8e100ec0
+    noa.re/manifest-id: 182e51414af80a9d
 data:
   relcoord.toml: |
     listen = "0.0.0.0"
@@ -54,5 +54,5 @@ data:
     token-path = "/var/run/secrets/tokens/idcat.noa.re"
 
     [[output]]
-    name = "berries"
+    name = "fruktsallad"
     repository = "https://github.com/nresare/fruktsallad"
