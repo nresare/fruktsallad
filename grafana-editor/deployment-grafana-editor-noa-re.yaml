@@ -7,7 +7,7 @@ metadata:
     app: grafana-editor-noa-re
   namespace: grafana-editor
   annotations:
-    noa.re/manifest-id: 73fc52c39995bb82
+    noa.re/manifest-id: 5a6ceaf087b48587
 spec:
   replicas: 2
   selector:
@@ -18,11 +18,11 @@ spec:
       labels:
         app: grafana-editor-noa-re
       annotations:
-        checksum/config: 3ccbf8d822a9581e4f07b4f17f3ae04e4a4cadf597db61f3ff8976dcbf59823c
+        checksum/config: 5c3451ac7a6b009fdb5af51822a57fe1b028f568c95524e24c9e5cf046e90c91
     spec:
       containers:
       - name: grafana-editor-noa-re
-        image: public.ecr.aws/portswigger-platform/grafana-editor:0.1.0-17e379b3
+        image: public.ecr.aws/portswigger-platform/grafana-editor:0.1.0-7d4ed791
         imagePullPolicy: IfNotPresent
         ports:
         - name: https

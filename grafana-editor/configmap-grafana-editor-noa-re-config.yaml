@@ -5,7 +5,7 @@ metadata:
   name: grafana-editor-noa-re-config
   namespace: grafana-editor
   annotations:
-    noa.re/manifest-id: ead6da0ac18e23d9
+    noa.re/manifest-id: 1f118487128ec4e3
 data:
   grafana-editor.toml: |
     listen = "0.0.0.0"
@@ -17,6 +17,9 @@ data:
     resource-server-url = "https://grafana-editor.noa.re"
     origin = "https://id.noa.re"
     scopes = ["email"]
+
+    [traces]
+    endpoint = "http://tempo.tempo.svc:4317"
 
     [[role]]
     name = "idelephant"
