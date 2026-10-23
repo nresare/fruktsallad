@@ -7,7 +7,7 @@ metadata:
     app: id-noa-re
   namespace: idelephant
   annotations:
-    noa.re/manifest-id: 1954808963c79bf3
+    noa.re/manifest-id: 1a9db3094965be1b
 spec:
   replicas: 1
   selector:
@@ -22,7 +22,7 @@ spec:
     spec:
       containers:
       - name: id-noa-re
-        image: repo.noa.re/idelephant:0.2.3-bfefc6b1
+        image: repo.noa.re/idelephant:0.2.3-f10404fd
         imagePullPolicy: IfNotPresent
         args:
         - -c
