@@ -1,0 +1,61 @@
+# Source: idfrog.noa.re
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: idfrog-noa-re
+  labels:
+    app: idfrog-noa-re
+  namespace: idfrog
+  annotations:
+    noa.re/manifest-id: 77fe5ea65bba7804
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: idfrog-noa-re
+  template:
+    metadata:
+      labels:
+        app: idfrog-noa-re
+      annotations:
+        checksum/config: 0fe80bbad5b08d1600dd55787086bcfa370e2c5ca074ae350d0a797202283afb
+    spec:
+      containers:
+      - name: idfrog-noa-re
+        image: nresare/idfrog:latest
+        imagePullPolicy: IfNotPresent
+        args:
+        - -c
+        - /config/idfrog.toml
+        ports:
+        - name: https
+          containerPort: 8443
+          protocol: TCP
+        volumeMounts:
+        - name: tls
+          mountPath: /tls
+          readOnly: true
+        - name: idfrog-noa-re-config
+          mountPath: /config
+        - name: idfrog-entra-client
+          mountPath: /idfrog-entra-client
+        - name: idfrog-signing-key
+          mountPath: /idfrog-signing-key
+        livenessProbe:
+          httpGet:
+            path: /healthz
+            port: https
+            scheme: HTTPS
+      volumes:
+      - name: tls
+        secret:
+          secretName: idfrog-noa-re-internal-tls
+      - name: idfrog-noa-re-config
+        configMap:
+          name: idfrog-noa-re-config
+      - name: idfrog-entra-client
+        secret:
+          secretName: idfrog-entra-client
+      - name: idfrog-signing-key
+        secret:
+          secretName: idfrog-signing-key

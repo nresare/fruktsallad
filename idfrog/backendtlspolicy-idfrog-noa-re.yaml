@@ -1,0 +1,20 @@
+# Source: idfrog.noa.re
+apiVersion: gateway.networking.k8s.io/v1
+kind: BackendTLSPolicy
+metadata:
+  name: idfrog-noa-re
+  namespace: idfrog
+  annotations:
+    noa.re/manifest-id: ae7f691a6f5368c5
+spec:
+  targetRefs:
+  - group: ''
+    kind: Service
+    name: idfrog-noa-re
+    sectionName: https
+  validation:
+    caCertificateRefs:
+    - group: ''
+      kind: ConfigMap
+      name: cluster-local-ca
+    hostname: idfrog-noa-re.idfrog.svc

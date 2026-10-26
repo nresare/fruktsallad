@@ -1,0 +1,18 @@
+# Source: idfrog.noa.re
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: idfrog-noa-re
+  namespace: idfrog
+  annotations:
+    noa.re/manifest-id: 8d2506ba674b880e
+spec:
+  dnsNames:
+  - idfrog.noa.re
+  issuerRef:
+    name: letsencrypt
+    kind: ClusterIssuer
+  privateKey:
+    algorithm: ECDSA
+    rotationPolicy: Always
+  secretName: idfrog-noa-re-tls

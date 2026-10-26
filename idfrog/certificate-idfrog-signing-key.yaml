@@ -1,0 +1,22 @@
+# Source: idfrog
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: idfrog-signing-key
+  namespace: idfrog
+  annotations:
+    noa.re/manifest-id: e95c1bbb6ce02919
+spec:
+  secretName: idfrog-signing-key
+  commonName: idfrog-signing-key
+  privateKey:
+    algorithm: ECDSA
+    size: 256
+    encoding: PKCS8
+    rotationPolicy: Never
+  usages:
+  - digital signature
+  issuerRef:
+    name: cluster-local-selfsigned
+    kind: ClusterIssuer
+    group: cert-manager.io

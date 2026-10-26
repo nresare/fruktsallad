@@ -1,0 +1,17 @@
+# Source: idfrog.noa.re
+apiVersion: v1
+kind: Service
+metadata:
+  name: idfrog-noa-re
+  namespace: idfrog
+  annotations:
+    noa.re/manifest-id: afe52981b7b28e44
+spec:
+  selector:
+    app: idfrog-noa-re
+  ports:
+  - name: https
+    appProtocol: https
+    protocol: TCP
+    port: 443
+    targetPort: https

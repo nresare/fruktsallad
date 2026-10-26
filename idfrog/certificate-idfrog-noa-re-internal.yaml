@@ -1,0 +1,25 @@
+# Source: idfrog.noa.re
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: idfrog-noa-re-internal
+  namespace: idfrog
+  annotations:
+    noa.re/manifest-id: 036d12bab5fc9897
+spec:
+  dnsNames:
+  - idfrog-noa-re.idfrog.svc
+  duration: 2160h
+  issuerRef:
+    name: cluster-local
+    kind: ClusterIssuer
+    group: cert-manager.io
+  privateKey:
+    algorithm: ECDSA
+    size: 256
+    rotationPolicy: Always
+  renewBefore: 360h
+  secretName: idfrog-noa-re-internal-tls
+  usages:
+  - digital signature
+  - server auth

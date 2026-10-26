@@ -1,0 +1,20 @@
+# Source: idfrog.noa.re
+apiVersion: gateway.networking.k8s.io/v1
+kind: Gateway
+metadata:
+  name: idfrog-noa-re
+  namespace: idfrog
+  annotations:
+    noa.re/manifest-id: da90e8253674543a
+spec:
+  gatewayClassName: eg
+  listeners:
+  - name: idfrog-noa-re
+    protocol: HTTPS
+    hostname: idfrog.noa.re
+    port: 443
+    tls:
+      certificateRefs:
+      - name: idfrog-noa-re-tls
+        group: ''
+        kind: Secret
