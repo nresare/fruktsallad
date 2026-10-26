@@ -7,7 +7,7 @@ metadata:
     app: demo-resare-com
   namespace: oidc-client-demo
   annotations:
-    noa.re/manifest-id: 8d46a9facc5e2107
+    noa.re/manifest-id: 8963985158d1cd1f
 spec:
   replicas: 1
   selector:
@@ -18,11 +18,11 @@ spec:
       labels:
         app: demo-resare-com
       annotations:
-        checksum/config: 067432352a75a87c0c3dd0aa3d53671a85eb539a84fb7c27e2c89081739385e6
+        checksum/config: f97a2568d9551b811b8106306c560d5b6bdaa59126e7e79963bfa8db63e2f8b2
     spec:
       containers:
       - name: demo-resare-com
-        image: repo.noa.re/oidc-client-demo:0.1.0-c2423f24
+        image: repo.noa.re/oidc-client-demo:0.1.0-d1187f61
         imagePullPolicy: IfNotPresent
         args:
         - -c
