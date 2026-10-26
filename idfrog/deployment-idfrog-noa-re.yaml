@@ -7,7 +7,7 @@ metadata:
     app: idfrog-noa-re
   namespace: idfrog
   annotations:
-    noa.re/manifest-id: 3ce1a4fd032fc567
+    noa.re/manifest-id: eaa2949cad63d0aa
 spec:
   replicas: 1
   selector:
@@ -18,11 +18,11 @@ spec:
       labels:
         app: idfrog-noa-re
       annotations:
-        checksum/config: 0fe80bbad5b08d1600dd55787086bcfa370e2c5ca074ae350d0a797202283afb
+        checksum/config: b01281e0a981c4c36e46aca3a5d57ba0837bfbed3f12e1886f5024ac223f189f
     spec:
       containers:
       - name: idfrog-noa-re
-        image: nresare/idfrog:0.0.1
+        image: nresare/idfrog:0.0.3
         imagePullPolicy: IfNotPresent
         args:
         - -c
