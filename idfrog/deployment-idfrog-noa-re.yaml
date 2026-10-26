@@ -7,7 +7,7 @@ metadata:
     app: idfrog-noa-re
   namespace: idfrog
   annotations:
-    noa.re/manifest-id: 77fe5ea65bba7804
+    noa.re/manifest-id: 3ce1a4fd032fc567
 spec:
   replicas: 1
   selector:
@@ -22,7 +22,7 @@ spec:
     spec:
       containers:
       - name: idfrog-noa-re
-        image: nresare/idfrog:latest
+        image: nresare/idfrog:0.0.1
         imagePullPolicy: IfNotPresent
         args:
         - -c
