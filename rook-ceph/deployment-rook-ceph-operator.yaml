@@ -9,11 +9,11 @@ metadata:
     storage-backend: ceph
     app.kubernetes.io/name: rook-ceph
     app.kubernetes.io/instance: rook
-    app.kubernetes.io/version: v1.21.0
+    app.kubernetes.io/version: v1.21.1
     app.kubernetes.io/part-of: rook-ceph-operator
     app.kubernetes.io/created-by: helm
   annotations:
-    noa.re/manifest-id: 530bed6726f9e56c
+    noa.re/manifest-id: d68f38658ce26d4b
 spec:
   replicas: 1
   selector:
@@ -33,7 +33,7 @@ spec:
         tolerationSeconds: 5
       containers:
       - name: rook-ceph-operator
-        image: docker.io/rook/ceph:v1.21.0
+        image: docker.io/rook/ceph:v1.21.1
         imagePullPolicy: IfNotPresent
         args:
         - ceph

@@ -4,7 +4,7 @@ kind: CustomResourceDefinition
 metadata:
   annotations:
     controller-gen.kubebuilder.io/version: v0.19.0
-    noa.re/manifest-id: b01c6a492f423261
+    noa.re/manifest-id: a515dc0a3da00817
   name: cephobjectstores.ceph.rook.io
 spec:
   group: ceph.rook.io
@@ -1505,6 +1505,13 @@ spec:
                         description: The labels-related configuration to add/set on
                           each rgw service.
                         type: object
+                      trafficDistribution:
+                        description: The trafficDistribution to set on each rgw service.
+                        enum:
+                        - PreferClose
+                        - PreferSameZone
+                        - PreferSameNode
+                        type: string
                     type: object
                   sslCertificateRef:
                     description: The name of the secret that stores the ssl certificate
@@ -2545,6 +2552,8 @@ spec:
                 nullable: true
                 type: object
               message:
+                maxLength: 500
+                minLength: 1
                 type: string
               observedGeneration:
                 description: ObservedGeneration is the latest generation observed

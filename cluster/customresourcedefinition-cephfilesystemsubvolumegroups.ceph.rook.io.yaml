@@ -4,7 +4,7 @@ kind: CustomResourceDefinition
 metadata:
   annotations:
     controller-gen.kubebuilder.io/version: v0.19.0
-    noa.re/manifest-id: b1d0109a0989f68a
+    noa.re/manifest-id: f162409f0d7f31b4
   name: cephfilesystemsubvolumegroups.ceph.rook.io
 spec:
   group: ceph.rook.io
@@ -150,6 +150,10 @@ spec:
                   type: string
                 nullable: true
                 type: object
+              message:
+                maxLength: 500
+                minLength: 1
+                type: string
               observedGeneration:
                 description: ObservedGeneration is the latest generation observed
                   by the controller.
