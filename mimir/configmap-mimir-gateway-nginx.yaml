@@ -7,10 +7,10 @@ metadata:
     app.kubernetes.io/name: mimir
     app.kubernetes.io/instance: mimir
     app.kubernetes.io/component: gateway-nginx
-    app.kubernetes.io/version: 3.2.1
+    app.kubernetes.io/version: 3.2.3
   namespace: mimir
   annotations:
-    noa.re/manifest-id: b25abf028909ab61
+    noa.re/manifest-id: 9fbe6e6a97bca4c6
 data:
   nginx.conf: |
     worker_processes  5;  ## Default: 1

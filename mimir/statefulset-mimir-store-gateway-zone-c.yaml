@@ -8,7 +8,7 @@ metadata:
     app.kubernetes.io/instance: mimir
     app.kubernetes.io/component: store-gateway
     app.kubernetes.io/part-of: memberlist
-    app.kubernetes.io/version: 3.2.1
+    app.kubernetes.io/version: 3.2.3
     name: store-gateway-zone-c
     rollout-group: store-gateway
     zone: zone-c
@@ -19,7 +19,7 @@ metadata:
     grafana.com/prepare-downscale-http-path: store-gateway/prepare-shutdown
     grafana.com/prepare-downscale-http-port: '8080'
     grafana.com/rollout-downscale-leader: mimir-store-gateway-zone-b
-    noa.re/manifest-id: b1e70c5e4379fcb1
+    noa.re/manifest-id: 55ba6b95be4d1289
   namespace: mimir
 spec:
   podManagementPolicy: OrderedReady
@@ -50,14 +50,14 @@ spec:
       labels:
         app.kubernetes.io/name: mimir
         app.kubernetes.io/instance: mimir
-        app.kubernetes.io/version: 3.2.1
+        app.kubernetes.io/version: 3.2.3
         app.kubernetes.io/component: store-gateway
         app.kubernetes.io/part-of: memberlist
         name: store-gateway-zone-c
         rollout-group: store-gateway
         zone: zone-c
       annotations:
-        checksum/config: ce3968ff46e942b11a047ac51738063167b9c372983c43f8b2e9d89e2bc7ba8c
+        checksum/config: 094042d977c390ab0db67e14820cbcd5d3c0de9408831b4d0fe7e14cf10536d0
       namespace: mimir
     spec:
       serviceAccountName: mimir
@@ -99,7 +99,7 @@ spec:
         emptyDir: {}
       containers:
       - name: store-gateway
-        image: docker.io/grafana/mimir:3.2.1
+        image: docker.io/grafana/mimir:3.2.3
         imagePullPolicy: IfNotPresent
         args:
         - -target=store-gateway

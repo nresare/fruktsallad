@@ -7,10 +7,10 @@ metadata:
     app.kubernetes.io/name: mimir
     app.kubernetes.io/instance: mimir
     app.kubernetes.io/component: query-scheduler
-    app.kubernetes.io/version: 3.2.1
+    app.kubernetes.io/version: 3.2.3
   namespace: mimir
   annotations:
-    noa.re/manifest-id: c72133300f774bde
+    noa.re/manifest-id: 1d6a72e3fff897aa
 spec:
   selector:
     matchLabels:

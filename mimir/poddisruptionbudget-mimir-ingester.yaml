@@ -7,10 +7,10 @@ metadata:
     app.kubernetes.io/name: mimir
     app.kubernetes.io/instance: mimir
     app.kubernetes.io/component: ingester
-    app.kubernetes.io/version: 3.2.1
+    app.kubernetes.io/version: 3.2.3
   namespace: mimir
   annotations:
-    noa.re/manifest-id: ba17e9203632b595
+    noa.re/manifest-id: 7d6ad4743b9b1251
 spec:
   selector:
     matchLabels:

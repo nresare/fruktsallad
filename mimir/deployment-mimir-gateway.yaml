@@ -6,11 +6,11 @@ metadata:
     app.kubernetes.io/name: mimir
     app.kubernetes.io/instance: mimir
     app.kubernetes.io/component: gateway
-    app.kubernetes.io/version: 3.2.1
+    app.kubernetes.io/version: 3.2.3
   name: mimir-gateway
   namespace: mimir
   annotations:
-    noa.re/manifest-id: c749abf02384bd7d
+    noa.re/manifest-id: b35a860c44cefd7d
 spec:
   replicas: 1
   selector:
@@ -28,10 +28,10 @@ spec:
       labels:
         app.kubernetes.io/name: mimir
         app.kubernetes.io/instance: mimir
-        app.kubernetes.io/version: 3.2.1
+        app.kubernetes.io/version: 3.2.3
         app.kubernetes.io/component: gateway
       annotations:
-        checksum/config: 048df37d4f6112a87a9597bee08e9d26a13f3baba85c97090f2a67a17d432136
+        checksum/config: 2af91d41c581b7c3b33e53eb7f7127d63e55df07182cfd93cd3b21e04efca75c
       namespace: mimir
     spec:
       serviceAccountName: mimir

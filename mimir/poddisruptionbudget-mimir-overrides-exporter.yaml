@@ -7,10 +7,10 @@ metadata:
     app.kubernetes.io/name: mimir
     app.kubernetes.io/instance: mimir
     app.kubernetes.io/component: overrides-exporter
-    app.kubernetes.io/version: 3.2.1
+    app.kubernetes.io/version: 3.2.3
   namespace: mimir
   annotations:
-    noa.re/manifest-id: 62621301b3a9da2b
+    noa.re/manifest-id: 2446a38dd3e555a1
 spec:
   selector:
     matchLabels:

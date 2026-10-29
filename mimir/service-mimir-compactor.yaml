@@ -8,10 +8,10 @@ metadata:
     app.kubernetes.io/instance: mimir
     app.kubernetes.io/component: compactor
     app.kubernetes.io/part-of: memberlist
-    app.kubernetes.io/version: 3.2.1
+    app.kubernetes.io/version: 3.2.3
   namespace: mimir
   annotations:
-    noa.re/manifest-id: 86f189ebe487dd15
+    noa.re/manifest-id: 62123fdb0868025d
 spec:
   type: ClusterIP
   internalTrafficPolicy: Cluster

@@ -8,9 +8,9 @@ metadata:
     app.kubernetes.io/name: mimir
     app.kubernetes.io/instance: mimir
     app.kubernetes.io/component: query-scheduler
-    app.kubernetes.io/version: 3.2.1
+    app.kubernetes.io/version: 3.2.3
   annotations:
-    noa.re/manifest-id: 0f0fd6228e51d712
+    noa.re/manifest-id: e8580f3ab9c90af1
 spec:
   type: ClusterIP
   internalTrafficPolicy: Cluster

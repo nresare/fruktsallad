@@ -8,10 +8,10 @@ metadata:
     app.kubernetes.io/instance: mimir
     app.kubernetes.io/component: alertmanager
     app.kubernetes.io/part-of: memberlist
-    app.kubernetes.io/version: 3.2.1
+    app.kubernetes.io/version: 3.2.3
   namespace: mimir
   annotations:
-    noa.re/manifest-id: 94853cdd6fcd55ab
+    noa.re/manifest-id: 38b5e2eb32eae8ca
 data:
   alertmanager_fallback_config.yaml: |
     receivers:

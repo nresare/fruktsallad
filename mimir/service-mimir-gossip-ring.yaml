@@ -7,10 +7,10 @@ metadata:
     app.kubernetes.io/name: mimir
     app.kubernetes.io/instance: mimir
     app.kubernetes.io/component: gossip-ring
-    app.kubernetes.io/version: 3.2.1
+    app.kubernetes.io/version: 3.2.3
   namespace: mimir
   annotations:
-    noa.re/manifest-id: cf93f105fa4c041c
+    noa.re/manifest-id: 9562a4e5bb26b562
 spec:
   type: ClusterIP
   clusterIP: None
