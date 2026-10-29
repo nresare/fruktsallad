@@ -10,7 +10,7 @@ metadata:
     app.kubernetes.io/version: 3.7.9
     app.kubernetes.io/component: canary
   annotations:
-    noa.re/manifest-id: ef602af837ea3746
+    noa.re/manifest-id: 5a12ad01f7ff3c01
 spec:
   selector:
     matchLabels:
@@ -46,8 +46,8 @@ spec:
         - -addr=loki-gateway.loki.svc.cluster.local.:80
         - -labelname=pod
         - -labelvalue=$(POD_NAME)
-        - -user=self-monitoring
         - -tenant-id=self-monitoring
+        - -user=self-monitoring
         - -pass=
         - -push=true
         securityContext:

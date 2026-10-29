@@ -11,7 +11,7 @@ metadata:
     name: memcached-chunks-cache
   namespace: loki
   annotations:
-    noa.re/manifest-id: 7edc479fd6728a30
+    noa.re/manifest-id: 9bfd42a0e4a49ab2
 spec:
   podManagementPolicy: Parallel
   replicas: 1
@@ -93,7 +93,7 @@ spec:
             port: client
           timeoutSeconds: 5
       - name: exporter
-        image: docker.io/prom/memcached-exporter:v0.17.0
+        image: docker.io/prom/memcached-exporter:v0.18.0
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 9150

@@ -10,7 +10,7 @@ metadata:
     app.kubernetes.io/version: 3.7.9
     app.kubernetes.io/component: single-binary
   annotations:
-    noa.re/manifest-id: 85d63c9570839688
+    noa.re/manifest-id: 953eeff178666c50
 spec:
   replicas: 3
   podManagementPolicy: Parallel
@@ -33,7 +33,6 @@ spec:
       labels:
         app.kubernetes.io/name: loki
         app.kubernetes.io/instance: loki
-        app.kubernetes.io/version: 3.7.9
         app.kubernetes.io/component: single-binary
         app.kubernetes.io/part-of: memberlist
     spec:

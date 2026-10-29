@@ -10,7 +10,7 @@ metadata:
     app.kubernetes.io/version: 3.7.9
     app.kubernetes.io/component: gateway
   annotations:
-    noa.re/manifest-id: 1e1def8cb3eee20a
+    noa.re/manifest-id: 4b61b8b79378247b
 data:
   nginx.conf: "worker_processes  5;  ## Default: 1\nerror_log  /dev/stderr;\npid        /tmp/nginx.pid;\nworker_rlimit_nofile
     8192;\n\nevents {\n  worker_connections  4096;  ## Default: 1024\n}\n\nhttp {\n
@@ -32,14 +32,16 @@ data:
     When header is empty, set noop=\n    default   $http_x_query_tags; # Otherwise,
     preserve the original value\n  }\n\n  server {\n    listen             8080;\n
     \   listen             [::]:8080;\n\n    location = / {\n      \n      return
-    200 'OK';\n      auth_basic off;\n    }\n\n    location = /stub_status {\n      stub_status
-    on;\n      satisfy any;\n      access_log off;\n      allow 127.0.0.1;\n      deny
-    all;\n      server_tokens on;  # expose nginx version\n    }\n\n    ########################################################\n
-    \   # Configure backend targets\n    location ^~ /ui {\n      \n      set $backend
-    \    \"http://loki.loki.svc.cluster.local:3100\";\n      proxy_pass       $backend$request_uri;\n
-    \   }\n\n    # Distributor\n    location = /api/prom/push {\n      \n      set
-    $backend     \"http://loki.loki.svc.cluster.local:3100\";\n      proxy_pass       $backend$request_uri;\n
-    \   }\n    location = /loki/api/v1/push {\n      \n      set $backend     \"http://loki.loki.svc.cluster.local:3100\";\n
+    200 'OK';\n      auth_basic off;\n    }\n\n    location = /livez {\n      access_log
+    off;\n      return 200 'OK';\n      auth_basic off;\n    }\n\n    location = /stub_status
+    {\n      stub_status on;\n      satisfy any;\n      access_log off;\n      allow
+    127.0.0.1;\n      deny all;\n      server_tokens on;  # expose nginx version\n
+    \   }\n\n    ########################################################\n    # Configure
+    backend targets\n    location ^~ /ui {\n      \n      set $backend     \"http://loki.loki.svc.cluster.local:3100\";\n
+    \     proxy_pass       $backend$request_uri;\n    }\n\n    # Distributor\n    location
+    = /api/prom/push {\n      \n      set $backend     \"http://loki.loki.svc.cluster.local:3100\";\n
+    \     proxy_pass       $backend$request_uri;\n    }\n    location = /loki/api/v1/push
+    {\n      \n      set $backend     \"http://loki.loki.svc.cluster.local:3100\";\n
     \     proxy_pass       $backend$request_uri;\n    }\n    location = /distributor/ring
     {\n      \n      set $backend     \"http://loki.loki.svc.cluster.local:3100\";\n
     \     proxy_pass       $backend$request_uri;\n    }\n    location = /otlp/v1/logs

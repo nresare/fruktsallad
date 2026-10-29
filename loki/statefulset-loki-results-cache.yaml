@@ -11,7 +11,7 @@ metadata:
     name: memcached-results-cache
   namespace: loki
   annotations:
-    noa.re/manifest-id: 1db3ba0df6cd5648
+    noa.re/manifest-id: a76b1c761ff6b490
 spec:
   podManagementPolicy: Parallel
   replicas: 1
@@ -93,7 +93,7 @@ spec:
             port: client
           timeoutSeconds: 5
       - name: exporter
-        image: docker.io/prom/memcached-exporter:v0.17.0
+        image: docker.io/prom/memcached-exporter:v0.18.0
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 9150
