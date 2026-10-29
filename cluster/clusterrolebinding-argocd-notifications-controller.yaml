@@ -8,9 +8,9 @@ metadata:
     app.kubernetes.io/instance: argocd
     app.kubernetes.io/component: notifications-controller
     app.kubernetes.io/part-of: argocd
-    app.kubernetes.io/version: v3.5.5
+    app.kubernetes.io/version: v3.5.6
   annotations:
-    noa.re/manifest-id: 47ae32fcd22e26f3
+    noa.re/manifest-id: 4581563badd5db47
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole

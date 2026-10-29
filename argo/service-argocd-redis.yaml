@@ -9,9 +9,9 @@ metadata:
     app.kubernetes.io/instance: argocd
     app.kubernetes.io/component: redis
     app.kubernetes.io/part-of: argocd
-    app.kubernetes.io/version: v3.5.5
+    app.kubernetes.io/version: v3.5.6
   annotations:
-    noa.re/manifest-id: 45a892a46c26c0a5
+    noa.re/manifest-id: 6528bb7a4897d806
 spec:
   ports:
   - name: redis

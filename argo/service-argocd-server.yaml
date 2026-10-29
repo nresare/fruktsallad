@@ -9,12 +9,12 @@ metadata:
     app.kubernetes.io/instance: argocd
     app.kubernetes.io/component: server
     app.kubernetes.io/part-of: argocd
-    app.kubernetes.io/version: v3.5.5
+    app.kubernetes.io/version: v3.5.6
     noa.re/discover: enabled
   annotations:
     teleport.dev/name: argo
     teleport.dev/port: http
-    noa.re/manifest-id: d8ec40baffa502ea
+    noa.re/manifest-id: 8a8cf2e1d9a06fe4
 spec:
   type: ClusterIP
   sessionAffinity: None
