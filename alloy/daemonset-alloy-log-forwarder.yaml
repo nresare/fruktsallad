@@ -7,10 +7,10 @@ metadata:
   labels:
     app.kubernetes.io/name: alloy
     app.kubernetes.io/instance: alloy-log-forwarder
-    app.kubernetes.io/version: v1.21.1
+    app.kubernetes.io/version: v1.21.3
     app.kubernetes.io/part-of: alloy
   annotations:
-    noa.re/manifest-id: 8c73141a293a0281
+    noa.re/manifest-id: 060ba2042b09c966
 spec:
   minReadySeconds: 10
   selector:
@@ -28,7 +28,7 @@ spec:
       serviceAccountName: alloy-log-forwarder
       containers:
       - name: alloy
-        image: docker.io/grafana/alloy:v1.21.1
+        image: docker.io/grafana/alloy:v1.21.3
         imagePullPolicy: IfNotPresent
         args:
         - run
