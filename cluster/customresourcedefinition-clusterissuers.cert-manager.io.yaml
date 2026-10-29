@@ -8,9 +8,9 @@ metadata:
     app.kubernetes.io/name: cert-manager
     app.kubernetes.io/instance: cert-manager
     app.kubernetes.io/component: crds
-    app.kubernetes.io/version: v1.21.2
+    app.kubernetes.io/version: v1.21.3
   annotations:
-    noa.re/manifest-id: 64755f34975334ae
+    noa.re/manifest-id: b6c15566313ed4e0
 spec:
   group: cert-manager.io
   names:

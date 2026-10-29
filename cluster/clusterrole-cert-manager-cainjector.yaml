@@ -8,9 +8,9 @@ metadata:
     app.kubernetes.io/name: cainjector
     app.kubernetes.io/instance: cert-manager
     app.kubernetes.io/component: cainjector
-    app.kubernetes.io/version: v1.21.2
+    app.kubernetes.io/version: v1.21.3
   annotations:
-    noa.re/manifest-id: 4e26de0cce030108
+    noa.re/manifest-id: 274892705b42f735
 rules:
 - apiGroups:
   - cert-manager.io

@@ -9,9 +9,9 @@ metadata:
     app.kubernetes.io/name: cert-manager
     app.kubernetes.io/instance: cert-manager
     app.kubernetes.io/component: controller
-    app.kubernetes.io/version: v1.21.2
+    app.kubernetes.io/version: v1.21.3
   annotations:
-    noa.re/manifest-id: 33a9944d416bad7c
+    noa.re/manifest-id: 6732de90f59cc37d
 spec:
   type: ClusterIP
   ports:

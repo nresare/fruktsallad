@@ -9,9 +9,9 @@ metadata:
     app.kubernetes.io/name: cainjector
     app.kubernetes.io/instance: cert-manager
     app.kubernetes.io/component: cainjector
-    app.kubernetes.io/version: v1.21.2
+    app.kubernetes.io/version: v1.21.3
   annotations:
-    noa.re/manifest-id: bab37c9a159d3bc6
+    noa.re/manifest-id: c86e72021a49c820
 spec:
   replicas: 1
   selector:
@@ -26,7 +26,7 @@ spec:
         app.kubernetes.io/name: cainjector
         app.kubernetes.io/instance: cert-manager
         app.kubernetes.io/component: cainjector
-        app.kubernetes.io/version: v1.21.2
+        app.kubernetes.io/version: v1.21.3
       annotations:
         prometheus.io/path: /metrics
         prometheus.io/scrape: 'true'
@@ -40,7 +40,7 @@ spec:
           type: RuntimeDefault
       containers:
       - name: cert-manager-cainjector
-        image: quay.io/jetstack/cert-manager-cainjector:v1.21.2
+        image: quay.io/jetstack/cert-manager-cainjector:v1.21.3
         imagePullPolicy: IfNotPresent
         args:
         - --v=2

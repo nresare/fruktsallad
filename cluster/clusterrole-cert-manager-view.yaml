@@ -8,13 +8,13 @@ metadata:
     app.kubernetes.io/name: cert-manager
     app.kubernetes.io/instance: cert-manager
     app.kubernetes.io/component: controller
-    app.kubernetes.io/version: v1.21.2
+    app.kubernetes.io/version: v1.21.3
     rbac.authorization.k8s.io/aggregate-to-view: 'true'
     rbac.authorization.k8s.io/aggregate-to-edit: 'true'
     rbac.authorization.k8s.io/aggregate-to-admin: 'true'
     rbac.authorization.k8s.io/aggregate-to-cluster-reader: 'true'
   annotations:
-    noa.re/manifest-id: c7da282f0d762bf9
+    noa.re/manifest-id: 8e7f2874c1e950c0
 rules:
 - apiGroups:
   - cert-manager.io

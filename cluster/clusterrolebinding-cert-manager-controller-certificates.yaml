@@ -8,9 +8,9 @@ metadata:
     app.kubernetes.io/name: cert-manager
     app.kubernetes.io/instance: cert-manager
     app.kubernetes.io/component: controller
-    app.kubernetes.io/version: v1.21.2
+    app.kubernetes.io/version: v1.21.3
   annotations:
-    noa.re/manifest-id: 39bbc2d0a0966620
+    noa.re/manifest-id: 7e18690e305c22af
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole

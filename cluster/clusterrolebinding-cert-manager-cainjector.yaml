@@ -8,9 +8,9 @@ metadata:
     app.kubernetes.io/name: cainjector
     app.kubernetes.io/instance: cert-manager
     app.kubernetes.io/component: cainjector
-    app.kubernetes.io/version: v1.21.2
+    app.kubernetes.io/version: v1.21.3
   annotations:
-    noa.re/manifest-id: 0e3961b4cb84e1d7
+    noa.re/manifest-id: ce55f2d6bd43e211
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
