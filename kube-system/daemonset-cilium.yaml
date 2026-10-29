@@ -9,7 +9,7 @@ metadata:
     app.kubernetes.io/part-of: cilium
     app.kubernetes.io/name: cilium-agent
   annotations:
-    noa.re/manifest-id: 030c625cbee8d886
+    noa.re/manifest-id: 41387cf616cdeb76
 spec:
   selector:
     matchLabels:
@@ -34,7 +34,7 @@ spec:
           type: Unconfined
       containers:
       - name: cilium-agent
-        image: quay.io/cilium/cilium:v1.20.3@sha256:95cfa5c2427cc6b452c00908778d0566311f572589284af949d06a013db1a849
+        image: quay.io/cilium/cilium:v1.20.4@sha256:20fe92e4c86641233a450098c158d2d29085f3419931ab6bf681d2485dedf16e
         imagePullPolicy: IfNotPresent
         command:
         - cilium-agent
@@ -201,7 +201,7 @@ spec:
           mountPath: /tmp
       initContainers:
       - name: config
-        image: quay.io/cilium/cilium:v1.20.3@sha256:95cfa5c2427cc6b452c00908778d0566311f572589284af949d06a013db1a849
+        image: quay.io/cilium/cilium:v1.20.4@sha256:20fe92e4c86641233a450098c158d2d29085f3419931ab6bf681d2485dedf16e
         imagePullPolicy: IfNotPresent
         command:
         - cilium-dbg
@@ -232,7 +232,7 @@ spec:
             drop:
             - ALL
       - name: mount-cgroup
-        image: quay.io/cilium/cilium:v1.20.3@sha256:95cfa5c2427cc6b452c00908778d0566311f572589284af949d06a013db1a849
+        image: quay.io/cilium/cilium:v1.20.4@sha256:20fe92e4c86641233a450098c158d2d29085f3419931ab6bf681d2485dedf16e
         imagePullPolicy: IfNotPresent
         env:
         - name: CGROUP_ROOT
@@ -264,7 +264,7 @@ spec:
             drop:
             - ALL
       - name: apply-sysctl-overwrites
-        image: quay.io/cilium/cilium:v1.20.3@sha256:95cfa5c2427cc6b452c00908778d0566311f572589284af949d06a013db1a849
+        image: quay.io/cilium/cilium:v1.20.4@sha256:20fe92e4c86641233a450098c158d2d29085f3419931ab6bf681d2485dedf16e
         imagePullPolicy: IfNotPresent
         env:
         - name: BIN_PATH
@@ -294,7 +294,7 @@ spec:
             drop:
             - ALL
       - name: mount-bpf-fs
-        image: quay.io/cilium/cilium:v1.20.3@sha256:95cfa5c2427cc6b452c00908778d0566311f572589284af949d06a013db1a849
+        image: quay.io/cilium/cilium:v1.20.4@sha256:20fe92e4c86641233a450098c158d2d29085f3419931ab6bf681d2485dedf16e
         imagePullPolicy: IfNotPresent
         args:
         - mount | grep "/sys/fs/bpf type bpf" || mount -t bpf bpf /sys/fs/bpf
@@ -310,7 +310,7 @@ spec:
           mountPath: /sys/fs/bpf
           mountPropagation: Bidirectional
       - name: clean-cilium-state
-        image: quay.io/cilium/cilium:v1.20.3@sha256:95cfa5c2427cc6b452c00908778d0566311f572589284af949d06a013db1a849
+        image: quay.io/cilium/cilium:v1.20.4@sha256:20fe92e4c86641233a450098c158d2d29085f3419931ab6bf681d2485dedf16e
         imagePullPolicy: IfNotPresent
         command:
         - /init-container.sh
@@ -359,7 +359,7 @@ spec:
         - name: cilium-run
           mountPath: /var/run/cilium
       - name: install-cni-binaries
-        image: quay.io/cilium/cilium:v1.20.3@sha256:95cfa5c2427cc6b452c00908778d0566311f572589284af949d06a013db1a849
+        image: quay.io/cilium/cilium:v1.20.4@sha256:20fe92e4c86641233a450098c158d2d29085f3419931ab6bf681d2485dedf16e
         imagePullPolicy: IfNotPresent
         command:
         - /install-plugin.sh

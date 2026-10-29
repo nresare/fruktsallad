@@ -5,7 +5,7 @@ metadata:
   name: cilium-config
   namespace: kube-system
   annotations:
-    noa.re/manifest-id: 7ac2d00ed8e7f362
+    noa.re/manifest-id: 5589102882c42efc
 data:
   identity-allocation-mode: crd
   identity-heartbeat-timeout: 30m0s
@@ -158,7 +158,6 @@ data:
   envoy-access-log-enabled: 'true'
   envoy-access-log-buffer-size: '4096'
   envoy-keep-cap-netbindservice: 'false'
-  envoy-xds-mode: ads
   max-connected-clusters: '255'
   clustermesh-cache-ttl: 0s
   clustermesh-enable-endpoint-sync: 'false'

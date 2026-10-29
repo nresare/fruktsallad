@@ -11,7 +11,7 @@ metadata:
     app.kubernetes.io/part-of: argocd
     app.kubernetes.io/version: v3.5.5
   annotations:
-    noa.re/manifest-id: fc9dd7b6eb772602
+    noa.re/manifest-id: 9fabfadf2a4f238e
 spec:
   replicas: 1
   revisionHistoryLimit: 3
@@ -384,6 +384,48 @@ spec:
         volumeMounts:
         - mountPath: /var/run/argocd
           name: var-files
+      - env:
+        - name: IDCAT_ENDPOINT
+          value: https://idcat.noa.re
+        - name: GITHUB_APP
+          value: nresare-buildsystem
+        image: nresare/argo-idcat:0.0.1
+        livenessProbe:
+          httpGet:
+            path: /healthz
+            port: idcat-health
+          periodSeconds: 30
+        name: argo-idcat
+        ports:
+        - containerPort: 8182
+          name: idcat-health
+        resources:
+          limits:
+            memory: 32Mi
+          requests:
+            cpu: 5m
+            memory: 8Mi
+        restartPolicy: Always
+        securityContext:
+          allowPrivilegeEscalation: false
+          capabilities:
+            drop:
+            - ALL
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 65532
+          seccompProfile:
+            type: RuntimeDefault
+        startupProbe:
+          failureThreshold: 30
+          httpGet:
+            path: /healthz
+            port: idcat-health
+          periodSeconds: 1
+        volumeMounts:
+        - mountPath: /var/run/secrets/tokens
+          name: argo-idcat-token
+          readOnly: true
       affinity:
         podAntiAffinity:
           preferredDuringSchedulingIgnoredDuringExecution:
@@ -396,6 +438,13 @@ spec:
       nodeSelector:
         kubernetes.io/os: linux
       volumes:
+      - name: argo-idcat-token
+        projected:
+          sources:
+          - serviceAccountToken:
+              audience: idcat.noa.re
+              expirationSeconds: 3600
+              path: idcat
       - name: helm-working-dir
         emptyDir: {}
       - name: plugins

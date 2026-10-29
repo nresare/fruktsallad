@@ -10,7 +10,7 @@ metadata:
     app.kubernetes.io/part-of: cilium
     app.kubernetes.io/name: cilium-operator
   annotations:
-    noa.re/manifest-id: ff1b335793622509
+    noa.re/manifest-id: 83de92d54b05b2e3
 spec:
   replicas: 2
   selector:
@@ -38,7 +38,7 @@ spec:
           type: RuntimeDefault
       containers:
       - name: cilium-operator
-        image: quay.io/cilium/operator-generic:v1.20.3@sha256:efdd8d89d6d8f63d21a065fa2f9e17614a2b3ac9371b221af9355f63829e2dbc
+        image: quay.io/cilium/operator-generic:v1.20.4@sha256:7a7a3489dc66ad67e420d285c8a8d2e169b0957ad15e120f593d27081bf38d82
         imagePullPolicy: IfNotPresent
         command:
         - cilium-operator-generic
