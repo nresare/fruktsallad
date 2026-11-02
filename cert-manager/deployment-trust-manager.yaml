@@ -5,11 +5,11 @@ metadata:
   name: trust-manager
   namespace: cert-manager
   labels:
-    app.kubernetes.io/name: trust-manager
     app.kubernetes.io/instance: trust-manager
-    app.kubernetes.io/version: v0.25.0
+    app.kubernetes.io/name: trust-manager
+    app.kubernetes.io/version: v0.26.0
   annotations:
-    noa.re/manifest-id: eb06b54127bd1ce4
+    noa.re/manifest-id: 5a40d0fd06c74faf
 spec:
   replicas: 1
   revisionHistoryLimit: 10
@@ -20,15 +20,15 @@ spec:
     metadata:
       labels:
         app: trust-manager
-        app.kubernetes.io/name: trust-manager
         app.kubernetes.io/instance: trust-manager
-        app.kubernetes.io/version: v0.25.0
+        app.kubernetes.io/name: trust-manager
+        app.kubernetes.io/version: v0.26.0
     spec:
       serviceAccountName: trust-manager
       automountServiceAccountToken: true
       initContainers:
       - name: cert-manager-package-debian
-        image: quay.io/jetstack/trust-pkg-debian-trixie:20250419.2
+        image: quay.io/jetstack/trust-pkg-debian-trixie:20250419-deb13u1.1
         imagePullPolicy: IfNotPresent
         args:
         - /copyandmaybepause
@@ -49,7 +49,7 @@ spec:
             type: RuntimeDefault
       containers:
       - name: trust-manager
-        image: quay.io/jetstack/trust-manager:v0.25.0
+        image: quay.io/jetstack/trust-manager:v0.26.0
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 6443

@@ -3,12 +3,12 @@ kind: ClusterRole
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
   labels:
-    app.kubernetes.io/name: trust-manager
     app.kubernetes.io/instance: trust-manager
-    app.kubernetes.io/version: v0.25.0
+    app.kubernetes.io/name: trust-manager
+    app.kubernetes.io/version: v0.26.0
   name: trust-manager
   annotations:
-    noa.re/manifest-id: 734856e46339fb39
+    noa.re/manifest-id: 3cbbc452110fce2b
 rules:
 - apiGroups:
   - trust.cert-manager.io

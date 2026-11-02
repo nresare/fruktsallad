@@ -5,10 +5,10 @@ metadata:
   name: trust-manager
   namespace: cert-manager
   labels:
-    app.kubernetes.io/name: trust-manager
     app.kubernetes.io/instance: trust-manager
-    app.kubernetes.io/version: v0.25.0
+    app.kubernetes.io/name: trust-manager
+    app.kubernetes.io/version: v0.26.0
   annotations:
-    noa.re/manifest-id: 1a3a15c67c92231b
+    noa.re/manifest-id: 8b758c4f48322544
 spec:
   selfSigned: {}

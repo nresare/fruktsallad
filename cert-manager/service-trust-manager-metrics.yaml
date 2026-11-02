@@ -7,11 +7,11 @@ metadata:
   labels:
     app: trust-manager
     app.kubernetes.io/component: metrics
-    app.kubernetes.io/name: trust-manager
     app.kubernetes.io/instance: trust-manager
-    app.kubernetes.io/version: v0.25.0
+    app.kubernetes.io/name: trust-manager
+    app.kubernetes.io/version: v0.26.0
   annotations:
-    noa.re/manifest-id: a9aa4184a875529b
+    noa.re/manifest-id: 649db3b5928a84de
 spec:
   type: ClusterIP
   ports:
