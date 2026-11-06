@@ -7,9 +7,9 @@ metadata:
   labels:
     app.kubernetes.io/name: gateway-helm
     app.kubernetes.io/instance: envoy-gateway
-    app.kubernetes.io/version: v1.9.3
+    app.kubernetes.io/version: v1.10.0
   annotations:
-    noa.re/manifest-id: 0a21f219516825d3
+    noa.re/manifest-id: 436e42a25a9a2b9a
 rules:
 - apiGroups:
   - ''
