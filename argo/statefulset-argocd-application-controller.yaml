@@ -9,9 +9,9 @@ metadata:
     app.kubernetes.io/instance: argocd
     app.kubernetes.io/component: application-controller
     app.kubernetes.io/part-of: argocd
-    app.kubernetes.io/version: v3.5.6
+    app.kubernetes.io/version: v3.6.1
   annotations:
-    noa.re/manifest-id: ff936756722b18cb
+    noa.re/manifest-id: 1165fbb511840f84
 spec:
   replicas: 1
   revisionHistoryLimit: 5
@@ -24,13 +24,13 @@ spec:
     metadata:
       annotations:
         checksum/cmd-params: 9c85abf9c554c08c61658f021916801447d343c878fdc2f829db80203e936763
-        checksum/cm: 2906da76bc661664f2c05299973b700eaed4a35d2cc59e5d892df27b909315bb
+        checksum/cm: 7b8ed1d5f6aa1379dd5d76cfbda18113c86d6f9821e41f7a618ed84855df9355
       labels:
         app.kubernetes.io/name: argocd-application-controller
         app.kubernetes.io/instance: argocd
         app.kubernetes.io/component: application-controller
         app.kubernetes.io/part-of: argocd
-        app.kubernetes.io/version: v3.5.6
+        app.kubernetes.io/version: v3.6.1
     spec:
       terminationGracePeriodSeconds: 30
       serviceAccountName: argocd-application-controller
@@ -39,7 +39,7 @@ spec:
       - args:
         - /usr/local/bin/argocd-application-controller
         - --metrics-port=8082
-        image: quay.io/argoproj/argocd:v3.5.6
+        image: quay.io/argoproj/argocd:v3.6.1
         imagePullPolicy: IfNotPresent
         name: application-controller
         env:
@@ -125,6 +125,24 @@ spec:
               name: argocd-cmd-params-cm
               key: controller.metrics.cache.expiration
               optional: true
+        - name: ARGOCD_APPLICATION_CONTROLLER_METRICS_APPLICATION_LABELS
+          valueFrom:
+            configMapKeyRef:
+              name: argocd-cmd-params-cm
+              key: controller.metrics.application.labels
+              optional: true
+        - name: ARGOCD_APPLICATION_CONTROLLER_METRICS_APPLICATION_CONDITIONS
+          valueFrom:
+            configMapKeyRef:
+              name: argocd-cmd-params-cm
+              key: controller.metrics.application.conditions
+              optional: true
+        - name: ARGOCD_APPLICATION_CONTROLLER_METRICS_CLUSTER_LABELS
+          valueFrom:
+            configMapKeyRef:
+              name: argocd-cmd-params-cm
+              key: controller.metrics.cluster.labels
+              optional: true
         - name: ARGOCD_APPLICATION_CONTROLLER_SELF_HEAL_TIMEOUT_SECONDS
           valueFrom:
             configMapKeyRef:
@@ -197,6 +215,18 @@ spec:
               name: argocd-cmd-params-cm
               key: redis.server
               optional: true
+        - name: REDIS_SENTINEL_HOSTS
+          valueFrom:
+            configMapKeyRef:
+              name: argocd-cmd-params-cm
+              key: redis.sentinel.hosts
+              optional: true
+        - name: REDIS_SENTINEL_MASTER
+          valueFrom:
+            configMapKeyRef:
+              name: argocd-cmd-params-cm
+              key: redis.sentinel.master
+              optional: true
         - name: REDIS_COMPRESSION
           valueFrom:
             configMapKeyRef:
@@ -208,6 +238,12 @@ spec:
             configMapKeyRef:
               name: argocd-cmd-params-cm
               key: redis.db
+              optional: true
+        - name: ARGOCD_REDIS_KEY_PREFIX
+          valueFrom:
+            configMapKeyRef:
+              name: argocd-cmd-params-cm
+              key: redis.key.prefix
               optional: true
         - name: REDIS_USERNAME
           valueFrom:
@@ -262,6 +298,12 @@ spec:
             configMapKeyRef:
               name: argocd-cmd-params-cm
               key: otlp.attrs
+              optional: true
+        - name: ARGOCD_APPLICATION_CONTROLLER_OTLP_SAMPLE_RATIO
+          valueFrom:
+            configMapKeyRef:
+              name: argocd-cmd-params-cm
+              key: otlp.sample.ratio
               optional: true
         - name: ARGOCD_APPLICATION_NAMESPACES
           valueFrom:
@@ -364,6 +406,8 @@ spec:
           mountPath: /home/argocd/params
         - name: argocd-application-controller-tmp
           mountPath: /tmp
+        - name: tls-certs
+          mountPath: /app/config/tls
       affinity:
         podAntiAffinity:
           preferredDuringSchedulingIgnoredDuringExecution:
@@ -398,4 +442,8 @@ spec:
           items:
           - key: controller.profile.enabled
             path: profiler.enabled
+      - name: tls-certs
+        configMap:
+          name: argocd-tls-certs-cm
+          optional: true
       dnsPolicy: ClusterFirst

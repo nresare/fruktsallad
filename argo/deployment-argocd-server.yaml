@@ -9,9 +9,9 @@ metadata:
     app.kubernetes.io/instance: argocd
     app.kubernetes.io/component: server
     app.kubernetes.io/part-of: argocd
-    app.kubernetes.io/version: v3.5.6
+    app.kubernetes.io/version: v3.6.1
   annotations:
-    noa.re/manifest-id: aebb840f614b2c52
+    noa.re/manifest-id: 04f368dd4db0cf95
 spec:
   replicas: 1
   revisionHistoryLimit: 3
@@ -23,20 +23,20 @@ spec:
     metadata:
       annotations:
         checksum/cmd-params: 9c85abf9c554c08c61658f021916801447d343c878fdc2f829db80203e936763
-        checksum/cm: 2906da76bc661664f2c05299973b700eaed4a35d2cc59e5d892df27b909315bb
+        checksum/cm: 7b8ed1d5f6aa1379dd5d76cfbda18113c86d6f9821e41f7a618ed84855df9355
       labels:
         app.kubernetes.io/name: argocd-server
         app.kubernetes.io/instance: argocd
         app.kubernetes.io/component: server
         app.kubernetes.io/part-of: argocd
-        app.kubernetes.io/version: v3.5.6
+        app.kubernetes.io/version: v3.6.1
     spec:
       terminationGracePeriodSeconds: 30
       serviceAccountName: argocd-server
       automountServiceAccountToken: true
       containers:
       - name: server
-        image: quay.io/argoproj/argocd:v3.5.6
+        image: quay.io/argoproj/argocd:v3.6.1
         imagePullPolicy: IfNotPresent
         args:
         - /usr/local/bin/argocd-server
@@ -98,6 +98,12 @@ spec:
             configMapKeyRef:
               name: argocd-cmd-params-cm
               key: server.disable.auth
+              optional: true
+        - name: ARGOCD_SERVER_DISABLE_SWAGGER_UI
+          valueFrom:
+            configMapKeyRef:
+              name: argocd-cmd-params-cm
+              key: server.disable.swagger.ui
               optional: true
         - name: ARGOCD_SERVER_ENABLE_GZIP
           valueFrom:
@@ -165,6 +171,12 @@ spec:
               name: argocd-cmd-params-cm
               key: server.tls.ciphers
               optional: true
+        - name: ARGOCD_TLS_CURVE_PREFERENCES
+          valueFrom:
+            configMapKeyRef:
+              name: argocd-cmd-params-cm
+              key: server.tls.curvepreferences
+              optional: true
         - name: ARGOCD_SERVER_CONNECTION_STATUS_CACHE_EXPIRATION
           valueFrom:
             configMapKeyRef:
@@ -195,6 +207,18 @@ spec:
               name: argocd-cmd-params-cm
               key: redis.server
               optional: true
+        - name: REDIS_SENTINEL_HOSTS
+          valueFrom:
+            configMapKeyRef:
+              name: argocd-cmd-params-cm
+              key: redis.sentinel.hosts
+              optional: true
+        - name: REDIS_SENTINEL_MASTER
+          valueFrom:
+            configMapKeyRef:
+              name: argocd-cmd-params-cm
+              key: redis.sentinel.master
+              optional: true
         - name: REDIS_COMPRESSION
           valueFrom:
             configMapKeyRef:
@@ -206,6 +230,12 @@ spec:
             configMapKeyRef:
               name: argocd-cmd-params-cm
               key: redis.db
+              optional: true
+        - name: ARGOCD_REDIS_KEY_PREFIX
+          valueFrom:
+            configMapKeyRef:
+              name: argocd-cmd-params-cm
+              key: redis.key.prefix
               optional: true
         - name: REDIS_USERNAME
           valueFrom:
@@ -278,6 +308,12 @@ spec:
             configMapKeyRef:
               name: argocd-cmd-params-cm
               key: otlp.attrs
+              optional: true
+        - name: ARGOCD_SERVER_OTLP_SAMPLE_RATIO
+          valueFrom:
+            configMapKeyRef:
+              name: argocd-cmd-params-cm
+              key: otlp.sample.ratio
               optional: true
         - name: ARGOCD_APPLICATION_NAMESPACES
           valueFrom:
