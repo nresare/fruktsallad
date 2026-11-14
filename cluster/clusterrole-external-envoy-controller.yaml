@@ -1,0 +1,24 @@
+# Source: external-envoy-controller
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: external-envoy-controller
+  annotations:
+    noa.re/manifest-id: 661a143ad4d08b9a
+rules:
+- apiGroups:
+  - ''
+  resources:
+  - services
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - discovery.k8s.io
+  resources:
+  - endpointslices
+  verbs:
+  - get
+  - list
+  - watch
