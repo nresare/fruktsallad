@@ -5,7 +5,7 @@ metadata:
   name: grafana
   namespace: grafana
   annotations:
-    noa.re/manifest-id: eb0b71883637f90a
+    noa.re/manifest-id: 73757a1b46e3fa48
 spec:
   persistentVolumeClaim:
     spec:
@@ -20,6 +20,7 @@ spec:
         noa.re/discover: enabled
       annotations:
         teleport.dev/name: grafana
+        teleport.dev/protocol: http
   deployment:
     spec:
       strategy:
