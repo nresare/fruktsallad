@@ -1,0 +1,19 @@
+# Source: acme-dns
+apiVersion: v1
+kind: Service
+metadata:
+  name: acme-dns-external
+  namespace: acme-dns
+  annotations:
+    noa.re/manifest-id: c6a5aaadddd98e89
+spec:
+  type: LoadBalancer
+  loadBalancerClass: noa.re/external-envoy
+  allocateLoadBalancerNodePorts: false
+  selector:
+    app: acme-dns
+  ports:
+  - name: dns
+    port: 53
+    protocol: UDP
+    targetPort: dns
