@@ -4,7 +4,7 @@ kind: ClusterRole
 metadata:
   name: external-envoy-controller
   annotations:
-    noa.re/manifest-id: 661a143ad4d08b9a
+    noa.re/manifest-id: 9b69bbb80505901e
 rules:
 - apiGroups:
   - ''
@@ -14,6 +14,12 @@ rules:
   - get
   - list
   - watch
+- apiGroups:
+  - ''
+  resources:
+  - services/status
+  verbs:
+  - patch
 - apiGroups:
   - discovery.k8s.io
   resources:
