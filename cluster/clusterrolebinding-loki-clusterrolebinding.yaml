@@ -6,9 +6,9 @@ metadata:
   labels:
     app.kubernetes.io/name: loki
     app.kubernetes.io/instance: loki
-    app.kubernetes.io/version: 3.7.9
+    app.kubernetes.io/version: 3.7.10
   annotations:
-    noa.re/manifest-id: cfef58f8e0856639
+    noa.re/manifest-id: b40b88648efacc1c
 subjects:
 - kind: ServiceAccount
   name: loki

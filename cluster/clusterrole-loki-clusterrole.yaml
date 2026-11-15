@@ -5,8 +5,8 @@ metadata:
   labels:
     app.kubernetes.io/name: loki
     app.kubernetes.io/instance: loki
-    app.kubernetes.io/version: 3.7.9
+    app.kubernetes.io/version: 3.7.10
   name: loki-clusterrole
   annotations:
-    noa.re/manifest-id: 09eac1c71737b015
+    noa.re/manifest-id: ab5dbc263c0367a4
 rules: []

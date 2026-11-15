@@ -6,11 +6,11 @@ metadata:
   labels:
     app.kubernetes.io/name: alloy
     app.kubernetes.io/instance: alloy
-    app.kubernetes.io/version: v1.21.3
+    app.kubernetes.io/version: v1.22.0
     app.kubernetes.io/part-of: alloy
     app.kubernetes.io/component: rbac
   annotations:
-    noa.re/manifest-id: b4b5ba2a8cc34100
+    noa.re/manifest-id: c2f945a5bd542d81
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole

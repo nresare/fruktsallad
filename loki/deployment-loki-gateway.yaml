@@ -7,10 +7,10 @@ metadata:
   labels:
     app.kubernetes.io/name: loki
     app.kubernetes.io/instance: loki
-    app.kubernetes.io/version: 3.7.9
+    app.kubernetes.io/version: 3.7.10
     app.kubernetes.io/component: gateway
   annotations:
-    noa.re/manifest-id: 4085ebb23c351b42
+    noa.re/manifest-id: 498a0f4bed745608
 spec:
   replicas: 1
   strategy:
@@ -43,7 +43,7 @@ spec:
       terminationGracePeriodSeconds: 30
       containers:
       - name: nginx
-        image: docker.io/nginxinc/nginx-unprivileged:1.31-alpine
+        image: docker.io/nginx/nginx-unprivileged:1.31-alpine
         imagePullPolicy: IfNotPresent
         ports:
         - name: http
@@ -71,7 +71,7 @@ spec:
         - name: docker-entrypoint-d-override
           mountPath: /docker-entrypoint.d
       - name: exporter
-        image: ghcr.io/jkroepke/access-log-exporter:1.0.1
+        image: ghcr.io/jkroepke/access-log-exporter:1.0.2
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 4040

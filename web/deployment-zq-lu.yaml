@@ -8,7 +8,7 @@ metadata:
   namespace: web
   annotations:
     hugo: https://github.com/nresare/zq.lu
-    noa.re/manifest-id: eee65695269d9cfe
+    noa.re/manifest-id: cbc1e9b0667556e9
 spec:
   replicas: 2
   selector:
@@ -30,7 +30,7 @@ spec:
         - name: SERVER_HTTP2_TLS_KEY
           value: /tls/tls.key
         name: web
-        image: ghcr.io/static-web-server/static-web-server:2.44.1
+        image: ghcr.io/static-web-server/static-web-server:2.44.2
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 8443
@@ -65,7 +65,7 @@ spec:
         - mountPath: /src
           name: src
       - name: hugo
-        image: floryn90/hugo:0.169.0
+        image: floryn90/hugo:0.170.0
         imagePullPolicy: IfNotPresent
         volumeMounts:
         - mountPath: /src

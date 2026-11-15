@@ -10,7 +10,7 @@ metadata:
   name: nats
   namespace: nats
   annotations:
-    noa.re/manifest-id: 561788f7cd124df0
+    noa.re/manifest-id: e79f4e6edf6c5b5b
 spec:
   podManagementPolicy: Parallel
   replicas: 3
@@ -40,7 +40,7 @@ spec:
               fieldPath: metadata.name
         - name: SERVER_NAME
           value: $(POD_NAME)
-        image: nats:2.15.2
+        image: nats:2.15.3
         lifecycle:
           preStop:
             exec:
