@@ -10,7 +10,7 @@ metadata:
     app.kubernetes.io/version: 3.7.10
     app.kubernetes.io/component: gateway
   annotations:
-    noa.re/manifest-id: 498a0f4bed745608
+    noa.re/manifest-id: 3d5663ef27fc898b
 spec:
   replicas: 1
   strategy:
@@ -43,7 +43,7 @@ spec:
       terminationGracePeriodSeconds: 30
       containers:
       - name: nginx
-        image: docker.io/nginx/nginx-unprivileged:1.31-alpine
+        image: docker.io/nginx/nginx-unprivileged:1.31.9-alpine3.24
         imagePullPolicy: IfNotPresent
         ports:
         - name: http
