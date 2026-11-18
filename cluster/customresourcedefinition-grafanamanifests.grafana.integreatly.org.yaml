@@ -3,8 +3,8 @@ apiVersion: apiextensions.k8s.io/v1
 kind: CustomResourceDefinition
 metadata:
   annotations:
-    controller-gen.kubebuilder.io/version: v0.21.0
-    noa.re/manifest-id: a8d52e1cb4bd7e28
+    controller-gen.kubebuilder.io/version: v0.23.0
+    noa.re/manifest-id: d22a076cead28981
   name: grafanamanifests.grafana.integreatly.org
 spec:
   group: grafana.integreatly.org
@@ -121,7 +121,9 @@ spec:
                               description: Selects a key of a ConfigMap.
                               properties:
                                 key:
-                                  description: The key to select.
+                                  description: |-
+                                    The key to select from the ConfigMap's Data field.
+                                    Keys in the BinaryData field are not currently propagated to container env vars.
                                   type: string
                                 name:
                                   default: ''

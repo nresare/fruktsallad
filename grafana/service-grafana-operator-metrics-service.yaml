@@ -7,11 +7,11 @@ metadata:
   labels:
     app.kubernetes.io/name: grafana-operator
     app.kubernetes.io/instance: grafana-operator
-    app.kubernetes.io/version: v5.25.0
+    app.kubernetes.io/version: v5.26.0
     app.kubernetes.io/part-of: grafana-operator
     app.kubernetes.io/component: operator
   annotations:
-    noa.re/manifest-id: e7f4a932a4c3a87c
+    noa.re/manifest-id: a76952d056da666e
 spec:
   type: ClusterIP
   ports:
