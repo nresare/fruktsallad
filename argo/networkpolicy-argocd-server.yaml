@@ -7,11 +7,11 @@ metadata:
     app.kubernetes.io/instance: argocd
     app.kubernetes.io/component: server
     app.kubernetes.io/part-of: argocd
-    app.kubernetes.io/version: v3.6.1
+    app.kubernetes.io/version: v3.6.2
   name: argocd-server
   namespace: argo
   annotations:
-    noa.re/manifest-id: 68ee94630593c60f
+    noa.re/manifest-id: 2337c9cc97bcdb76
 spec:
   ingress:
   - {}

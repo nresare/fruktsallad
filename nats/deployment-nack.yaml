@@ -6,9 +6,9 @@ metadata:
   namespace: nats
   labels:
     app: nack
-    chart: nack-0.35.0
+    chart: nack-0.36.0
   annotations:
-    noa.re/manifest-id: f685ce6acc80584d
+    noa.re/manifest-id: 5c1de940ed5f35b3
 spec:
   selector:
     matchLabels:
@@ -18,7 +18,7 @@ spec:
     metadata:
       labels:
         app: nack
-        chart: nack-0.35.0
+        chart: nack-0.36.0
     spec:
       terminationGracePeriodSeconds: 30
       volumes:
