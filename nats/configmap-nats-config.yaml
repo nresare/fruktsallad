@@ -42,8 +42,8 @@ metadata:
     app.kubernetes.io/component: nats
     app.kubernetes.io/instance: nats
     app.kubernetes.io/name: nats
-    app.kubernetes.io/version: 2.15.2
+    app.kubernetes.io/version: 2.15.3
   name: nats-config
   namespace: nats
   annotations:
-    noa.re/manifest-id: 3138d824cc8bc72e
+    noa.re/manifest-id: d46c9a66f52ba502
