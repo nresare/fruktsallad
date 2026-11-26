@@ -4,7 +4,7 @@ kind: CustomResourceDefinition
 metadata:
   annotations:
     controller-gen.kubebuilder.io/version: v0.19.0
-    noa.re/manifest-id: c46d9cff07955cf1
+    noa.re/manifest-id: 4d81dfa5d3423eac
   name: cephobjectstoreaccounts.ceph.rook.io
 spec:
   group: ceph.rook.io
@@ -102,6 +102,7 @@ spec:
                 description: AccountID associated with the RGW user account
                 maxLength: 20
                 minLength: 20
+                pattern: ^RGW\d{17}$
                 type: string
               observedGeneration:
                 description: ObservedGeneration is the latest generation observed
