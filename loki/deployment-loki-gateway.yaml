@@ -10,7 +10,7 @@ metadata:
     app.kubernetes.io/version: 3.7.10
     app.kubernetes.io/component: gateway
   annotations:
-    noa.re/manifest-id: 82cc15ae9995d513
+    noa.re/manifest-id: a795afd999d2b0eb
 spec:
   replicas: 1
   strategy:
@@ -43,7 +43,7 @@ spec:
       terminationGracePeriodSeconds: 30
       containers:
       - name: nginx
-        image: docker.io/nginx/nginx-unprivileged:1.31.9-alpine3.24
+        image: docker.io/nginx/nginx-unprivileged:1.31.10-alpine3.24
         imagePullPolicy: IfNotPresent
         ports:
         - name: http
@@ -71,7 +71,7 @@ spec:
         - name: docker-entrypoint-d-override
           mountPath: /docker-entrypoint.d
       - name: exporter
-        image: ghcr.io/jkroepke/access-log-exporter:1.0.3
+        image: ghcr.io/jkroepke/access-log-exporter:1.0.4
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 4040
