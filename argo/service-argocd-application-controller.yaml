@@ -9,9 +9,9 @@ metadata:
     app.kubernetes.io/instance: argocd
     app.kubernetes.io/component: application-controller
     app.kubernetes.io/part-of: argocd
-    app.kubernetes.io/version: v3.6.2
+    app.kubernetes.io/version: v3.6.3
   annotations:
-    noa.re/manifest-id: 98a6aeae4cac0598
+    noa.re/manifest-id: 1871e1b77b8f6968
 spec:
   clusterIP: None
   selector:

@@ -9,9 +9,9 @@ metadata:
     app.kubernetes.io/instance: argocd
     app.kubernetes.io/component: applicationset-controller
     app.kubernetes.io/part-of: argocd
-    app.kubernetes.io/version: v3.6.2
+    app.kubernetes.io/version: v3.6.3
   annotations:
-    noa.re/manifest-id: 054a60cde56068f1
+    noa.re/manifest-id: 208ff4cce5e0622f
 spec:
   type: ClusterIP
   ports:

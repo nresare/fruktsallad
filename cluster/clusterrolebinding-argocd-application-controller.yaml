@@ -8,9 +8,9 @@ metadata:
     app.kubernetes.io/instance: argocd
     app.kubernetes.io/component: application-controller
     app.kubernetes.io/part-of: argocd
-    app.kubernetes.io/version: v3.6.2
+    app.kubernetes.io/version: v3.6.3
   annotations:
-    noa.re/manifest-id: 89d8ccd93d8a6d6c
+    noa.re/manifest-id: a7835a0db5d905eb
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole

@@ -9,9 +9,9 @@ metadata:
     app.kubernetes.io/instance: argocd
     app.kubernetes.io/component: server
     app.kubernetes.io/part-of: argocd
-    app.kubernetes.io/version: v3.6.2
+    app.kubernetes.io/version: v3.6.3
   annotations:
-    noa.re/manifest-id: d66a1c0b3b250213
+    noa.re/manifest-id: 3c65494661c9a885
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: Role
