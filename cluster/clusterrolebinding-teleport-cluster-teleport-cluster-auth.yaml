@@ -7,10 +7,10 @@ metadata:
     app.kubernetes.io/name: teleport-cluster
     app.kubernetes.io/instance: teleport-cluster
     app.kubernetes.io/component: auth
-    app.kubernetes.io/version: 18.11.13
-    teleport.dev/majorVersion: '18'
+    app.kubernetes.io/version: 19.0.1
+    teleport.dev/majorVersion: '19'
   annotations:
-    noa.re/manifest-id: a669f67ecbaf3e8e
+    noa.re/manifest-id: f8826a13b01fe34e
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
